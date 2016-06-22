@@ -15,8 +15,8 @@
     <li><a href="http://">视频上传</a></li> 
     <li><a href="#">
     <form action="login" method="post">
-		用户名<input type="text" name="first_name">
-		密码<input type="text" name="last_name" />
+		用户名<input type="text" name="username">
+		密码<input type="text" name="password" />
 	<input type="submit" value="登录" />
 	</form>
 	<li><a href="#">注册</a></li>
@@ -33,7 +33,7 @@
 	<form action="sqltest" method="post">
 	<input type="submit" value="测试数据库连接" />
 	</form>
-	
+	<button>联系站长</button>
 	
 </body>
 </html>
