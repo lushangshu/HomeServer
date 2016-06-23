@@ -1,10 +1,12 @@
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,13 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import dbconnectionlib.Dbconnection;
-
+import dbconnectionlib.User;
 /**
  * Servlet implementation class login
  */
@@ -37,13 +35,7 @@ public class login extends HttpServlet {
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 */
-	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("doGet");
@@ -60,9 +52,7 @@ public class login extends HttpServlet {
 		System.out.println("doPost");  
         System.out.println("用户名 : "+request.getParameter("username"));  
         System.out.println("密码: "+request.getParameter("password"));  
-        
-        //
-        
+
         String userName = request.getParameter("username");
         String passWord = request.getParameter("password");
         String errorMessage = null;
@@ -111,12 +101,12 @@ public class login extends HttpServlet {
 				rs = ps.executeQuery();
 				
 				if (rs!=null&&rs.next()) {
-					
-					//User u = new User(rs.getString("username"),rs.getInt("ID"),rs.getInt("role"));
-					//log(u.toString());
+					//User u = new User();
+					User u = new User(rs.getString("username"),rs.getInt("id"),rs.getInt("auth"));
+					log(u.toString());
 					HttpSession session = request.getSession();
-					//session.setAttribute("User");
-					//int id = rs.getInt("ID");
+					session.setAttribute("User",u);
+					int id = rs.getInt("id");
         		//response.sendRedirect("http://localhost:8080/JavaEE/index.jsp");
 				response.sendRedirect("http://localhost:8080/HomeServer/homepage.jsp");	
 					
