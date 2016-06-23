@@ -140,7 +140,7 @@
 		</div>
 		<div class="content">
 		
-			<p class="info">Videos show here</p>
+			<p class="info">热门视频</p>
 			<ul class="products">
 				<li class="product">
 					<div class="foodicon foodicon--broccoli"></div>
