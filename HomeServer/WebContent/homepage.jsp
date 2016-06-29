@@ -121,7 +121,7 @@
 		<div>
 			<ul id="nav">
 			    <li><a href="http://localhost:8080/HomeServer/homepage.jsp">首页</a></li> 
-			    <li><a href="http://">视频上传</a></li>
+			    <li><a href="Upload.jsp">视频上传</a></li>
 			    <% if(currentUser==null){%>
 			    <li><a href="#">
 			    <form action="login" method="post">
