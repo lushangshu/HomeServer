@@ -7,10 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <Fabric/Fabric.h>
-#import <TwitterKit/TwitterKit.h>
+//#import <FBSDKCoreKit/FBSDKCoreKit.h>
+//#import <FBSDKLoginKit/FBSDKLoginKit.h>
+//#import <Fabric/Fabric.h>
+//#import <TwitterKit/TwitterKit.h>
 
 
 @interface AppDelegate ()
@@ -21,9 +21,9 @@
 
 #pragma mark -- facebook function
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    [FBSDKAppEvents activateApp];
-}
+//- (void)applicationDidBecomeActive:(UIApplication *)application {
+//    [FBSDKAppEvents activateApp];
+//}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
@@ -59,21 +59,22 @@
         NSString *menu = note.userInfo[@"menu"];
         NSLog(@"Revealed %@", menu);
     }];
+    return YES;
 
-    [Fabric with:@[TwitterKit]];
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                    didFinishLaunchingWithOptions:launchOptions];
+//    [Fabric with:@[TwitterKit]];
+//    return [[FBSDKApplicationDelegate sharedInstance] application:application
+//                                    didFinishLaunchingWithOptions:launchOptions];
 }
 
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                          openURL:url
-                                                sourceApplication:sourceApplication
-                                                       annotation:annotation];
-}
+//- (BOOL)application:(UIApplication *)application
+//            openURL:(NSURL *)url
+//  sourceApplication:(NSString *)sourceApplication
+//         annotation:(id)annotation {
+//    return [[FBSDKApplicationDelegate sharedInstance] application:application
+//                                                          openURL:url
+//                                                sourceApplication:sourceApplication
+//                                                       annotation:annotation];
+//}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

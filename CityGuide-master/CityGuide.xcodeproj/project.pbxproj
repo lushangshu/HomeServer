@@ -889,6 +889,8 @@
 				TargetAttributes = {
 					CC3547471B41D88B00A9812B = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 4HE4G9ZA7M;
+						DevelopmentTeamName = "Shangshu Lu (Personal Team)";
 					};
 					CC3547631B41D88B00A9812B = {
 						CreatedOnToolsVersion = 6.2;
