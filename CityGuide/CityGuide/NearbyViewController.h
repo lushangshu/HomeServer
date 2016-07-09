@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "WBHttpRequest.h"
+#import "AppDelegate.h"
 #import "WeiboSDK.h"
 
 @interface NearbyViewController : UIViewController<WBHttpRequestDelegate>
+{
+    AppDelegate *myDelegate;
+}
 
 -(IBAction)pressButtonLogin;
 -(IBAction)showResult;
@@ -19,6 +23,11 @@
 @property (nonatomic,strong) IBOutlet UILabel *label2;
 @property (nonatomic,strong) IBOutlet UILabel *label3;
 @property (nonatomic,strong) IBOutlet UILabel *label4;
+
+@property (nonatomic,strong) IBOutlet UIButton *loginButton;
+@property (nonatomic,strong) IBOutlet UIButton *showDetailButton;
+
+@property (nonatomic,strong) IBOutlet UIImageView *avatarView;
 
 -(void)showLabels;
 //-(void)didReceiveWeiboResponse:(WBBaseResponse *)response;

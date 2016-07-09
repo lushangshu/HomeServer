@@ -48,6 +48,8 @@
 		35FBE2E21D2F727A0003720C /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE2DA1D2F727A0003720C /* AFURLRequestSerialization.m */; };
 		35FBE2E31D2F727A0003720C /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE2DC1D2F727A0003720C /* AFURLResponseSerialization.m */; };
 		35FBE2E41D2F727A0003720C /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE2DE1D2F727A0003720C /* AFURLSessionManager.m */; };
+		35FBE2FB1D2FA3070003720C /* WeiboJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE2FA1D2FA3070003720C /* WeiboJSONParser.m */; };
+		35FBE2FD1D30C9D80003720C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35FBE2FC1D30C9D80003720C /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +150,9 @@
 		35FBE2DC1D2F727A0003720C /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		35FBE2DD1D2F727A0003720C /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		35FBE2DE1D2F727A0003720C /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		35FBE2F91D2FA3070003720C /* WeiboJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboJSONParser.h; sourceTree = "<group>"; };
+		35FBE2FA1D2FA3070003720C /* WeiboJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboJSONParser.m; sourceTree = "<group>"; };
+		35FBE2FC1D30C9D80003720C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35FBE2FD1D30C9D80003720C /* CoreLocation.framework in Frameworks */,
 				354EE2131D2B400F00D17A3F /* libWeiboSDK.a in Frameworks */,
 				354EE2111D2B3FE800D17A3F /* libz.tbd in Frameworks */,
 				354EE20F1D2B3FDC00D17A3F /* libsqlite3.tbd in Frameworks */,
@@ -223,6 +229,8 @@
 				354EE1BF1D2A28A600D17A3F /* Main.storyboard */,
 				354EE2141D2B4E8300D17A3F /* NearbyViewController.h */,
 				354EE2151D2B4E8300D17A3F /* NearbyViewController.m */,
+				35FBE2F91D2FA3070003720C /* WeiboJSONParser.h */,
+				35FBE2FA1D2FA3070003720C /* WeiboJSONParser.m */,
 				354EE1EC1D2A2CC100D17A3F /* TabbarViewController.h */,
 				354EE1ED1D2A2CC100D17A3F /* TabbarViewController.m */,
 				354EE1EF1D2A2CEC00D17A3F /* MapViewController.h */,
@@ -268,6 +276,7 @@
 		354EE1F21D2A2E8000D17A3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35FBE2FC1D30C9D80003720C /* CoreLocation.framework */,
 				354EE2121D2B400F00D17A3F /* libWeiboSDK.a */,
 				354EE2101D2B3FE800D17A3F /* libz.tbd */,
 				354EE20E1D2B3FDC00D17A3F /* libsqlite3.tbd */,
@@ -495,6 +504,7 @@
 				35FBE2CB1D2E55AB0003720C /* SBJson4StreamParser.m in Sources */,
 				35FBE2CE1D2E55AB0003720C /* SBJson4StreamWriter.m in Sources */,
 				354EE1EE1D2A2CC100D17A3F /* TabbarViewController.m in Sources */,
+				35FBE2FB1D2FA3070003720C /* WeiboJSONParser.m in Sources */,
 				35FBE2E41D2F727A0003720C /* AFURLSessionManager.m in Sources */,
 				35FBE2CD1D2E55AB0003720C /* SBJson4StreamTokeniser.m in Sources */,
 				35FBE2D01D2E55AB0003720C /* SBJson4Writer.m in Sources */,

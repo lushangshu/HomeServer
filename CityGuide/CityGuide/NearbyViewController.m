@@ -20,12 +20,27 @@
 
 @interface NearbyViewController ()
 
+
 @end
 
 @implementation NearbyViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    myDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    if ([user objectForKey:@"wbToken"] == nil) {
+        self.loginButton.hidden = false;
+        self.showDetailButton.hidden = true;
+        myDelegate.wbtoken = nil;
+        
+    }else{
+        self.loginButton.hidden = true;
+        self.showDetailButton.hidden = false;
+        myDelegate.wbtoken = [user objectForKey:@"wbToken"];
+    }
     // Do any additional setup after loading the view.
 }
 
@@ -38,8 +53,6 @@ void UserProfileRequestHanlder(WBHttpRequest *httpRequest, id result, NSError *e
     UIAlertView *alert = nil;
     
     //UIAlertController *alertCont = nil;
-    
-    
     if (error)
     {
         title = NSLocalizedString(@"请求异常", nil);
@@ -64,13 +77,12 @@ void UserProfileRequestHanlder(WBHttpRequest *httpRequest, id result, NSError *e
         NSLog(@"!!!!!!!! result id is %@",(NSMutableDictionary *)result);
         NSLog(@"$$$finished$$$");
     }
-    
     //NSLog(@" !!!!!! !!!!! !!!!! %@",[NSString stringWithFormat:@"%@",result]);
     [alert show];
 }
 
 -(IBAction)showResult{
-    AppDelegate *myDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
     [WBHttpRequest requestForUserProfile:myDelegate.wbCurrentUserID withAccessToken:myDelegate.wbtoken andOtherProperties:nil queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
         UserProfileRequestHanlder(httpRequest,result,error);
     } ];
@@ -84,7 +96,6 @@ void UserProfileRequestHanlder(WBHttpRequest *httpRequest, id result, NSError *e
 
 -(IBAction)pressButtonLogin{
     
-    
     WBAuthorizeRequest *request = [WBAuthorizeRequest request];
     request.redirectURI = kRedirectURI;
     request.scope = @"all";
@@ -95,15 +106,20 @@ void UserProfileRequestHanlder(WBHttpRequest *httpRequest, id result, NSError *e
                          @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
     [WeiboSDK sendRequest:request];
 
-    
+}
+
+-(void)downloadImage{
+    // this function is used for load images without stuck the main thread
 }
 
 -(void)RequestWeiboUserFileUsingAFNetworking{
     //NSURL *URL = [NSURL URLWithString:@"https://api.weibo.com/2/users/show.json?uid=3985334031&access_token=2.00J8Di2EeszqrDeab1a32f9f0AVLXb"];
     //NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
-    
+    //AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    myDelegate.wbtoken = [user objectForKey:@"wbToken"];
+    myDelegate.wbCurrentUserID = [user objectForKey:@"wbUid"];
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
@@ -111,10 +127,23 @@ void UserProfileRequestHanlder(WBHttpRequest *httpRequest, id result, NSError *e
     [params setObject:myDelegate.wbtoken forKey:@"access_token"];
     
     [manager GET:@"https://api.weibo.com/2/users/show.json?" parameters:params progress:nil success:^(NSURLSessionTask *task,id responseObject){
+        NSDictionary *dic = responseObject;
+        NSString *userName = [dic valueForKey:@"screen_name"];
+        NSString *fCount = [[NSString alloc] initWithFormat:@"%@",[dic valueForKey:@"followers_count"]];
+        NSString *frinedsCount = [[NSString alloc] initWithFormat:@"%@",[dic valueForKeyPath:@"friends_count"]];
+        NSString *avatarURL = [dic valueForKeyPath:@"avatar_hd"];
         
+        [self.label1 setText:userName];
+        [self.label2 setText:fCount];
+        [self.label3 setText:frinedsCount];
         
-        [self.label1 setText:@"username"];
-        [self.label2 setText:@"image file url"];
+        NSURL *avatarUrl = [NSURL URLWithString:avatarURL];
+        UIImage *himage = [UIImage imageWithData:[NSData dataWithContentsOfURL:avatarUrl]];
+        _avatarView.contentMode = UIViewContentModeScaleAspectFit;
+        self.avatarView.image = himage;
+        
+        [self.showDetailButton setTitle:@"登出" forState:nil];
+        
         NSLog(@"%@",responseObject);
         
     }failure:^(NSURLSessionTask *operation,NSError *error){
@@ -122,6 +151,8 @@ void UserProfileRequestHanlder(WBHttpRequest *httpRequest, id result, NSError *e
     }];
     
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

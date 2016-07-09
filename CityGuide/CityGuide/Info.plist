@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location to find places near you</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>sinaweibo</string>
@@ -12,10 +14,9 @@
 		<string>weibosdk2.5</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
-    
 	<dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 	</dict>
 	<key>CFBundleURLTypes</key>
 	<array>

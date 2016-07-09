@@ -86,7 +86,7 @@
     }
     else if ([response isKindOfClass:WBAuthorizeResponse.class])
     {
-        NSString *title = NSLocalizedString(@"认证结果", nil);
+        NSString *title = NSLocalizedString(@"weibode认证结果", nil);
         NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.userId: %@\nresponse.accessToken: %@\n%@: %@\n%@: %@",
                              NSLocalizedString(@"响应状态", nil), (int)response.statusCode,[(WBAuthorizeResponse *)response userID], [(WBAuthorizeResponse *)response accessToken],
                              NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo,NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
@@ -99,10 +99,14 @@
         self.wbtoken= [(WBAuthorizeResponse *)response accessToken];
         self.wbCurrentUserID = [(WBAuthorizeResponse *)response userID];
         self.wbRefreshToken = [(WBAuthorizeResponse *)response refreshToken];
-        //NearbyViewController *vc = [[NearbyViewController alloc]init];
-        //[NearbyViewController.label1 setText:self.wbtoken];
+        
+        NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+        [user setObject:self.wbtoken forKey:@"wbToken"];
+        [user setObject:self.wbCurrentUserID forKey:@"wbUid"];
+        [user setObject:self.wbRefreshToken forKey:@"wbRToken"];
         
         [alert show];
+        
     }
 
         else if ([response isKindOfClass:WBPaymentResponse.class])
