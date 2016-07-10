@@ -85,24 +85,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Oa-Nh-257">
-                                <frame key="frameInset" minX="24" minY="170" width="276" height="272"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vwi-uZ-D74">
+                                <frame key="frameInset" minY="174" width="375" height="444"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="47a-Jb-KdS">
+                                <frame key="frameInset" minX="167" minY="131" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item4" id="SYa-Mf-Tch"/>
                     <connections>
                         <outlet property="avatarView" destination="CH4-md-hAl" id="bTx-DF-ZSf"/>
+                        <outlet property="indicator" destination="47a-Jb-KdS" id="LQh-Gf-5pu"/>
                         <outlet property="label1" destination="dPu-4G-nJ9" id="ckB-cy-4wk"/>
                         <outlet property="label2" destination="7dk-pA-1HT" id="Agd-Th-b6M"/>
                         <outlet property="label3" destination="ECY-ym-rme" id="lYI-sh-X6t"/>
-                        <outlet property="label4" destination="5Oa-Nh-257" id="cMJ-yY-mfx"/>
                         <outlet property="loginButton" destination="mGA-6B-Y6n" id="TTd-rr-hBP"/>
+                        <outlet property="scrollView" destination="vwi-uZ-D74" id="Jbo-hC-whF"/>
                         <outlet property="showDetailButton" destination="FO4-gw-5It" id="Doq-cU-D2Y"/>
                     </connections>
                 </viewController>
@@ -200,7 +202,7 @@
                                 <frame key="frameInset" minY="20" width="375" height="598"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="HAl-6T-zgP">
+                                <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" showsUserLocation="YES" id="HAl-6T-zgP">
                                     <frame key="frameInset" width="375" height="468"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </mapView>

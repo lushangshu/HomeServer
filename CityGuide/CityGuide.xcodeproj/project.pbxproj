@@ -50,6 +50,10 @@
 		35FBE2E41D2F727A0003720C /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE2DE1D2F727A0003720C /* AFURLSessionManager.m */; };
 		35FBE2FB1D2FA3070003720C /* WeiboJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE2FA1D2FA3070003720C /* WeiboJSONParser.m */; };
 		35FBE2FD1D30C9D80003720C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35FBE2FC1D30C9D80003720C /* CoreLocation.framework */; };
+		35FBE3081D314A7C0003720C /* ZFCDoubleBounceActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE3011D314A7C0003720C /* ZFCDoubleBounceActivityIndicatorView.m */; };
+		35FBE3091D314A7C0003720C /* ZFCRotatingPlaneActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE3031D314A7C0003720C /* ZFCRotatingPlaneActivityIndicatorView.m */; };
+		35FBE30A1D314A7C0003720C /* ZFCWanderingCubesActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE3051D314A7C0003720C /* ZFCWanderingCubesActivityIndicatorView.m */; };
+		35FBE30B1D314A7C0003720C /* ZFCWaveActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE3071D314A7C0003720C /* ZFCWaveActivityIndicatorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +157,15 @@
 		35FBE2F91D2FA3070003720C /* WeiboJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboJSONParser.h; sourceTree = "<group>"; };
 		35FBE2FA1D2FA3070003720C /* WeiboJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboJSONParser.m; sourceTree = "<group>"; };
 		35FBE2FC1D30C9D80003720C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		35FBE2FF1D314A7C0003720C /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../../../../Downloads/ZFCActivityIndicatorViewDemo/ZFCActivityIndicatorViewDemo/Common.h; sourceTree = "<group>"; };
+		35FBE3001D314A7C0003720C /* ZFCDoubleBounceActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZFCDoubleBounceActivityIndicatorView.h; path = ../../../../Downloads/ZFCActivityIndicatorViewDemo/ZFCActivityIndicatorViewDemo/ZFCDoubleBounceActivityIndicatorView.h; sourceTree = "<group>"; };
+		35FBE3011D314A7C0003720C /* ZFCDoubleBounceActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZFCDoubleBounceActivityIndicatorView.m; path = ../../../../Downloads/ZFCActivityIndicatorViewDemo/ZFCActivityIndicatorViewDemo/ZFCDoubleBounceActivityIndicatorView.m; sourceTree = "<group>"; };
+		35FBE3021D314A7C0003720C /* ZFCRotatingPlaneActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZFCRotatingPlaneActivityIndicatorView.h; path = ../../../../Downloads/ZFCActivityIndicatorViewDemo/ZFCActivityIndicatorViewDemo/ZFCRotatingPlaneActivityIndicatorView.h; sourceTree = "<group>"; };
+		35FBE3031D314A7C0003720C /* ZFCRotatingPlaneActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZFCRotatingPlaneActivityIndicatorView.m; path = ../../../../Downloads/ZFCActivityIndicatorViewDemo/ZFCActivityIndicatorViewDemo/ZFCRotatingPlaneActivityIndicatorView.m; sourceTree = "<group>"; };
+		35FBE3041D314A7C0003720C /* ZFCWanderingCubesActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZFCWanderingCubesActivityIndicatorView.h; path = ../../../../Downloads/ZFCActivityIndicatorViewDemo/ZFCActivityIndicatorViewDemo/ZFCWanderingCubesActivityIndicatorView.h; sourceTree = "<group>"; };
+		35FBE3051D314A7C0003720C /* ZFCWanderingCubesActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZFCWanderingCubesActivityIndicatorView.m; path = ../../../../Downloads/ZFCActivityIndicatorViewDemo/ZFCActivityIndicatorViewDemo/ZFCWanderingCubesActivityIndicatorView.m; sourceTree = "<group>"; };
+		35FBE3061D314A7C0003720C /* ZFCWaveActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZFCWaveActivityIndicatorView.h; path = ../../../../Downloads/ZFCActivityIndicatorViewDemo/ZFCActivityIndicatorViewDemo/ZFCWaveActivityIndicatorView.h; sourceTree = "<group>"; };
+		35FBE3071D314A7C0003720C /* ZFCWaveActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZFCWaveActivityIndicatorView.m; path = ../../../../Downloads/ZFCActivityIndicatorViewDemo/ZFCActivityIndicatorViewDemo/ZFCWaveActivityIndicatorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +232,7 @@
 		354EE1B51D2A28A600D17A3F /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
+				35FBE2FE1D314A500003720C /* ActivityIndicationView */,
 				35FBE2D11D2F725D0003720C /* AFNetworking */,
 				35FBE2BA1D2E55820003720C /* SBJSON */,
 				354EE2271D2B4FE100D17A3F /* libWeiboSDK */,
@@ -354,6 +368,22 @@
 				35FBE2DE1D2F727A0003720C /* AFURLSessionManager.m */,
 			);
 			name = AFNetworking;
+			sourceTree = "<group>";
+		};
+		35FBE2FE1D314A500003720C /* ActivityIndicationView */ = {
+			isa = PBXGroup;
+			children = (
+				35FBE2FF1D314A7C0003720C /* Common.h */,
+				35FBE3001D314A7C0003720C /* ZFCDoubleBounceActivityIndicatorView.h */,
+				35FBE3011D314A7C0003720C /* ZFCDoubleBounceActivityIndicatorView.m */,
+				35FBE3021D314A7C0003720C /* ZFCRotatingPlaneActivityIndicatorView.h */,
+				35FBE3031D314A7C0003720C /* ZFCRotatingPlaneActivityIndicatorView.m */,
+				35FBE3041D314A7C0003720C /* ZFCWanderingCubesActivityIndicatorView.h */,
+				35FBE3051D314A7C0003720C /* ZFCWanderingCubesActivityIndicatorView.m */,
+				35FBE3061D314A7C0003720C /* ZFCWaveActivityIndicatorView.h */,
+				35FBE3071D314A7C0003720C /* ZFCWaveActivityIndicatorView.m */,
+			);
+			name = ActivityIndicationView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -511,7 +541,9 @@
 				354EE2161D2B4E8300D17A3F /* NearbyViewController.m in Sources */,
 				354EE1BE1D2A28A600D17A3F /* ViewController.m in Sources */,
 				35FBE2DF1D2F727A0003720C /* AFHTTPSessionManager.m in Sources */,
+				35FBE3091D314A7C0003720C /* ZFCRotatingPlaneActivityIndicatorView.m in Sources */,
 				35FBE2CC1D2E55AB0003720C /* SBJson4StreamParserState.m in Sources */,
+				35FBE30B1D314A7C0003720C /* ZFCWaveActivityIndicatorView.m in Sources */,
 				35FBE2CA1D2E55AB0003720C /* SBJson4Parser.m in Sources */,
 				35FBE2E11D2F727A0003720C /* AFSecurityPolicy.m in Sources */,
 				354EE1F71D2A5B0200D17A3F /* launchViewController.m in Sources */,
@@ -519,7 +551,9 @@
 				35FBE2E01D2F727A0003720C /* AFNetworkReachabilityManager.m in Sources */,
 				35FBE2E31D2F727A0003720C /* AFURLResponseSerialization.m in Sources */,
 				354EE1BB1D2A28A600D17A3F /* AppDelegate.m in Sources */,
+				35FBE3081D314A7C0003720C /* ZFCDoubleBounceActivityIndicatorView.m in Sources */,
 				35FBE2CF1D2E55AB0003720C /* SBJson4StreamWriterState.m in Sources */,
+				35FBE30A1D314A7C0003720C /* ZFCWanderingCubesActivityIndicatorView.m in Sources */,
 				354EE1F11D2A2CEC00D17A3F /* MapViewController.m in Sources */,
 				354EE1B81D2A28A600D17A3F /* main.m in Sources */,
 				354EE1EB1D2A2C9500D17A3F /* MainViewController.m in Sources */,

@@ -13,6 +13,12 @@
 #import "SBJson4.h"
 #import "AFNetworking.h"
 
+#import "Common.h"
+#import "ZFCRotatingPlaneActivityIndicatorView.h"
+#import "ZFCDoubleBounceActivityIndicatorView.h"
+#import "ZFCWaveActivityIndicatorView.h"
+#import "ZFCWanderingCubesActivityIndicatorView.h"
+
 
 #define kRedirectURI @"https://api.weibo.com/oauth2/default.html"
 #define aTestUserID @"1726035124"
@@ -29,63 +35,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     myDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    self.indicator.hidden = true;
     
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     if ([user objectForKey:@"wbToken"] == nil) {
         self.loginButton.hidden = false;
         self.showDetailButton.hidden = true;
+        
+        self.label1.hidden = true;
+        self.label2.hidden = true;
+        self.avatarView.hidden = true;
         myDelegate.wbtoken = nil;
         
     }else{
         self.loginButton.hidden = true;
         self.showDetailButton.hidden = false;
+        self.label1.hidden = false;
+        self.label2.hidden = false;
+        self.label3.hidden = false;
+        self.avatarView.hidden = false;
         myDelegate.wbtoken = [user objectForKey:@"wbToken"];
+        
+        [self showResult];
     }
-    // Do any additional setup after loading the view.
 }
 
 -(void)showLabels{
     
 }
-void UserProfileRequestHanlder(WBHttpRequest *httpRequest, id result, NSError *error)
-{
-    NSString *title = nil;
-    UIAlertView *alert = nil;
-    
-    //UIAlertController *alertCont = nil;
-    if (error)
-    {
-        title = NSLocalizedString(@"请求异常", nil);
-        //alertCont = [UIAlertController alloc]initwith
-        alert = [[UIAlertView alloc] initWithTitle:title
-                                           message:[NSString stringWithFormat:@"%@",error]
-                                          delegate:nil
-                                 cancelButtonTitle:NSLocalizedString(@"确定", nil)
-                                 otherButtonTitles:nil];
-        NSLog(@"error is %@",[NSString stringWithFormat:@"%@",error]);
-    }
-    else
-    {
-        title = NSLocalizedString(@"收到网络回调", nil);
-        alert = [[UIAlertView alloc] initWithTitle:title
-                                          message:[NSString stringWithFormat:@"%@",result]
-                                          delegate:nil
-                                 cancelButtonTitle:NSLocalizedString(@"确定", nil)
-                                 otherButtonTitles:nil];
-        //NSDictionary *dict = [[NSDictionary alloc]initWithContentsOfFile:result];
-        
-        NSLog(@"!!!!!!!! result id is %@",(NSMutableDictionary *)result);
-        NSLog(@"$$$finished$$$");
-    }
-    //NSLog(@" !!!!!! !!!!! !!!!! %@",[NSString stringWithFormat:@"%@",result]);
-    [alert show];
-}
+
 
 -(IBAction)showResult{
-    
-    [WBHttpRequest requestForUserProfile:myDelegate.wbCurrentUserID withAccessToken:myDelegate.wbtoken andOtherProperties:nil queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
-        UserProfileRequestHanlder(httpRequest,result,error);
-    } ];
     
     [self RequestWeiboUserFileUsingAFNetworking];
     
@@ -125,8 +105,15 @@ void UserProfileRequestHanlder(WBHttpRequest *httpRequest, id result, NSError *e
     
     [params setObject:myDelegate.wbCurrentUserID forKey:@"uid"];
     [params setObject:myDelegate.wbtoken forKey:@"access_token"];
+    [self.indicator setHidden:NO];
+    [self.indicator startAnimating];
     
-    [manager GET:@"https://api.weibo.com/2/users/show.json?" parameters:params progress:nil success:^(NSURLSessionTask *task,id responseObject){
+    [manager GET:@"https://api.weibo.com/2/users/show.json?"
+        parameters:params progress:^(NSProgress * Nonnull){
+            NSLog(@"it is downloading ");
+        }
+        success:^(NSURLSessionTask *task,id responseObject){
+            
         NSDictionary *dic = responseObject;
         NSString *userName = [dic valueForKey:@"screen_name"];
         NSString *fCount = [[NSString alloc] initWithFormat:@"%@",[dic valueForKey:@"followers_count"]];
@@ -145,20 +132,24 @@ void UserProfileRequestHanlder(WBHttpRequest *httpRequest, id result, NSError *e
         [self.showDetailButton setTitle:@"登出" forState:nil];
         
         NSLog(@"%@",responseObject);
+            [self.indicator stopAnimating];
+            [self.indicator setHidden:YES];
         
     }failure:^(NSURLSessionTask *operation,NSError *error){
         NSLog(@"&&&& %@",error);
+        [self.indicator stopAnimating];
     }];
     
 }
 
+-(void)GetWeiboActivitiesList{
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 /*
 #pragma mark - Navigation

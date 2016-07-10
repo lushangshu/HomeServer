@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     self.mapView.showsUserLocation = YES;
     self.mapView.mapType = MKMapTypeStandard;
-    
+    [self loadUserLocation];
     
 }
 
