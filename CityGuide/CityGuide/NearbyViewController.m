@@ -10,9 +10,14 @@
 #import "AppDelegate.h"
 #import "WeiboSDK.h"
 #import "WeiboSDK+Statistics.h"
+#import "SBJson4.h"
 #import "AFNetworking.h"
 
 #import "Common.h"
+#import "ZFCRotatingPlaneActivityIndicatorView.h"
+#import "ZFCDoubleBounceActivityIndicatorView.h"
+#import "ZFCWaveActivityIndicatorView.h"
+#import "ZFCWanderingCubesActivityIndicatorView.h"
 
 
 #define kRedirectURI @"https://api.weibo.com/oauth2/default.html"
