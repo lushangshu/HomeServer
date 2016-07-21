@@ -4,40 +4,40 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CityGuide.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-		<key>watchKit (Notification).xcscheme</key>
+		<key>LoveFresh WatchKit App (Notification).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>watchKit.xcscheme</key>
+		<key>LoveFresh WatchKit App.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>LoveFresh.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>354EE1B21D2A28A600D17A3F</key>
+		<key>358A7F721D404EB40052EF2E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>354EE1CB1D2A28A600D17A3F</key>
+		<key>358A7F8B1D404EB40052EF2E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>354EE1D61D2A28A600D17A3F</key>
+		<key>358A7F961D404EB40052EF2E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>358A7FD61D4059230052EF2E</key>
+		<key>358A7F9F1D404EB40052EF2E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
