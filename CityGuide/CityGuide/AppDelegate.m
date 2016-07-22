@@ -86,6 +86,8 @@
     }
     else if ([response isKindOfClass:WBAuthorizeResponse.class])
     {
+        //sendrequest to weibo server get authentication response
+        //how to redirect back to the app ?
         NSString *title = NSLocalizedString(@"weibode认证结果", nil);
         NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.userId: %@\nresponse.accessToken: %@\n%@: %@\n%@: %@",
                              NSLocalizedString(@"响应状态", nil), (int)response.statusCode,[(WBAuthorizeResponse *)response userID], [(WBAuthorizeResponse *)response accessToken],
@@ -105,6 +107,11 @@
         [user setObject:self.wbCurrentUserID forKey:@"wbUid"];
         [user setObject:self.wbRefreshToken forKey:@"wbRToken"];
         
+        //NearbyViewController *nVc = [[NearbyViewController alloc]init];
+        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *usVc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"abc"];
+        //[[UINavigationController sharedInstance] popToRootAndS]
+        self.window.rootViewController = usVc;
         [alert show];
         
     }

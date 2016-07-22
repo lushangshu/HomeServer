@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "WeiboSDK.h"
 
+
 @interface NearbyViewController : UIViewController<WBHttpRequestDelegate>
 {
     AppDelegate *myDelegate;
