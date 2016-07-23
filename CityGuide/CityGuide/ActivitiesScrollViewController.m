@@ -98,7 +98,7 @@
              //把tabView添加到视图之上
              [viewExample addSubview:self.tableView];
              //    存放显示在单元格上的数据
-             NSArray *array = [NSArray arrayWithObjects:@"张三",@"张四",@"张五",@"李三",@"李四",@"李五",@"李六",@"王三",@"王四",@"王五",@"王六",@"王七",@"王八",@"王九",@"王十", nil];
+//             NSArray *array = [NSArray arrayWithObjects:@"张三",@"张四",@"张五",@"李三",@"李四",@"李五",@"李六",@"王三",@"王四",@"王五",@"王六",@"王七",@"王八",@"王九",@"王十", nil];
              self.listData = result;
              [self.tableView reloadData];
             
@@ -115,13 +115,14 @@
     for (int i=0;i< [json count];i++)
     {
         NSDictionary *subject = [json objectAtIndex:i];
-        NSString *test1 = [subject objectForKey:@"created_at"];
-        NSString *test2 = [subject objectForKey:@"text"];
+        NSString *created_at = [subject objectForKey:@"created_at"];
+        NSString *text = [subject objectForKey:@"text"];
         NSDictionary *test3 = [subject objectForKey:@"user"];
         
-        NSString *test4 = [test3 objectForKey:@"avatar_hd"];
+        NSString *avatar_hd = [test3 objectForKey:@"avatar_hd"];
+        NSString *screen_name = [test3 objectForKey:@"screen_name"];
         
-        NSArray *array = [[NSArray alloc]initWithObjects:test1,test2,test4, nil];
+        NSArray *array = [[NSArray alloc]initWithObjects:created_at,text,avatar_hd,screen_name, nil];
         [resultArray addObject:array];
     }
     return resultArray;
@@ -151,6 +152,22 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               if ( !error )
+                               {
+                                   UIImage *image = [[UIImage alloc] initWithData:data];
+                                   completionBlock(YES,image);
+                               } else{
+                                   completionBlock(NO,nil);
+                               }
+                           }];
 }
 
 #pragma mark --- UIScrollView代理方法
@@ -201,15 +218,12 @@ static NSInteger pageNumber = 0;
     //    获取当前行信息值
     NSUInteger row = [indexPath row];
     //    填充行的详细内容
-    cell.detailTextLabel.text = @"详细内容";
+    cell.detailTextLabel.text = [[self.listData objectAtIndex:row] objectAtIndex:3];
     //    把数组中的值赋给单元格显示出来
     cell.textLabel.text=[[self.listData objectAtIndex:row] objectAtIndex:1];
-    
-    
     //    cell.textLabel.backgroundColor= [UIColor greenColor];
-    
     //    表视图单元提供的UILabel属性，设置字体大小
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:15.0f];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:10.0f];
     //    tableView.editing=YES;
     /*
      cell.textLabel.backgroundColor = [UIColor clearColor];
@@ -218,10 +232,23 @@ static NSInteger pageNumber = 0;
      cell.backgroundView=backgroundView;
      */
     //    设置单元格UILabel属性背景颜色
+    NSString *url = [[self.listData objectAtIndex:row] objectAtIndex:2];
+    NSURL *avatarUrl = [NSURL URLWithString:url];
+    [self downloadImageWithURL:avatarUrl completionBlock:^(BOOL succeeded, UIImage *image) {
+        if (succeeded) {
+            // change the image in the cell
+             cell.imageView.image = image;
+        }
+    }];
+    
     cell.textLabel.backgroundColor=[UIColor clearColor];
+    
+    //UIImage *himage = [UIImage imageWithData:[NSData dataWithContentsOfURL:avatarUrl]];
+    //_avatarView.contentMode = UIViewContentModeScaleAspectFit;
+
     //    正常情况下现实的图片
-    UIImage *image = [UIImage imageNamed:@"2.png"];
-    cell.imageView.image=image;
+    //UIImage *image = [UIImage imageNamed:himage];
+
     
     //    被选中后高亮显示的照片
     UIImage *highLightImage = [UIImage imageNamed:@"1.png"];
@@ -236,11 +263,12 @@ static NSInteger pageNumber = 0;
 }
 -(NSInteger) tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger row = [indexPath row];
-    if (row % 2==0) {
-        return 0;
-    }
-    return 2;
+//    NSInteger row = [indexPath row];
+//    if (row % 2==0) {
+//        return 0;
+//    }
+//    return 2;
+    return 0;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
