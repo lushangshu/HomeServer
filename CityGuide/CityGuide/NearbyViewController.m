@@ -26,6 +26,8 @@
 
 @implementation NearbyViewController
 
+@synthesize tableView = _tableView;
+@synthesize cell =_cell;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -146,6 +148,74 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - Tableview delegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 3;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    声明静态字符串型对象，用来标记重用单元格
+    static NSString *TableSampleIdentifier = @"cell";
+    //    用TableSampleIdentifier表示需要重用的单元
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableSampleIdentifier];
+    //    如果如果没有多余单元，则需要创建新的单元
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableSampleIdentifier];
+    }
+    
+    else {
+        while ([cell.contentView.subviews lastObject ]!=nil) {
+            [(UIView*)[cell.contentView.subviews lastObject]removeFromSuperview];
+        }
+    }
+    cell.textLabel.text = @"登录";
+    cell.detailTextLabel.text = @"waka";
+    //    把数组中的值赋给单元格显示出来
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:10.0f];
+    //    tableView.editing=YES;
+    /*
+     cell.textLabel.backgroundColor = [UIColor clearColor];
+     UIView *backgroundView = [[UIView alloc] initWithFrame:cell.frame];
+     backgroundView.backgroundColor = [UIColor greenColor];
+     cell.backgroundView=backgroundView;
+     */
+    //    设置单元格UILabel属性背景颜色
+    return cell;
+}
+
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+    
+}
+-(NSInteger) tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    NSInteger row = [indexPath row];
+    //    if (row % 2==0) {
+    //        return 0;
+    //    }
+    //    return 2;
+    return 0;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    首先是用indexPath获取当前行的内容
+    NSInteger row = [indexPath row];
+    //    从数组中取出当前行内容
+//    NSString *rowValue = [self.listData objectAtIndex:row];
+//    NSString *message = [[NSString alloc]initWithFormat:@"You selected%@",rowValue];
+//    //    弹出警告信息
+//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示"
+//                                                   message:message
+//                                                  delegate:self
+//                                         cancelButtonTitle:@"OK"
+//                                         otherButtonTitles: nil];
+//    [alert show];
+}
 /*
 #pragma mark - Navigation
 

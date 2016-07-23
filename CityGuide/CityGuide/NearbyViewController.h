@@ -12,7 +12,7 @@
 #import "WeiboSDK.h"
 
 
-@interface NearbyViewController : UIViewController<WBHttpRequestDelegate>
+@interface NearbyViewController : UIViewController<WBHttpRequestDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     AppDelegate *myDelegate;
 }
@@ -25,7 +25,10 @@
 @property (nonatomic,strong) IBOutlet UILabel *label3;
 //@property (nonatomic,strong) IBOutlet UILabel *label4;
 
-@property (nonatomic,strong) IBOutlet UIScrollView *scrollView;
+
+@property (nonatomic,strong) IBOutlet UITableView *tableView;
+@property (nonatomic,strong) IBOutlet UITableViewCell *cell;
+
 @property (nonatomic,strong) IBOutlet UIButton *loginButton;
 @property (nonatomic,strong) IBOutlet UIButton *showDetailButton;
 

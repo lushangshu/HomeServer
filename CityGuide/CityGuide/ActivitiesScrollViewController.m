@@ -2,16 +2,14 @@
 //  ActivitiesScrollViewController.m
 //  CityGuide
 //
-//  Created by zhuzai on 16/7/14.
-//  Copyright © 2016年 zhuzai. All rights reserved.
+//  Created by lushangshu on 16/7/14.
+//  Copyright © 2016年 lushangshu. All rights reserved.
 //
 
 #import "ActivitiesScrollViewController.h"
 #import "LFLUISegmentedControl.h"
 
 #import "AFNetworking.h"
-
-
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
 #define self_Height CGRectGetHeight([UIScreen mainScreen].bounds)
@@ -40,7 +38,6 @@
     LFLuisement.delegate = self;
     //   2.设置显示切换标题数组
     NSArray* LFLarray=[NSArray arrayWithObjects:@"今日话题",@"附近好玩",@"随便看看",@"天气咋样",nil];
-    
     [LFLuisement AddSegumentArray:LFLarray];
     //   default Select the Button
     [LFLuisement selectTheSegument:0];
@@ -61,7 +58,6 @@
     self.mainScrollView.contentSize = CGSizeMake(self_Width * 4, (self_Height -begainScrollViewY));
     //设置代理
     self.mainScrollView.delegate = self;
-    
 
     [self.mainScrollView addSubview:[self TopicsView]];
     [self.mainScrollView addSubview:[self NearbyView]];
@@ -92,13 +88,11 @@
              result = [self parseJsonData:dic];
              NSLog(@"%@",result);
              self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(self_Width *0, 0, self_Width, self_Height)];
-//             [viewExample addSubview: self.tableView];
              self.tableView.delegate=self;
              self.tableView.dataSource=self;
              //把tabView添加到视图之上
              [viewExample addSubview:self.tableView];
              //    存放显示在单元格上的数据
-//             NSArray *array = [NSArray arrayWithObjects:@"张三",@"张四",@"张五",@"李三",@"李四",@"李五",@"李六",@"王三",@"王四",@"王五",@"王六",@"王七",@"王八",@"王九",@"王十", nil];
              self.listData = result;
              [self.tableView reloadData];
             
@@ -183,7 +177,6 @@ static NSInteger pageNumber = 0;
 #pragma mark ---LFLUISegmentedControlDelegate
 /**
  *  点击标题按钮
- *
  *  @param selection 对应下标 begain 0
  */
 -(void)uisegumentSelectionChange:(NSInteger)selection{
@@ -242,14 +235,6 @@ static NSInteger pageNumber = 0;
     }];
     
     cell.textLabel.backgroundColor=[UIColor clearColor];
-    
-    //UIImage *himage = [UIImage imageWithData:[NSData dataWithContentsOfURL:avatarUrl]];
-    //_avatarView.contentMode = UIViewContentModeScaleAspectFit;
-
-    //    正常情况下现实的图片
-    //UIImage *image = [UIImage imageNamed:himage];
-
-    
     //    被选中后高亮显示的照片
     UIImage *highLightImage = [UIImage imageNamed:@"1.png"];
     cell.imageView.highlightedImage = highLightImage;
