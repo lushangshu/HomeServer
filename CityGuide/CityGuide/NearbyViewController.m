@@ -53,6 +53,8 @@
         self.avatarView.hidden = false;
         myDelegate.wbtoken = [user objectForKey:@"wbToken"];
         
+        self.loginList = [[NSArray alloc]initWithObjects:@"weibo",@"douban",@"gaode",nil];
+        
         [self showResult];
     }
 }
@@ -152,7 +154,7 @@
 #pragma mark - Tableview delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return [self.loginList count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -171,7 +173,9 @@
             [(UIView*)[cell.contentView.subviews lastObject]removeFromSuperview];
         }
     }
-    cell.textLabel.text = @"登录";
+    NSUInteger row = [indexPath row];
+
+    cell.textLabel.text = [self.loginList objectAtIndex:row];
     cell.detailTextLabel.text = @"waka";
     //    把数组中的值赋给单元格显示出来
     cell.textLabel.font = [UIFont boldSystemFontOfSize:10.0f];

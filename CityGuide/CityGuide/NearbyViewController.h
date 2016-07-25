@@ -15,11 +15,13 @@
 @interface NearbyViewController : UIViewController<WBHttpRequestDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     AppDelegate *myDelegate;
+    
 }
 
 -(IBAction)pressButtonLogin;
 -(IBAction)showResult;
 
+@property (nonatomic,strong) NSArray *loginList;
 @property (nonatomic,strong) IBOutlet UILabel *label1;
 @property (nonatomic,strong) IBOutlet UILabel *label2;
 @property (nonatomic,strong) IBOutlet UILabel *label3;

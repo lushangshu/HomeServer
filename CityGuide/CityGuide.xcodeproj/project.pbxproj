@@ -39,6 +39,14 @@
 		35698E0A1D421B9F007175E9 /* LFLUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 35698E081D421B9F007175E9 /* LFLUISegmentedControl.m */; };
 		35698E0C1D425928007175E9 /* wbTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35698E0B1D425928007175E9 /* wbTableView.xib */; };
 		35698E0F1D42598E007175E9 /* wbTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35698E0E1D42598E007175E9 /* wbTableView.m */; };
+		35698E131D43C9F1007175E9 /* SearchingWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35698E121D43C9F1007175E9 /* SearchingWebViewController.m */; };
+		35698E1A1D4453F6007175E9 /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 35698E171D4453F6007175E9 /* NJKWebViewProgress.m */; };
+		35698E1B1D4453F6007175E9 /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35698E191D4453F6007175E9 /* NJKWebViewProgressView.m */; };
+		35698E241D445417007175E9 /* TOActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 35698E1D1D445417007175E9 /* TOActivityChrome.m */; };
+		35698E251D445417007175E9 /* TOActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 35698E1F1D445417007175E9 /* TOActivitySafari.m */; };
+		35698E261D445417007175E9 /* TOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35698E211D445417007175E9 /* TOWebViewController.m */; };
+		35698E271D445417007175E9 /* UIImage+TOWebViewControllerIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 35698E231D445417007175E9 /* UIImage+TOWebViewControllerIcons.m */; };
+		35698E301D45BEA7007175E9 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35698E2F1D45BEA7007175E9 /* PostViewController.m */; };
 		358A7F691D37899E0052EF2E /* ActivitiesScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358A7F681D37899E0052EF2E /* ActivitiesScrollViewController.m */; };
 		358A7FDB1D4059230052EF2E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358A7FD91D4059230052EF2E /* Interface.storyboard */; };
 		358A7FDD1D4059230052EF2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 358A7FDC1D4059230052EF2E /* Assets.xcassets */; };
@@ -181,6 +189,22 @@
 		35698E0B1D425928007175E9 /* wbTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wbTableView.xib; sourceTree = "<group>"; };
 		35698E0D1D42598E007175E9 /* wbTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wbTableView.h; sourceTree = "<group>"; };
 		35698E0E1D42598E007175E9 /* wbTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wbTableView.m; sourceTree = "<group>"; };
+		35698E111D43C9F1007175E9 /* SearchingWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchingWebViewController.h; sourceTree = "<group>"; };
+		35698E121D43C9F1007175E9 /* SearchingWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchingWebViewController.m; sourceTree = "<group>"; };
+		35698E161D4453F6007175E9 /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NJKWebViewProgress.h; path = "../../../../Downloads/TOWebViewController-master/TOWebViewController/NJKWebViewProgress/NJKWebViewProgress.h"; sourceTree = "<group>"; };
+		35698E171D4453F6007175E9 /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NJKWebViewProgress.m; path = "../../../../Downloads/TOWebViewController-master/TOWebViewController/NJKWebViewProgress/NJKWebViewProgress.m"; sourceTree = "<group>"; };
+		35698E181D4453F6007175E9 /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NJKWebViewProgressView.h; path = "../../../../Downloads/TOWebViewController-master/TOWebViewController/NJKWebViewProgress/NJKWebViewProgressView.h"; sourceTree = "<group>"; };
+		35698E191D4453F6007175E9 /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NJKWebViewProgressView.m; path = "../../../../Downloads/TOWebViewController-master/TOWebViewController/NJKWebViewProgress/NJKWebViewProgressView.m"; sourceTree = "<group>"; };
+		35698E1C1D445417007175E9 /* TOActivityChrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOActivityChrome.h; path = "../../../../Downloads/TOWebViewController-master/TOWebViewController/TOActivityChrome.h"; sourceTree = "<group>"; };
+		35698E1D1D445417007175E9 /* TOActivityChrome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TOActivityChrome.m; path = "../../../../Downloads/TOWebViewController-master/TOWebViewController/TOActivityChrome.m"; sourceTree = "<group>"; };
+		35698E1E1D445417007175E9 /* TOActivitySafari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOActivitySafari.h; path = "../../../../Downloads/TOWebViewController-master/TOWebViewController/TOActivitySafari.h"; sourceTree = "<group>"; };
+		35698E1F1D445417007175E9 /* TOActivitySafari.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TOActivitySafari.m; path = "../../../../Downloads/TOWebViewController-master/TOWebViewController/TOActivitySafari.m"; sourceTree = "<group>"; };
+		35698E201D445417007175E9 /* TOWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOWebViewController.h; path = "../../../../Downloads/TOWebViewController-master/TOWebViewController/TOWebViewController.h"; sourceTree = "<group>"; };
+		35698E211D445417007175E9 /* TOWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TOWebViewController.m; path = "../../../../Downloads/TOWebViewController-master/TOWebViewController/TOWebViewController.m"; sourceTree = "<group>"; };
+		35698E221D445417007175E9 /* UIImage+TOWebViewControllerIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+TOWebViewControllerIcons.h"; path = "../../../../Downloads/TOWebViewController-master/TOWebViewController/UIImage+TOWebViewControllerIcons.h"; sourceTree = "<group>"; };
+		35698E231D445417007175E9 /* UIImage+TOWebViewControllerIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+TOWebViewControllerIcons.m"; path = "../../../../Downloads/TOWebViewController-master/TOWebViewController/UIImage+TOWebViewControllerIcons.m"; sourceTree = "<group>"; };
+		35698E2E1D45BEA7007175E9 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
+		35698E2F1D45BEA7007175E9 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		358A7F671D37899E0052EF2E /* ActivitiesScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitiesScrollViewController.h; sourceTree = "<group>"; };
 		358A7F681D37899E0052EF2E /* ActivitiesScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitiesScrollViewController.m; sourceTree = "<group>"; };
 		358A7FD71D4059230052EF2E /* watchKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -305,6 +329,8 @@
 		354EE1B51D2A28A600D17A3F /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
+				35698E151D4453A0007175E9 /* ToWebViewController */,
+				35698E141D445385007175E9 /* NJKWebViewProgress */,
 				358A7F631D3789410052EF2E /* LFSegmentControl */,
 				35FBE2D11D2F725D0003720C /* AFNetworking */,
 				35FBE2BA1D2E55820003720C /* SBJSON */,
@@ -315,24 +341,23 @@
 				354EE1BD1D2A28A600D17A3F /* ViewController.m */,
 				353B09F11D372C21009CA7C0 /* UserDetailVC.h */,
 				353B09F21D372C21009CA7C0 /* UserDetailVC.m */,
-				354EE1BF1D2A28A600D17A3F /* Main.storyboard */,
-				35698E0B1D425928007175E9 /* wbTableView.xib */,
 				35698E0D1D42598E007175E9 /* wbTableView.h */,
 				35698E0E1D42598E007175E9 /* wbTableView.m */,
-				354EE2141D2B4E8300D17A3F /* NearbyViewController.h */,
-				354EE2151D2B4E8300D17A3F /* NearbyViewController.m */,
-				358A7F671D37899E0052EF2E /* ActivitiesScrollViewController.h */,
-				358A7F681D37899E0052EF2E /* ActivitiesScrollViewController.m */,
 				35FBE2F91D2FA3070003720C /* WeiboJSONParser.h */,
 				35FBE2FA1D2FA3070003720C /* WeiboJSONParser.m */,
 				354EE1EC1D2A2CC100D17A3F /* TabbarViewController.h */,
 				354EE1ED1D2A2CC100D17A3F /* TabbarViewController.m */,
-				354EE1EF1D2A2CEC00D17A3F /* MapViewController.h */,
-				354EE1F01D2A2CEC00D17A3F /* MapViewController.m */,
 				354EE1E91D2A2C9500D17A3F /* MainViewController.h */,
 				354EE1EA1D2A2C9500D17A3F /* MainViewController.m */,
 				354EE1F51D2A5B0200D17A3F /* launchViewController.h */,
 				354EE1F61D2A5B0200D17A3F /* launchViewController.m */,
+				35698E281D45BB88007175E9 /* 1_Map */,
+				35698E2B1D45BBD9007175E9 /* 2_Web */,
+				35698E2D1D45BC4D007175E9 /* 3_Post */,
+				35698E2A1D45BBB7007175E9 /* 4_Activities */,
+				35698E291D45BBA8007175E9 /* 5_login */,
+				354EE1BF1D2A28A600D17A3F /* Main.storyboard */,
+				35698E0B1D425928007175E9 /* wbTableView.xib */,
 				354EE1C21D2A28A600D17A3F /* Assets.xcassets */,
 				354EE1C41D2A28A600D17A3F /* LaunchScreen.storyboard */,
 				354EE1C71D2A28A600D17A3F /* Info.plist */,
@@ -406,6 +431,77 @@
 				354EE2341D2B4FF500D17A3F /* WeiboUser.h */,
 			);
 			name = libWeiboSDK;
+			sourceTree = "<group>";
+		};
+		35698E141D445385007175E9 /* NJKWebViewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				35698E161D4453F6007175E9 /* NJKWebViewProgress.h */,
+				35698E171D4453F6007175E9 /* NJKWebViewProgress.m */,
+				35698E181D4453F6007175E9 /* NJKWebViewProgressView.h */,
+				35698E191D4453F6007175E9 /* NJKWebViewProgressView.m */,
+			);
+			name = NJKWebViewProgress;
+			sourceTree = "<group>";
+		};
+		35698E151D4453A0007175E9 /* ToWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				35698E1C1D445417007175E9 /* TOActivityChrome.h */,
+				35698E1D1D445417007175E9 /* TOActivityChrome.m */,
+				35698E1E1D445417007175E9 /* TOActivitySafari.h */,
+				35698E1F1D445417007175E9 /* TOActivitySafari.m */,
+				35698E201D445417007175E9 /* TOWebViewController.h */,
+				35698E211D445417007175E9 /* TOWebViewController.m */,
+				35698E221D445417007175E9 /* UIImage+TOWebViewControllerIcons.h */,
+				35698E231D445417007175E9 /* UIImage+TOWebViewControllerIcons.m */,
+			);
+			name = ToWebViewController;
+			sourceTree = "<group>";
+		};
+		35698E281D45BB88007175E9 /* 1_Map */ = {
+			isa = PBXGroup;
+			children = (
+				354EE1EF1D2A2CEC00D17A3F /* MapViewController.h */,
+				354EE1F01D2A2CEC00D17A3F /* MapViewController.m */,
+			);
+			name = 1_Map;
+			sourceTree = "<group>";
+		};
+		35698E291D45BBA8007175E9 /* 5_login */ = {
+			isa = PBXGroup;
+			children = (
+				354EE2141D2B4E8300D17A3F /* NearbyViewController.h */,
+				354EE2151D2B4E8300D17A3F /* NearbyViewController.m */,
+			);
+			name = 5_login;
+			sourceTree = "<group>";
+		};
+		35698E2A1D45BBB7007175E9 /* 4_Activities */ = {
+			isa = PBXGroup;
+			children = (
+				358A7F671D37899E0052EF2E /* ActivitiesScrollViewController.h */,
+				358A7F681D37899E0052EF2E /* ActivitiesScrollViewController.m */,
+			);
+			name = 4_Activities;
+			sourceTree = "<group>";
+		};
+		35698E2B1D45BBD9007175E9 /* 2_Web */ = {
+			isa = PBXGroup;
+			children = (
+				35698E111D43C9F1007175E9 /* SearchingWebViewController.h */,
+				35698E121D43C9F1007175E9 /* SearchingWebViewController.m */,
+			);
+			name = 2_Web;
+			sourceTree = "<group>";
+		};
+		35698E2D1D45BC4D007175E9 /* 3_Post */ = {
+			isa = PBXGroup;
+			children = (
+				35698E2E1D45BEA7007175E9 /* PostViewController.h */,
+				35698E2F1D45BEA7007175E9 /* PostViewController.m */,
+			);
+			name = 3_Post;
 			sourceTree = "<group>";
 		};
 		358A7F631D3789410052EF2E /* LFSegmentControl */ = {
@@ -708,24 +804,32 @@
 			files = (
 				35FBE2CB1D2E55AB0003720C /* SBJson4StreamParser.m in Sources */,
 				35FBE2CE1D2E55AB0003720C /* SBJson4StreamWriter.m in Sources */,
+				35698E271D445417007175E9 /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				354EE1EE1D2A2CC100D17A3F /* TabbarViewController.m in Sources */,
 				35FBE2FB1D2FA3070003720C /* WeiboJSONParser.m in Sources */,
 				35FBE2E41D2F727A0003720C /* AFURLSessionManager.m in Sources */,
 				35FBE2CD1D2E55AB0003720C /* SBJson4StreamTokeniser.m in Sources */,
 				35FBE2D01D2E55AB0003720C /* SBJson4Writer.m in Sources */,
+				35698E131D43C9F1007175E9 /* SearchingWebViewController.m in Sources */,
 				354EE2161D2B4E8300D17A3F /* NearbyViewController.m in Sources */,
 				35698E0A1D421B9F007175E9 /* LFLUISegmentedControl.m in Sources */,
 				354EE1BE1D2A28A600D17A3F /* ViewController.m in Sources */,
 				35FBE2DF1D2F727A0003720C /* AFHTTPSessionManager.m in Sources */,
 				35FBE2CC1D2E55AB0003720C /* SBJson4StreamParserState.m in Sources */,
+				35698E1B1D4453F6007175E9 /* NJKWebViewProgressView.m in Sources */,
 				35FBE2CA1D2E55AB0003720C /* SBJson4Parser.m in Sources */,
+				35698E301D45BEA7007175E9 /* PostViewController.m in Sources */,
 				35FBE2E11D2F727A0003720C /* AFSecurityPolicy.m in Sources */,
+				35698E261D445417007175E9 /* TOWebViewController.m in Sources */,
 				354EE1F71D2A5B0200D17A3F /* launchViewController.m in Sources */,
 				35FBE2E21D2F727A0003720C /* AFURLRequestSerialization.m in Sources */,
 				353B09F31D372C21009CA7C0 /* UserDetailVC.m in Sources */,
 				35FBE2E01D2F727A0003720C /* AFNetworkReachabilityManager.m in Sources */,
 				35FBE2E31D2F727A0003720C /* AFURLResponseSerialization.m in Sources */,
+				35698E1A1D4453F6007175E9 /* NJKWebViewProgress.m in Sources */,
 				354EE1BB1D2A28A600D17A3F /* AppDelegate.m in Sources */,
+				35698E241D445417007175E9 /* TOActivityChrome.m in Sources */,
+				35698E251D445417007175E9 /* TOActivitySafari.m in Sources */,
 				35FBE2CF1D2E55AB0003720C /* SBJson4StreamWriterState.m in Sources */,
 				358A7F691D37899E0052EF2E /* ActivitiesScrollViewController.m in Sources */,
 				354EE1F11D2A2CEC00D17A3F /* MapViewController.m in Sources */,
