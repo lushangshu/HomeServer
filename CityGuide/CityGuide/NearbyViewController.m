@@ -45,6 +45,7 @@
         self.label2.hidden = true;
         self.avatarView.hidden = true;
         myDelegate.wbtoken = nil;
+        self.loginList = [[NSArray alloc]initWithObjects:@"微博",@"豆瓣",@"高德",nil];
         
     }else{
         self.loginButton.hidden = true;
@@ -54,11 +55,12 @@
         self.label3.hidden = false;
         self.avatarView.hidden = false;
         myDelegate.wbtoken = [user objectForKey:@"wbToken"];
+        self.loginList = [[NSArray alloc]initWithObjects:@"微博",@"豆瓣",@"高德",nil];
         
-        self.loginList = [[NSArray alloc]initWithObjects:@"weibo",@"douban",@"gaode",nil];
         
         [self showResult];
     }
+    [_tableView setSeparatorColor:[UIColor blueColor]];
 }
 
 -(void)showLabels{
@@ -87,6 +89,9 @@
                          @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
     [WeiboSDK sendRequest:request];
 
+}
+-(void)pressButtonLogOut{
+    
 }
 
 -(void)downloadImage{
@@ -161,16 +166,13 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    声明静态字符串型对象，用来标记重用单元格
+
     static NSString *TableSampleIdentifier = @"cell";
-    //    用TableSampleIdentifier表示需要重用的单元
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableSampleIdentifier];
-    //    如果如果没有多余单元，则需要创建新的单元
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableSampleIdentifier];
         
     }
-    
     else {
         while ([cell.contentView.subviews lastObject ]!=nil) {
             [(UIView*)[cell.contentView.subviews lastObject]removeFromSuperview];
@@ -178,11 +180,39 @@
     }
     NSUInteger row = [indexPath row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    if(row == 0){
+        
+        if([user objectForKey:@"wbToken"] != nil){
+            cell.detailTextLabel.text = @"微博已登录";
+            cell.imageView.image = self.avatarView.image;
+            [cell.imageView setFrame:CGRectMake(10, 10, 100,100)];
+            UILabel *followers = [[UILabel alloc]initWithFrame:CGRectMake(200, 1, 40,55)];
+            [followers setText:@"12211"];
+            [cell addSubview:followers];
+            //cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        }
+        else{
+            cell.detailTextLabel.text = @"微博未登录";
+            cell.textLabel.text = @"点击登录微博";
+            cell.textLabel.textColor = [UIColor yellowColor];
 
-    cell.textLabel.text = [self.loginList objectAtIndex:row];
-    cell.detailTextLabel.text = @"waka";
-    //    把数组中的值赋给单元格显示出来
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:10.0f];
+        }
+        
+    }else if(row ==1){
+        cell.detailTextLabel.text = @"豆瓣未登录";
+        cell.textLabel.text = [self.loginList objectAtIndex:row];
+        cell.textLabel.textColor = [UIColor greenColor];
+        
+    }else if(row ==2){
+        cell.detailTextLabel.text = @"高德未登录";
+        cell.textLabel.text = [self.loginList objectAtIndex:row];
+        cell.textLabel.textColor = [UIColor blueColor];
+    }
+    
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:60.0f];
+    
     //    tableView.editing=YES;
     /*
      cell.textLabel.backgroundColor = [UIColor clearColor];
@@ -201,11 +231,6 @@
 }
 -(NSInteger) tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    NSInteger row = [indexPath row];
-    //    if (row % 2==0) {
-    //        return 0;
-    //    }
-    //    return 2;
     return 0;
 }
 
@@ -213,6 +238,20 @@
 {
     //    首先是用indexPath获取当前行的内容
     NSInteger row = [indexPath row];
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    if(row == 0){
+        if([user objectForKey:@"wbToken"] == nil){
+            [self pressButtonLogin];
+        }
+        else{
+            
+        }
+        
+    }else if(row ==1){
+        
+    }else if(row ==2){
+        
+    }
     //    从数组中取出当前行内容
 //    NSString *rowValue = [self.listData objectAtIndex:row];
 //    NSString *message = [[NSString alloc]initWithFormat:@"You selected%@",rowValue];
