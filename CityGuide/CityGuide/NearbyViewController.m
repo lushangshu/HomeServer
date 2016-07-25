@@ -12,6 +12,8 @@
 #import "WeiboSDK+Statistics.h"
 #import "AFNetworking.h"
 
+#import "LoginTableViewCell.h"
+
 //#import "Common.h"
 
 
@@ -166,6 +168,7 @@
     //    如果如果没有多余单元，则需要创建新的单元
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableSampleIdentifier];
+        
     }
     
     else {
@@ -174,6 +177,7 @@
         }
     }
     NSUInteger row = [indexPath row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     cell.textLabel.text = [self.loginList objectAtIndex:row];
     cell.detailTextLabel.text = @"waka";
@@ -192,7 +196,7 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 200;
     
 }
 -(NSInteger) tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
