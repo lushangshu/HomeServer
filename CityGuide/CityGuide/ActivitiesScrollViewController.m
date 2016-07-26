@@ -11,7 +11,7 @@
 #import "MovieAndBooksView.h"
 #import "AFNetworking.h"
 #import "LightCell.h"
-
+#import "FetchWeatherInfo.h"
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
 #define self_Height CGRectGetHeight([UIScreen mainScreen].bounds)
@@ -119,13 +119,15 @@
     [self.dbTableView reloadData];
     [viewExample addSubview:self.dbTableView];
     return viewExample;
-}】
+}
 
 -(UIView* )WheatherView{
     UIView *viewExample = [[UIView alloc]initWithFrame:CGRectMake(self_Width *3, 0, self_Width,self_Height)];
     viewExample.backgroundColor = [UIColor whiteColor];
     UILabel *labelTest = [[UILabel alloc]initWithFrame:CGRectMake(3, 3, 100, 100)];
     labelTest.text = @"tianqiqingkuang";
+    FetchWeatherInfo *fetchFunc;
+    [fetchFunc FetchWeatherInfo];
     [viewExample addSubview:labelTest];
     return viewExample;
 }

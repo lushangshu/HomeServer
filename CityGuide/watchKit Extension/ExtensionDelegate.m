@@ -23,14 +23,14 @@
     // Use this method to pause ongoing tasks, disable timers, etc.
 }
 
-- (void)handleBackgroundTasks:(NSSet<WKRefreshBackgroundTask *> *)backgroundTasks {
-    // Sent when the system needs to launch the application in the background to process tasks. Tasks arrive in a set, so loop through and process each one.
-    for (WKRefreshBackgroundTask *task in backgroundTasks) {
-        // Process the background task
-        
-        // Be sure to complete each task when finished processing.
-        [task setTaskCompleted];
-    }
-}
+//- (void)handleBackgroundTasks:(NSSet<WKRefreshBackgroundTask *> *)backgroundTasks {
+//    // Sent when the system needs to launch the application in the background to process tasks. Tasks arrive in a set, so loop through and process each one.
+//    for (WKRefreshBackgroundTask *task in backgroundTasks) {
+//        // Process the background task
+//        
+//        // Be sure to complete each task when finished processing.
+//        [task setTaskCompleted];
+//    }
+//}
 
 @end
