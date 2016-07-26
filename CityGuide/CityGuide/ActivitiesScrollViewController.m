@@ -72,7 +72,7 @@
     NSString *wbtoken = [user objectForKey:@"wbToken"];
     NSLog(@"dao le zhe li access token is %@",wbtoken);
     [params setObject: wbtoken forKey:@"access_token"];
-    [params setObject:@"20" forKey:@"count"];
+    [params setObject:@"50" forKey:@"count"];
     [manager GET:@"https://api.weibo.com/2/statuses/public_timeline.json?"
       parameters:params progress:^(NSProgress * Nonnull){
           NSLog(@"Activities Nearby");
@@ -186,7 +186,8 @@ static NSInteger pageNumber = 0;
 {
     static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
     NSUInteger row = [indexPath row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableSampleIdentifier];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableSampleIdentifier];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableSampleIdentifier];
         //texts
@@ -213,10 +214,12 @@ static NSInteger pageNumber = 0;
                 [cell addSubview:imageView];
             }
         }];
-    }
+
+        }
     else {
         while ([cell.contentView.subviews lastObject ]!=nil) {
             [(UIView*)[cell.contentView.subviews lastObject]removeFromSuperview];
+            
         }
     }
     
@@ -237,7 +240,7 @@ static NSInteger pageNumber = 0;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = [indexPath row];
-    NSString *rowValue = [self.listData objectAtIndex:row];
+    NSString *rowValue = [[self.listData objectAtIndex:row] objectAtIndex:1];
     NSString *message = [[NSString alloc]initWithFormat:@"You selected%@",rowValue];
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示"
                                                    message:message
