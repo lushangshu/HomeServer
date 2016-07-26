@@ -33,20 +33,16 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
-    //    1.初次创建：
     LFLUISegmentedControl* LFLuisement=[[LFLUISegmentedControl alloc]initWithFrame:CGRectMake(0, 64, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds))];
+    
     LFLuisement.delegate = self;
-    //   2.设置显示切换标题数组
     NSArray* LFLarray=[NSArray arrayWithObjects:@"今日话题",@"附近好玩",@"随便看看",@"天气咋样",nil];
     [LFLuisement AddSegumentArray:LFLarray];
-    //   default Select the Button
     [LFLuisement selectTheSegument:0];
     self.LFLuisement = LFLuisement;
     [self.view addSubview:LFLuisement];
     
     [self createMainScrollView];
-    // Do any additional setup after loading the view, typically from a nib.
-
 }
 - (void)createMainScrollView {
     CGFloat begainScrollViewY = 37+ 64;
@@ -113,7 +109,7 @@
         NSString *text = [subject objectForKey:@"text"];
         NSDictionary *test3 = [subject objectForKey:@"user"];
         
-        NSString *avatar_hd = [test3 objectForKey:@"avatar_hd"];
+        NSString *avatar_hd = [test3 objectForKey:@"avatar_large"];
         NSString *screen_name = [test3 objectForKey:@"screen_name"];
         
         NSArray *array = [[NSArray alloc]initWithObjects:created_at,text,avatar_hd,screen_name, nil];
@@ -145,7 +141,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
@@ -170,17 +165,12 @@ static NSInteger pageNumber = 0;
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     pageNumber = (int)(scrollView.contentOffset.x / self_Width + 0.5);
-    //    滑动SV里视图,切换标题
     [self.LFLuisement selectTheSegument:pageNumber];
 }
 
 #pragma mark ---LFLUISegmentedControlDelegate
-/**
- *  点击标题按钮
- *  @param selection 对应下标 begain 0
- */
+
 -(void)uisegumentSelectionChange:(NSInteger)selection{
-    //    加入动画,显得不太过于生硬切换
     [UIView animateWithDuration:.1 animations:^{
         [self.mainScrollView setContentOffset:CGPointMake(self_Width *selection, 0)];
     }];
@@ -194,76 +184,61 @@ static NSInteger pageNumber = 0;
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    声明静态字符串型对象，用来标记重用单元格
     static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
-    //    用TableSampleIdentifier表示需要重用的单元
+    NSUInteger row = [indexPath row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableSampleIdentifier];
-    //    如果如果没有多余单元，则需要创建新的单元
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableSampleIdentifier];
+        //texts
+        UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(3, 70, self_Width-10, self_Height/2.5)];
+        [contentLabel setNumberOfLines:0];
+        contentLabel.lineBreakMode = NSLineBreakByCharWrapping;
+        [cell.contentView.superview setClipsToBounds:NO];
+        [contentLabel setText:[[self.listData objectAtIndex:row] objectAtIndex:1]];
+        CGSize size = [contentLabel sizeThatFits:CGSizeMake(contentLabel.frame.size.width,MAXFLOAT)];
+        contentLabel.frame = CGRectMake(3, 70, self_Width-10, size.height);
+        contentLabel.font = [UIFont boldSystemFontOfSize:12.0f];
+        
+        [cell addSubview:contentLabel];
+        //images
+        NSString *url = [[self.listData objectAtIndex:row] objectAtIndex:2];
+        NSURL *avatarUrl = [NSURL URLWithString:url];
+        [self downloadImageWithURL:avatarUrl completionBlock:^(BOOL succeeded, UIImage *image) {
+            if (succeeded) {
+                UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(3, 3, 60, 60)];
+                imageView.image = image;
+                imageView.layer.cornerRadius = imageView.frame.size.width/2.0;
+                imageView.layer.masksToBounds = YES;
+                
+                [cell addSubview:imageView];
+            }
+        }];
     }
-    
     else {
         while ([cell.contentView.subviews lastObject ]!=nil) {
             [(UIView*)[cell.contentView.subviews lastObject]removeFromSuperview];
         }
     }
-    //    获取当前行信息值
-    NSUInteger row = [indexPath row];
-    //    填充行的详细内容
-    cell.detailTextLabel.text = [[self.listData objectAtIndex:row] objectAtIndex:3];
-    //    把数组中的值赋给单元格显示出来
-    cell.textLabel.text=[[self.listData objectAtIndex:row] objectAtIndex:1];
-    //    cell.textLabel.backgroundColor= [UIColor greenColor];
-    //    表视图单元提供的UILabel属性，设置字体大小
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:10.0f];
-    //    tableView.editing=YES;
-    /*
-     cell.textLabel.backgroundColor = [UIColor clearColor];
-     UIView *backgroundView = [[UIView alloc] initWithFrame:cell.frame];
-     backgroundView.backgroundColor = [UIColor greenColor];
-     cell.backgroundView=backgroundView;
-     */
-    //    设置单元格UILabel属性背景颜色
-    NSString *url = [[self.listData objectAtIndex:row] objectAtIndex:2];
-    NSURL *avatarUrl = [NSURL URLWithString:url];
-    [self downloadImageWithURL:avatarUrl completionBlock:^(BOOL succeeded, UIImage *image) {
-        if (succeeded) {
-            // change the image in the cell
-             cell.imageView.image = image;
-        }
-    }];
     
-    cell.textLabel.backgroundColor=[UIColor clearColor];
-    //    被选中后高亮显示的照片
-    UIImage *highLightImage = [UIImage imageNamed:@"1.png"];
-    cell.imageView.highlightedImage = highLightImage;
     return cell;  
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 90;
+    return self_Height/2.2;
     
 }
 -(NSInteger) tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSInteger row = [indexPath row];
-//    if (row % 2==0) {
-//        return 0;
-//    }
-//    return 2;
+
     return 0;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    首先是用indexPath获取当前行的内容
     NSInteger row = [indexPath row];
-    //    从数组中取出当前行内容
     NSString *rowValue = [self.listData objectAtIndex:row];
     NSString *message = [[NSString alloc]initWithFormat:@"You selected%@",rowValue];
-    //    弹出警告信息
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示"
                                                    message:message
                                                   delegate:self
