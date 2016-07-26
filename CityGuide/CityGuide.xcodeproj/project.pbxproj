@@ -57,6 +57,11 @@
 		358A7FF21D4059230052EF2E /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358A7FF11D4059230052EF2E /* NotificationController.m */; };
 		358A7FF41D4059230052EF2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 358A7FF31D4059230052EF2E /* Assets.xcassets */; };
 		358A7FF81D4059230052EF2E /* watchKit.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 358A7FD71D4059230052EF2E /* watchKit.app */; };
+		359C2FF51D475F4400D94F35 /* LightDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C2FF41D475F4400D94F35 /* LightDataSource.m */; };
+		359C2FF81D475F6100D94F35 /* LightDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C2FF71D475F6100D94F35 /* LightDelegate.m */; };
+		35A00C291D475C9D000AEC59 /* LightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A00C281D475C9D000AEC59 /* LightCell.xib */; };
+		35A00C2C1D475CF0000AEC59 /* LightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A00C2B1D475CF0000AEC59 /* LightCell.m */; };
+		35E799831D4731F4007AEC51 /* MovieAndBooksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E799821D4731F4007AEC51 /* MovieAndBooksView.m */; };
 		35FBE2CA1D2E55AB0003720C /* SBJson4Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE2BD1D2E55AB0003720C /* SBJson4Parser.m */; };
 		35FBE2CB1D2E55AB0003720C /* SBJson4StreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE2BF1D2E55AB0003720C /* SBJson4StreamParser.m */; };
 		35FBE2CC1D2E55AB0003720C /* SBJson4StreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE2C11D2E55AB0003720C /* SBJson4StreamParserState.m */; };
@@ -224,6 +229,15 @@
 		358A7FF11D4059230052EF2E /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
 		358A7FF31D4059230052EF2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		358A7FF51D4059230052EF2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		359C2FF31D475F4400D94F35 /* LightDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightDataSource.h; sourceTree = "<group>"; };
+		359C2FF41D475F4400D94F35 /* LightDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightDataSource.m; sourceTree = "<group>"; };
+		359C2FF61D475F6100D94F35 /* LightDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightDelegate.h; sourceTree = "<group>"; };
+		359C2FF71D475F6100D94F35 /* LightDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightDelegate.m; sourceTree = "<group>"; };
+		35A00C281D475C9D000AEC59 /* LightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightCell.xib; sourceTree = "<group>"; };
+		35A00C2A1D475CF0000AEC59 /* LightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightCell.h; sourceTree = "<group>"; };
+		35A00C2B1D475CF0000AEC59 /* LightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightCell.m; sourceTree = "<group>"; };
+		35E799811D4731F4007AEC51 /* MovieAndBooksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieAndBooksView.h; path = ../MovieAndBooksView.h; sourceTree = "<group>"; };
+		35E799821D4731F4007AEC51 /* MovieAndBooksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieAndBooksView.m; path = ../MovieAndBooksView.m; sourceTree = "<group>"; };
 		35FBE2BB1D2E55AB0003720C /* SBJson4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4.h; sourceTree = "<group>"; };
 		35FBE2BC1D2E55AB0003720C /* SBJson4Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4Parser.h; sourceTree = "<group>"; };
 		35FBE2BD1D2E55AB0003720C /* SBJson4Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4Parser.m; sourceTree = "<group>"; };
@@ -485,6 +499,7 @@
 		35698E2A1D45BBB7007175E9 /* 4_Activities */ = {
 			isa = PBXGroup;
 			children = (
+				35A00C271D475C69000AEC59 /* MovieAndBooks */,
 				358A7F671D37899E0052EF2E /* ActivitiesScrollViewController.h */,
 				358A7F681D37899E0052EF2E /* ActivitiesScrollViewController.m */,
 			);
@@ -550,6 +565,22 @@
 				358A7FE91D4059230052EF2E /* PushNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		35A00C271D475C69000AEC59 /* MovieAndBooks */ = {
+			isa = PBXGroup;
+			children = (
+				35E799811D4731F4007AEC51 /* MovieAndBooksView.h */,
+				35E799821D4731F4007AEC51 /* MovieAndBooksView.m */,
+				35A00C2A1D475CF0000AEC59 /* LightCell.h */,
+				35A00C2B1D475CF0000AEC59 /* LightCell.m */,
+				35A00C281D475C9D000AEC59 /* LightCell.xib */,
+				359C2FF31D475F4400D94F35 /* LightDataSource.h */,
+				359C2FF41D475F4400D94F35 /* LightDataSource.m */,
+				359C2FF61D475F6100D94F35 /* LightDelegate.h */,
+				359C2FF71D475F6100D94F35 /* LightDelegate.m */,
+			);
+			name = MovieAndBooks;
 			sourceTree = "<group>";
 		};
 		35FBE2BA1D2E55820003720C /* SBJSON */ = {
@@ -765,6 +796,7 @@
 				354EE1C31D2A28A600D17A3F /* Assets.xcassets in Resources */,
 				354EE1C11D2A28A600D17A3F /* Main.storyboard in Resources */,
 				35698E0C1D425928007175E9 /* wbTableView.xib in Resources */,
+				35A00C291D475C9D000AEC59 /* LightCell.xib in Resources */,
 				354EE2361D2B4FF500D17A3F /* WeiboSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -811,7 +843,9 @@
 				35FBE2CE1D2E55AB0003720C /* SBJson4StreamWriter.m in Sources */,
 				35698E271D445417007175E9 /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				354EE1EE1D2A2CC100D17A3F /* TabbarViewController.m in Sources */,
+				359C2FF81D475F6100D94F35 /* LightDelegate.m in Sources */,
 				35FBE2FB1D2FA3070003720C /* WeiboJSONParser.m in Sources */,
+				35A00C2C1D475CF0000AEC59 /* LightCell.m in Sources */,
 				35FBE2E41D2F727A0003720C /* AFURLSessionManager.m in Sources */,
 				35FBE2CD1D2E55AB0003720C /* SBJson4StreamTokeniser.m in Sources */,
 				35FBE2D01D2E55AB0003720C /* SBJson4Writer.m in Sources */,
@@ -833,6 +867,7 @@
 				35FBE2E01D2F727A0003720C /* AFNetworkReachabilityManager.m in Sources */,
 				35FBE2E31D2F727A0003720C /* AFURLResponseSerialization.m in Sources */,
 				35698E1A1D4453F6007175E9 /* NJKWebViewProgress.m in Sources */,
+				359C2FF51D475F4400D94F35 /* LightDataSource.m in Sources */,
 				354EE1BB1D2A28A600D17A3F /* AppDelegate.m in Sources */,
 				35698E241D445417007175E9 /* TOActivityChrome.m in Sources */,
 				35698E251D445417007175E9 /* TOActivitySafari.m in Sources */,
@@ -841,6 +876,7 @@
 				354EE1F11D2A2CEC00D17A3F /* MapViewController.m in Sources */,
 				354EE1B81D2A28A600D17A3F /* main.m in Sources */,
 				35698E0F1D42598E007175E9 /* wbTableView.m in Sources */,
+				35E799831D4731F4007AEC51 /* MovieAndBooksView.m in Sources */,
 				354EE1EB1D2A2C9500D17A3F /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

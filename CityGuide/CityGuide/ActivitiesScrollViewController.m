@@ -8,8 +8,10 @@
 
 #import "ActivitiesScrollViewController.h"
 #import "LFLUISegmentedControl.h"
-
+#import "MovieAndBooksView.h"
 #import "AFNetworking.h"
+#import "LightCell.h"
+
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
 #define self_Height CGRectGetHeight([UIScreen mainScreen].bounds)
@@ -121,21 +123,33 @@
 -(UIView* )NearbyView{
     UIView *viewExample = [[UIView alloc]initWithFrame:CGRectMake(self_Width *1, 0, self_Width,self_Height)];
     viewExample.backgroundColor = [UIColor whiteColor];
-    
+    UILabel *labelTest = [[UILabel alloc]initWithFrame:CGRectMake(3, 3, 100, 100)];
+    labelTest.text = @"fujin";
+    [viewExample addSubview:labelTest];
     return viewExample;
 }
 
 -(UIView* )RandomImagesView{
     UIView *viewExample = [[UIView alloc]initWithFrame:CGRectMake(self_Width *2, 0, self_Width,self_Height)];
     viewExample.backgroundColor = [UIColor whiteColor];
-    
+    [self setupDBTableView];
+    NSMutableArray *items = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 10; i++) {
+        NSDictionary *item = @{@"title": @"haha",@"detail":[NSString stringWithFormat:@"item%d",i]};
+        [items addObject:item];
+    }
+    self.dataSource.items = items;
+    [self.dbTableView reloadData];
+    [viewExample addSubview:self.dbTableView];
     return viewExample;
 }
 
 -(UIView* )WheatherView{
     UIView *viewExample = [[UIView alloc]initWithFrame:CGRectMake(self_Width *3, 0, self_Width,self_Height)];
     viewExample.backgroundColor = [UIColor whiteColor];
-    
+    UILabel *labelTest = [[UILabel alloc]initWithFrame:CGRectMake(3, 3, 100, 100)];
+    labelTest.text = @"tianqiqingkuang";
+    [viewExample addSubview:labelTest];
     return viewExample;
 }
 
@@ -157,6 +171,29 @@
                                    completionBlock(NO,nil);
                                }
                            }];
+}
+-(void)setupDBTableView{
+
+    self.dbTableView.dataSource = [[LightDataSource alloc] initWitCellIdentifier:@"LightCell" cellNibName:@"LightCell" configureCellBlock:^(id cell, id item) {
+        [(LightCell*)cell configureCellData:item];
+    }];
+    ;
+    self.dbTableView.delegate = [[LightDelegate alloc]init];
+    
+    [self.delegate didSelectRowAtIndexPath:^(id cell, NSIndexPath *indexPath) {
+        NSLog(@"%@", [NSString stringWithFormat:@"didSelectRowAtIndexPath %zd",indexPath.row]);
+    }];
+    [self.delegate didDeselectRowAtIndexPath:^(id cell, NSIndexPath *indexPath) {
+        NSLog(@"%@", [NSString stringWithFormat:@"didDeselectRowAtIndexPath %zd",indexPath.row]);
+    }];
+    [self.delegate willDisplayCell:^(id cell, NSIndexPath *indexPath) {
+        NSLog(@"%@", [NSString stringWithFormat:@"willDisplayCell %zd",indexPath.row]);
+    }];
+    [self.delegate heightForRowAtIndexPath:^CGFloat(NSIndexPath *indexPath) {
+        return 100;
+    }];
+    
+    
 }
 
 #pragma mark --- UIScrollView代理方法
@@ -192,14 +229,17 @@ static NSInteger pageNumber = 0;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableSampleIdentifier];
         //texts
         UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(3, 70, self_Width-10, self_Height/2.5)];
+        UILabel *screenName = [[UILabel alloc]initWithFrame:CGRectMake(65, 3, self_Width-50, 30)];
         [contentLabel setNumberOfLines:0];
         contentLabel.lineBreakMode = NSLineBreakByCharWrapping;
         [cell.contentView.superview setClipsToBounds:NO];
         [contentLabel setText:[[self.listData objectAtIndex:row] objectAtIndex:1]];
+        [screenName setText:[[self.listData objectAtIndex:row]objectAtIndex:3]];
         CGSize size = [contentLabel sizeThatFits:CGSizeMake(contentLabel.frame.size.width,MAXFLOAT)];
         contentLabel.frame = CGRectMake(3, 70, self_Width-10, size.height);
         contentLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-        
+        screenName.font = [UIFont boldSystemFontOfSize:10.0f];
+        [cell addSubview:screenName];
         [cell addSubview:contentLabel];
         //images
         NSString *url = [[self.listData objectAtIndex:row] objectAtIndex:2];
