@@ -10,8 +10,6 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#import "LightDataSource.h"
-#import "LightDelegate.h"
 #import "wbTableView.h"
 
 @interface ActivitiesScrollViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
@@ -23,8 +21,6 @@
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UITableViewCell *tableViewCell;
 @property (nonatomic,strong) UITableView *dbTableView;
-@property (nonatomic,strong) LightDelegate *delegate;
-@property (nonatomic,strong) LightDataSource *dataSource;
-
+@property (nonatomic,strong) UITableViewCell *dbTableViewCell;
 @property (strong,nonatomic) NSArray * listData;
 @end

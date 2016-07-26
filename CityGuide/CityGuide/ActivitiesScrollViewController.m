@@ -101,25 +101,6 @@
     return viewExample;
 }
 
--(NSMutableArray *) parseJsonData: (NSArray *) json
-{
-    NSMutableArray *resultArray = [[NSMutableArray alloc]init];
-    for (int i=0;i< [json count];i++)
-    {
-        NSDictionary *subject = [json objectAtIndex:i];
-        NSString *created_at = [subject objectForKey:@"created_at"];
-        NSString *text = [subject objectForKey:@"text"];
-        NSDictionary *test3 = [subject objectForKey:@"user"];
-        
-        NSString *avatar_hd = [test3 objectForKey:@"avatar_large"];
-        NSString *screen_name = [test3 objectForKey:@"screen_name"];
-        
-        NSArray *array = [[NSArray alloc]initWithObjects:created_at,text,avatar_hd,screen_name, nil];
-        [resultArray addObject:array];
-    }
-    return resultArray;
-}
-
 -(UIView* )NearbyView{
     UIView *viewExample = [[UIView alloc]initWithFrame:CGRectMake(self_Width *1, 0, self_Width,self_Height)];
     viewExample.backgroundColor = [UIColor whiteColor];
@@ -132,17 +113,13 @@
 -(UIView* )RandomImagesView{
     UIView *viewExample = [[UIView alloc]initWithFrame:CGRectMake(self_Width *2, 0, self_Width,self_Height)];
     viewExample.backgroundColor = [UIColor whiteColor];
-    [self setupDBTableView];
-    NSMutableArray *items = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 10; i++) {
-        NSDictionary *item = @{@"title": @"haha",@"detail":[NSString stringWithFormat:@"item%d",i]};
-        [items addObject:item];
-    }
-    self.dataSource.items = items;
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(self_Width *0, 0, self_Width, self_Height)];
+    self.dbTableView.delegate=self;
+    self.dbTableView.dataSource=self;
     [self.dbTableView reloadData];
     [viewExample addSubview:self.dbTableView];
     return viewExample;
-}
+}】
 
 -(UIView* )WheatherView{
     UIView *viewExample = [[UIView alloc]initWithFrame:CGRectMake(self_Width *3, 0, self_Width,self_Height)];
@@ -172,28 +149,24 @@
                                }
                            }];
 }
--(void)setupDBTableView{
 
-    self.dbTableView.dataSource = [[LightDataSource alloc] initWitCellIdentifier:@"LightCell" cellNibName:@"LightCell" configureCellBlock:^(id cell, id item) {
-        [(LightCell*)cell configureCellData:item];
-    }];
-    ;
-    self.dbTableView.delegate = [[LightDelegate alloc]init];
-    
-    [self.delegate didSelectRowAtIndexPath:^(id cell, NSIndexPath *indexPath) {
-        NSLog(@"%@", [NSString stringWithFormat:@"didSelectRowAtIndexPath %zd",indexPath.row]);
-    }];
-    [self.delegate didDeselectRowAtIndexPath:^(id cell, NSIndexPath *indexPath) {
-        NSLog(@"%@", [NSString stringWithFormat:@"didDeselectRowAtIndexPath %zd",indexPath.row]);
-    }];
-    [self.delegate willDisplayCell:^(id cell, NSIndexPath *indexPath) {
-        NSLog(@"%@", [NSString stringWithFormat:@"willDisplayCell %zd",indexPath.row]);
-    }];
-    [self.delegate heightForRowAtIndexPath:^CGFloat(NSIndexPath *indexPath) {
-        return 100;
-    }];
-    
-    
+-(NSMutableArray *) parseJsonData: (NSArray *) json
+{
+    NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+    for (int i=0;i< [json count];i++)
+    {
+        NSDictionary *subject = [json objectAtIndex:i];
+        NSString *created_at = [subject objectForKey:@"created_at"];
+        NSString *text = [subject objectForKey:@"text"];
+        NSDictionary *test3 = [subject objectForKey:@"user"];
+        
+        NSString *avatar_hd = [test3 objectForKey:@"avatar_large"];
+        NSString *screen_name = [test3 objectForKey:@"screen_name"];
+        
+        NSArray *array = [[NSArray alloc]initWithObjects:created_at,text,avatar_hd,screen_name, nil];
+        [resultArray addObject:array];
+    }
+    return resultArray;
 }
 
 #pragma mark --- UIScrollView代理方法
