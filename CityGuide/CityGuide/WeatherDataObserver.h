@@ -10,4 +10,6 @@
 
 @interface WeatherDataObserver : NSObject
 
+-(NSMutableArray *)parseWeatherData:(NSData*)respond;
+
 @end

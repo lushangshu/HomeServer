@@ -129,9 +129,9 @@
     viewExample.backgroundColor = [UIColor whiteColor];
     UILabel *labelTest = [[UILabel alloc]initWithFrame:CGRectMake(3, 3, 100, 100)];
     labelTest.text = @"tianqiqingkuang";
-
+    WeatherDataObserver *wea = [[WeatherDataObserver alloc]init];
     NSString *httpUrl = @"http://apis.baidu.com/heweather/weather/free";
-    NSString *httpArg = @"city=beijing";
+    NSString *httpArg = @"city=kunming";
     NSString *urlStr = [[NSString alloc]initWithFormat: @"%@?%@", httpUrl, httpArg];
     NSURL *url = [NSURL URLWithString: urlStr];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 10];
@@ -145,6 +145,7 @@
                                } else {
                                    NSInteger responseCode = [(NSHTTPURLResponse *)response statusCode];
                                    NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                   NSMutableArray *array = [wea parseWeatherData:data];
                                    labelTest.text = responseString;
                                    //NSLog(@"HttpResponseCode:%ld", responseCode);
                                    //NSLog(@"HttpResponseBody %@",responseString);
@@ -267,7 +268,6 @@ static NSInteger pageNumber = 0;
                 
             }
         }
-        
         return cell;
     }
     else{
