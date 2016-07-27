@@ -20,7 +20,10 @@
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UITableViewCell *tableViewCell;
+
 @property (nonatomic,strong) UITableView *dbTableView;
 @property (nonatomic,strong) UITableViewCell *dbTableViewCell;
+
 @property (strong,nonatomic) NSArray * listData;
+@property (strong,nonatomic) NSArray * dbListData;
 @end

@@ -12,6 +12,7 @@
 #import "AFNetworking.h"
 #import "LightCell.h"
 #import "FetchWeatherInfo.h"
+#import "WeatherDataObserver.h"
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
 #define self_Height CGRectGetHeight([UIScreen mainScreen].bounds)
@@ -44,6 +45,8 @@
     self.LFLuisement = LFLuisement;
     [self.view addSubview:LFLuisement];
     
+    self.dbListData = [NSArray arrayWithObjects:@"1",@"2",@"3db", nil];
+    
     [self createMainScrollView];
 }
 - (void)createMainScrollView {
@@ -72,7 +75,7 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     NSString *wbtoken = [user objectForKey:@"wbToken"];
-    NSLog(@"dao le zhe li access token is %@",wbtoken);
+    //NSLog(@"dao le zhe li access token is %@",wbtoken);
     [params setObject: wbtoken forKey:@"access_token"];
     [params setObject:@"50" forKey:@"count"];
     [manager GET:@"https://api.weibo.com/2/statuses/public_timeline.json?"
@@ -84,7 +87,7 @@
              NSArray *dic = [responseObject objectForKey:@"statuses"];
              NSMutableArray *result = [[NSMutableArray alloc]init];
              result = [self parseJsonData:dic];
-             NSLog(@"%@",result);
+             //NSLog(@"%@",result);
              self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(self_Width *0, 0, self_Width, self_Height)];
              self.tableView.delegate=self;
              self.tableView.dataSource=self;
@@ -113,7 +116,7 @@
 -(UIView* )RandomImagesView{
     UIView *viewExample = [[UIView alloc]initWithFrame:CGRectMake(self_Width *2, 0, self_Width,self_Height)];
     viewExample.backgroundColor = [UIColor whiteColor];
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(self_Width *0, 0, self_Width, self_Height)];
+    self.dbTableView = [[UITableView alloc]initWithFrame:CGRectMake(self_Width *0, 0, self_Width, self_Height)];
     self.dbTableView.delegate=self;
     self.dbTableView.dataSource=self;
     [self.dbTableView reloadData];
@@ -126,15 +129,10 @@
     viewExample.backgroundColor = [UIColor whiteColor];
     UILabel *labelTest = [[UILabel alloc]initWithFrame:CGRectMake(3, 3, 100, 100)];
     labelTest.text = @"tianqiqingkuang";
+
     NSString *httpUrl = @"http://apis.baidu.com/heweather/weather/free";
     NSString *httpArg = @"city=beijing";
-    [self request: httpUrl withHttpArg: httpArg];
-    [viewExample addSubview:labelTest];
-    return viewExample;
-}
-
--(void)request: (NSString*)httpUrl withHttpArg: (NSString*)HttpArg  {
-    NSString *urlStr = [[NSString alloc]initWithFormat: @"%@?%@", httpUrl, HttpArg];
+    NSString *urlStr = [[NSString alloc]initWithFormat: @"%@?%@", httpUrl, httpArg];
     NSURL *url = [NSURL URLWithString: urlStr];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 10];
     [request setHTTPMethod: @"GET"];
@@ -147,12 +145,14 @@
                                } else {
                                    NSInteger responseCode = [(NSHTTPURLResponse *)response statusCode];
                                    NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                   NSLog(@"HttpResponseCode:%ld", responseCode);
-                                   NSLog(@"HttpResponseBody %@",responseString);
+                                   labelTest.text = responseString;
+                                   //NSLog(@"HttpResponseCode:%ld", responseCode);
+                                   //NSLog(@"HttpResponseBody %@",responseString);
                                }
                            }];
+    [viewExample addSubview:labelTest];
+    return viewExample;
 }
-
 
 
 - (void)didReceiveMemoryWarning {
@@ -214,54 +214,83 @@ static NSInteger pageNumber = 0;
 #pragma mark - tableview delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.listData count];
+    if(tableView == self.tableView){
+        return [self.listData count];
+    }
+    else{
+        return [self.dbListData count];
+    }
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
-    NSUInteger row = [indexPath row];
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableSampleIdentifier];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableSampleIdentifier];
-        //texts
-        UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(3, 70, self_Width-10, self_Height/2.5)];
-        UILabel *screenName = [[UILabel alloc]initWithFrame:CGRectMake(65, 3, self_Width-50, 30)];
-        [contentLabel setNumberOfLines:0];
-        contentLabel.lineBreakMode = NSLineBreakByCharWrapping;
-        [cell.contentView.superview setClipsToBounds:NO];
-        [contentLabel setText:[[self.listData objectAtIndex:row] objectAtIndex:1]];
-        [screenName setText:[[self.listData objectAtIndex:row]objectAtIndex:3]];
-        CGSize size = [contentLabel sizeThatFits:CGSizeMake(contentLabel.frame.size.width,MAXFLOAT)];
-        contentLabel.frame = CGRectMake(3, 70, self_Width-10, size.height);
-        contentLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-        screenName.font = [UIFont boldSystemFontOfSize:10.0f];
-        [cell addSubview:screenName];
-        [cell addSubview:contentLabel];
-        //images
-        NSString *url = [[self.listData objectAtIndex:row] objectAtIndex:2];
-        NSURL *avatarUrl = [NSURL URLWithString:url];
-        [self downloadImageWithURL:avatarUrl completionBlock:^(BOOL succeeded, UIImage *image) {
-            if (succeeded) {
-                UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(3, 3, 60, 60)];
-                imageView.image = image;
-                imageView.layer.cornerRadius = imageView.frame.size.width/2.0;
-                imageView.layer.masksToBounds = YES;
-                
-                [cell addSubview:imageView];
-            }
-        }];
-
-        }
-    else {
-        while ([cell.contentView.subviews lastObject ]!=nil) {
-            [(UIView*)[cell.contentView.subviews lastObject]removeFromSuperview];
+    if(tableView == self.tableView){
+        static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
+        NSUInteger row = [indexPath row];
+        //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableSampleIdentifier];
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableSampleIdentifier];
+            //texts
+            UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(3, 70, self_Width-10, self_Height/2.5)];
+            UILabel *screenName = [[UILabel alloc]initWithFrame:CGRectMake(65, 3, self_Width-50, 30)];
+            [contentLabel setNumberOfLines:0];
+            contentLabel.lineBreakMode = NSLineBreakByCharWrapping;
+            [cell.contentView.superview setClipsToBounds:NO];
+            [contentLabel setText:[[self.listData objectAtIndex:row] objectAtIndex:1]];
+            [screenName setText:[[self.listData objectAtIndex:row]objectAtIndex:3]];
+            CGSize size = [contentLabel sizeThatFits:CGSizeMake(contentLabel.frame.size.width,MAXFLOAT)];
+            contentLabel.frame = CGRectMake(3, 70, self_Width-10, size.height);
+            contentLabel.font = [UIFont boldSystemFontOfSize:12.0f];
+            screenName.font = [UIFont boldSystemFontOfSize:10.0f];
+            [cell addSubview:screenName];
+            [cell addSubview:contentLabel];
+            //images
+            NSString *url = [[self.listData objectAtIndex:row] objectAtIndex:2];
+            NSURL *avatarUrl = [NSURL URLWithString:url];
+            [self downloadImageWithURL:avatarUrl completionBlock:^(BOOL succeeded, UIImage *image) {
+                if (succeeded) {
+                    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(3, 3, 60, 60)];
+                    imageView.image = image;
+                    imageView.layer.cornerRadius = imageView.frame.size.width/2.0;
+                    imageView.layer.masksToBounds = YES;
+                    
+                    [cell addSubview:imageView];
+                }
+            }];
             
         }
+        else {
+            while ([cell.contentView.subviews lastObject ]!=nil) {
+                [(UIView*)[cell.contentView.subviews lastObject]removeFromSuperview];
+                
+            }
+        }
+        
+        return cell;
     }
-    
-    return cell;  
+    else{
+        static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
+        NSUInteger row = [indexPath row];
+        //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableSampleIdentifier];
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableSampleIdentifier];
+            UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(3, 70, self_Width-10, self_Height/2.5)];
+            contentLabel.text = [self.dbListData objectAtIndex:row];
+            [cell addSubview:contentLabel];
+        }
+        else {
+            while ([cell.contentView.subviews lastObject ]!=nil) {
+                [(UIView*)[cell.contentView.subviews lastObject]removeFromSuperview];
+                
+            }
+        }
+        
+        return cell;
+        
+    }
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

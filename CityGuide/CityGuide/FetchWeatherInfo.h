@@ -10,6 +10,7 @@
 
 @interface FetchWeatherInfo : NSObject
 
--(void)FetchWeatherInfo;
+-(void)FetchWeatherInfomation;
+@property (nonatomic,copy) NSString* testData;
 
 @end
