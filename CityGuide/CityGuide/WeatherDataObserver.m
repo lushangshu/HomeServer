@@ -46,7 +46,13 @@
         [array addObject:temp];
     }
     
+    NSDictionary *suggestion = [dic objectForKey:@"suggestion"];
+    NSDictionary *comf = [suggestion objectForKey:@"comf"];
+    NSString *comf_brf = [comf objectForKey:@"brf"];
+    NSString *comf_txt = [comf objectForKey:@"txt"];
     
+    NSArray *Comf = [[NSArray alloc]initWithObjects:comf_brf,comf_txt, nil];
+    [array addObject:Comf];
     
     NSLog(@"%@",array);
     return array;

@@ -13,6 +13,7 @@
 #import "LightCell.h"
 #import "FetchWeatherInfo.h"
 #import "WeatherDataObserver.h"
+#import "weatherView.h"
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
 #define self_Height CGRectGetHeight([UIScreen mainScreen].bounds)
@@ -151,7 +152,9 @@
                                    //NSLog(@"HttpResponseBody %@",responseString);
                                }
                            }];
-    [viewExample addSubview:labelTest];
+    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"weatherView" owner:self options:nil];
+    weatherView *weather  = [nibContents lastObject];
+    [viewExample addSubview:weather];
     return viewExample;
 }
 

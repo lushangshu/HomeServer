@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3505F2E81D45F92D00D84808 /* LoginTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3505F2E71D45F92D00D84808 /* LoginTableViewCell.m */; };
+		351B78181D49E80000508BEF /* weatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351B78171D49E80000508BEF /* weatherView.xib */; };
+		351B781B1D49E84400508BEF /* weatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351B781A1D49E84400508BEF /* weatherView.m */; };
 		353B09F31D372C21009CA7C0 /* UserDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 353B09F21D372C21009CA7C0 /* UserDetailVC.m */; };
 		354EE1B81D2A28A600D17A3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 354EE1B71D2A28A600D17A3F /* main.m */; };
 		354EE1BB1D2A28A600D17A3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 354EE1BA1D2A28A600D17A3F /* AppDelegate.m */; };
@@ -140,6 +142,9 @@
 /* Begin PBXFileReference section */
 		3505F2E61D45F92D00D84808 /* LoginTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewCell.h; sourceTree = "<group>"; };
 		3505F2E71D45F92D00D84808 /* LoginTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewCell.m; sourceTree = "<group>"; };
+		351B78171D49E80000508BEF /* weatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = weatherView.xib; path = ../weatherView.xib; sourceTree = "<group>"; };
+		351B78191D49E84400508BEF /* weatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weatherView.h; sourceTree = "<group>"; };
+		351B781A1D49E84400508BEF /* weatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weatherView.m; sourceTree = "<group>"; };
 		353B09F11D372C21009CA7C0 /* UserDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailVC.h; sourceTree = "<group>"; };
 		353B09F21D372C21009CA7C0 /* UserDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailVC.m; sourceTree = "<group>"; };
 		354EE1B31D2A28A600D17A3F /* CityGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -512,6 +517,9 @@
 				CC5ACE9B1D47A8D00003E06F /* FetchWeatherInfo.m */,
 				35E4F98E1D483ED3001B260C /* WeatherDataObserver.h */,
 				35E4F98F1D483ED3001B260C /* WeatherDataObserver.m */,
+				351B78171D49E80000508BEF /* weatherView.xib */,
+				351B78191D49E84400508BEF /* weatherView.h */,
+				351B781A1D49E84400508BEF /* weatherView.m */,
 			);
 			name = 4_Activities;
 			sourceTree = "<group>";
@@ -802,6 +810,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				351B78181D49E80000508BEF /* weatherView.xib in Resources */,
 				354EE1C61D2A28A600D17A3F /* LaunchScreen.storyboard in Resources */,
 				354EE1C31D2A28A600D17A3F /* Assets.xcassets in Resources */,
 				354EE1C11D2A28A600D17A3F /* Main.storyboard in Resources */,
@@ -866,6 +875,7 @@
 				35E4F9851D47ABAB001B260C /* TOActivitySafari.m in Sources */,
 				CC5ACE9C1D47A8D00003E06F /* FetchWeatherInfo.m in Sources */,
 				354EE2161D2B4E8300D17A3F /* NearbyViewController.m in Sources */,
+				351B781B1D49E84400508BEF /* weatherView.m in Sources */,
 				35698E0A1D421B9F007175E9 /* LFLUISegmentedControl.m in Sources */,
 				354EE1BE1D2A28A600D17A3F /* ViewController.m in Sources */,
 				35FBE2DF1D2F727A0003720C /* AFHTTPSessionManager.m in Sources */,
