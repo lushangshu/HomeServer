@@ -54,7 +54,7 @@
     NSArray *Comf = [[NSArray alloc]initWithObjects:comf_brf,comf_txt, nil];
     [array addObject:Comf];
     
-    NSLog(@"%@",array);
+    //NSLog(@"%@",array);
     return array;
     
 }

@@ -13,7 +13,6 @@
 #import "LightCell.h"
 #import "FetchWeatherInfo.h"
 #import "WeatherDataObserver.h"
-#import "weatherView.h"
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
 #define self_Height CGRectGetHeight([UIScreen mainScreen].bounds)
@@ -29,6 +28,9 @@
 @synthesize listData=_listData;
 @synthesize tableView = _tableView;
 @synthesize tableViewCell =_tableViewCell;
+@synthesize weatherData = _weatherData;
+@synthesize weaTableView = _weatherTableView;
+@synthesize weaTableViewCell = _weaTableViewCell;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,7 +48,7 @@
     self.LFLuisement = LFLuisement;
     [self.view addSubview:LFLuisement];
     
-    self.dbListData = [NSArray arrayWithObjects:@"1",@"2",@"3db", nil];
+    self.dbListData = [NSArray arrayWithObjects:@"1",@"2",@"3db",@"1",@"2",@"3db",@"1",@"2",@"3db", nil];
     
     [self createMainScrollView];
 }
@@ -57,6 +59,7 @@
     [self.view addSubview:self.mainScrollView];
     self.mainScrollView.bounces = NO;
     self.mainScrollView.pagingEnabled = YES;
+    self.mainScrollView.scrollEnabled = NO;
     self.mainScrollView.contentSize = CGSizeMake(self_Width * 4, (self_Height -begainScrollViewY));
     //设置代理
     self.mainScrollView.delegate = self;
@@ -65,6 +68,7 @@
     [self.mainScrollView addSubview:[self NearbyView]];
     [self.mainScrollView addSubview:[self RandomImagesView]];
     [self.mainScrollView addSubview:[self WheatherView]];
+    
 }
 
 -(UIView* )TopicsView{
@@ -109,7 +113,7 @@
     UIView *viewExample = [[UIView alloc]initWithFrame:CGRectMake(self_Width *1, 0, self_Width,self_Height)];
     viewExample.backgroundColor = [UIColor whiteColor];
     UILabel *labelTest = [[UILabel alloc]initWithFrame:CGRectMake(3, 3, 100, 100)];
-    labelTest.text = @"fujin";
+    labelTest.text = @"附近";
     [viewExample addSubview:labelTest];
     return viewExample;
 }
@@ -128,9 +132,14 @@
 -(UIView* )WheatherView{
     UIView *viewExample = [[UIView alloc]initWithFrame:CGRectMake(self_Width *3, 0, self_Width,self_Height)];
     viewExample.backgroundColor = [UIColor whiteColor];
-    UILabel *labelTest = [[UILabel alloc]initWithFrame:CGRectMake(3, 3, 100, 100)];
-    labelTest.text = @"tianqiqingkuang";
     WeatherDataObserver *wea = [[WeatherDataObserver alloc]init];
+    
+    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"weatherView" owner:self options:nil];
+    self.weatherView = [nibContents lastObject];
+   
+    self.weatherView.forcastTableview.delegate = self;
+    self.weatherView.forcastTableview.dataSource = self;
+    
     NSString *httpUrl = @"http://apis.baidu.com/heweather/weather/free";
     NSString *httpArg = @"city=kunming";
     NSString *urlStr = [[NSString alloc]initWithFormat: @"%@?%@", httpUrl, httpArg];
@@ -144,17 +153,23 @@
                                if (error) {
                                    NSLog(@"Httperror: %@%ld", error.localizedDescription, error.code);
                                } else {
-                                   NSInteger responseCode = [(NSHTTPURLResponse *)response statusCode];
-                                   NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                                   NSMutableArray *array = [wea parseWeatherData:data];
-                                   labelTest.text = responseString;
-                                   //NSLog(@"HttpResponseCode:%ld", responseCode);
+                                   self.weatherData = [wea parseWeatherData:data];
+                                   [self.weatherView.forcastTableview reloadData];
+                                   self.weatherView.cityName.text = [[self.weatherData objectAtIndex:0]objectAtIndex:0];
+                                   NSString *temp = [NSString stringWithFormat:@"今天的气温是："];
+                                   NSString *temp1 = [temp stringByAppendingString:[[self.weatherData objectAtIndex:1]objectAtIndex:1]];
+                                   NSString *temp2 = [temp1 stringByAppendingString:@" 到 "];
+                                   NSString *temp3 = [temp2 stringByAppendingString:[[self.weatherData objectAtIndex:1]objectAtIndex:2]];
+                                   self.weatherView.tempLabel.text = temp3;
+                                   self.weatherView.weatherInfo.text = [[self.weatherData objectAtIndex:8]objectAtIndex:1];
+                                   
+                                   NSLog(@"HttpResponseCode:%@", self.weatherData);
                                    //NSLog(@"HttpResponseBody %@",responseString);
                                }
                            }];
-    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"weatherView" owner:self options:nil];
-    weatherView *weather  = [nibContents lastObject];
-    [viewExample addSubview:weather];
+    
+    [viewExample addSubview:self.weatherView];
+    
     return viewExample;
 }
 
@@ -203,8 +218,8 @@
 static NSInteger pageNumber = 0;
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    pageNumber = (int)(scrollView.contentOffset.x / self_Width + 0.5);
-    [self.LFLuisement selectTheSegument:pageNumber];
+//    pageNumber = (int)(scrollView.contentOffset.x / self_Width + 0.5);
+//    [self.LFLuisement selectTheSegument:pageNumber];
 }
 
 #pragma mark ---LFLUISegmentedControlDelegate
@@ -221,8 +236,10 @@ static NSInteger pageNumber = 0;
     if(tableView == self.tableView){
         return [self.listData count];
     }
-    else{
+    else if(tableView == self.dbTableView){
         return [self.dbListData count];
+    }else{
+        return [self.weatherData count]-2;
     }
     
 }
@@ -238,7 +255,7 @@ static NSInteger pageNumber = 0;
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableSampleIdentifier];
             //texts
             UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(3, 70, self_Width-10, self_Height/2.5)];
-            UILabel *screenName = [[UILabel alloc]initWithFrame:CGRectMake(65, 3, self_Width-50, 30)];
+            UILabel *screenName = [[UILabel alloc]initWithFrame:CGRectMake(80, 3, self_Width-50, 30)];
             [contentLabel setNumberOfLines:0];
             contentLabel.lineBreakMode = NSLineBreakByCharWrapping;
             [cell.contentView.superview setClipsToBounds:NO];
@@ -273,7 +290,7 @@ static NSInteger pageNumber = 0;
         }
         return cell;
     }
-    else{
+    else if(tableView == self.dbTableView){
         static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
         NSUInteger row = [indexPath row];
         //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableSampleIdentifier];
@@ -294,11 +311,41 @@ static NSInteger pageNumber = 0;
         return cell;
         
     }
+    else{
+        static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
+        //NSString *cellIdentifier = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+        NSUInteger row = [indexPath row];
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableSampleIdentifier];
+            UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(3, 70, self_Width-10, self_Height/2.5)];
+            contentLabel.text = [[self.weatherData objectAtIndex:row+1]objectAtIndex:0];
+            [cell addSubview:contentLabel];
+        }
+        else {
+            while ([cell.contentView.subviews lastObject ]!=nil) {
+                [(UIView*)[cell.contentView.subviews lastObject]removeFromSuperview];
+                
+            }
+        }
+        
+        return cell;
+        
+    }
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self_Height/2.2;
+    if(tableView == self.dbTableView){
+        return self_Height/2.2;
+    }
+    else if(tableView ==self.tableView){
+        return self_Height/2.2;
+    }
+    else {
+        return self_Height/4;
+    }
+    
     
 }
 -(NSInteger) tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
