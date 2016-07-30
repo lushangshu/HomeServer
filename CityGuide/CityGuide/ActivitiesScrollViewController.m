@@ -153,6 +153,10 @@
                                if (error) {
                                    NSLog(@"Httperror: %@%ld", error.localizedDescription, error.code);
                                } else {
+                                   self.weatherView.forcastTableview.frame = CGRectMake(0,self_Height/8+self_Height/6 , self_Width,self_Height-150);
+                                   self.weatherView.cityName.frame = CGRectMake(3, 3, self_Width/2.5, self_Height/6);
+                                   self.weatherView.tempLabel.frame = CGRectMake(3, 3+self_Height/8, self_Width/2.5, self_Height/6);
+                                   self.weatherView.weatherInfo.frame = CGRectMake(10+self_Width/2.5, 3, self_Width/2, self_Height/6);
                                    self.weatherData = [wea parseWeatherData:data];
                                    [self.weatherView.forcastTableview reloadData];
                                    self.weatherView.cityName.text = [[self.weatherData objectAtIndex:0]objectAtIndex:0];
@@ -343,7 +347,7 @@ static NSInteger pageNumber = 0;
         return self_Height/2.2;
     }
     else {
-        return self_Height/4;
+        return self_Height/2.5;
     }
     
     
@@ -356,14 +360,22 @@ static NSInteger pageNumber = 0;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger row = [indexPath row];
-    NSString *rowValue = [[self.listData objectAtIndex:row] objectAtIndex:1];
-    NSString *message = [[NSString alloc]initWithFormat:@"You selected%@",rowValue];
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示"
-                                                   message:message
-                                                  delegate:self
-                                         cancelButtonTitle:@"OK"
-                                         otherButtonTitles: nil];
-    [alert show];
+    if(tableView == self.tableView){
+        NSInteger row = [indexPath row];
+        NSString *rowValue = [[self.listData objectAtIndex:row] objectAtIndex:1];
+        NSString *message = [[NSString alloc]initWithFormat:@"You selected%@",rowValue];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示"
+                                                       message:message
+                                                      delegate:self
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles: nil];
+        [alert show];
+    }
+    else if(tableView == self.dbTableView){
+        
+    }
+    else if(tableView == self.weatherView.forcastTableview){
+        
+    }
 }
 @end
