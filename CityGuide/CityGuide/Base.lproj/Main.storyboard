@@ -332,6 +332,33 @@
             </objects>
             <point key="canvasLocation" x="1752.8" y="-676.01199400299856"/>
         </scene>
+        <!--Wb User DetailVC-->
+        <scene sceneID="QRK-GQ-Gim">
+            <objects>
+                <viewController id="aZY-EV-XII" customClass="wbUserDetailVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jo4-dc-Jx1"/>
+                        <viewControllerLayoutGuide type="bottom" id="CbR-ad-pYf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rqA-lz-Dcv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wb User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGL-ep-Ds1">
+                                <frame key="frameInset" minX="39" minY="28" width="275" height="152"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QRo-Tw-yaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2495.1999999999998" y="-676.01199400299856"/>
+        </scene>
         <!--Tabbar View Controller-->
         <scene sceneID="nW5-L6-3yB">
             <objects>

@@ -57,6 +57,7 @@
 		359C2FF81D475F6100D94F35 /* LightDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C2FF71D475F6100D94F35 /* LightDelegate.m */; };
 		35A00C291D475C9D000AEC59 /* LightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A00C281D475C9D000AEC59 /* LightCell.xib */; };
 		35A00C2C1D475CF0000AEC59 /* LightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A00C2B1D475CF0000AEC59 /* LightCell.m */; };
+		35DCFE0A1D4C33B50033FFD5 /* wbUserDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DCFE091D4C33B50033FFD5 /* wbUserDetailVC.m */; };
 		35E4F9841D47ABAB001B260C /* TOActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4F97D1D47ABAB001B260C /* TOActivityChrome.m */; };
 		35E4F9851D47ABAB001B260C /* TOActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4F97F1D47ABAB001B260C /* TOActivitySafari.m */; };
 		35E4F9861D47ABAB001B260C /* TOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4F9811D47ABAB001B260C /* TOWebViewController.m */; };
@@ -231,6 +232,8 @@
 		35A00C281D475C9D000AEC59 /* LightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightCell.xib; sourceTree = "<group>"; };
 		35A00C2A1D475CF0000AEC59 /* LightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightCell.h; sourceTree = "<group>"; };
 		35A00C2B1D475CF0000AEC59 /* LightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightCell.m; sourceTree = "<group>"; };
+		35DCFE081D4C33B50033FFD5 /* wbUserDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wbUserDetailVC.h; sourceTree = "<group>"; };
+		35DCFE091D4C33B50033FFD5 /* wbUserDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wbUserDetailVC.m; sourceTree = "<group>"; };
 		35E4F97C1D47ABAB001B260C /* TOActivityChrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOActivityChrome.h; path = directory/TOActivityChrome.h; sourceTree = SOURCE_ROOT; };
 		35E4F97D1D47ABAB001B260C /* TOActivityChrome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TOActivityChrome.m; path = directory/TOActivityChrome.m; sourceTree = SOURCE_ROOT; };
 		35E4F97E1D47ABAB001B260C /* TOActivitySafari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOActivitySafari.h; path = directory/TOActivitySafari.h; sourceTree = SOURCE_ROOT; };
@@ -513,6 +516,8 @@
 				35A00C271D475C69000AEC59 /* MovieAndBooks */,
 				358A7F671D37899E0052EF2E /* ActivitiesScrollViewController.h */,
 				358A7F681D37899E0052EF2E /* ActivitiesScrollViewController.m */,
+				35DCFE081D4C33B50033FFD5 /* wbUserDetailVC.h */,
+				35DCFE091D4C33B50033FFD5 /* wbUserDetailVC.m */,
 				CC5ACE9A1D47A8D00003E06F /* FetchWeatherInfo.h */,
 				CC5ACE9B1D47A8D00003E06F /* FetchWeatherInfo.m */,
 				35E4F98E1D483ED3001B260C /* WeatherDataObserver.h */,
@@ -864,6 +869,7 @@
 				35FBE2CE1D2E55AB0003720C /* SBJson4StreamWriter.m in Sources */,
 				35E4F9901D483ED3001B260C /* WeatherDataObserver.m in Sources */,
 				354EE1EE1D2A2CC100D17A3F /* TabbarViewController.m in Sources */,
+				35DCFE0A1D4C33B50033FFD5 /* wbUserDetailVC.m in Sources */,
 				359C2FF81D475F6100D94F35 /* LightDelegate.m in Sources */,
 				35FBE2FB1D2FA3070003720C /* WeiboJSONParser.m in Sources */,
 				35A00C2C1D475CF0000AEC59 /* LightCell.m in Sources */,

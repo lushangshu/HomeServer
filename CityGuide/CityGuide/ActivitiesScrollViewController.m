@@ -13,6 +13,7 @@
 #import "LightCell.h"
 #import "FetchWeatherInfo.h"
 #import "WeatherDataObserver.h"
+#import "wbUserDetailVC.h"
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
 #define self_Height CGRectGetHeight([UIScreen mainScreen].bounds)
@@ -323,7 +324,14 @@ static NSInteger pageNumber = 0;
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableSampleIdentifier];
             UILabel *contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(3, 70, self_Width-10, self_Height/2.5)];
+            UILabel *maxtemp = [[UILabel alloc]initWithFrame:CGRectMake(70, 70, self_Width-10, self_Height/2.5)];
+            UILabel *mintemp = [[UILabel alloc]initWithFrame:CGRectMake(120, 70, self_Width-10, self_Height/2.5)];
+            
             contentLabel.text = [[self.weatherData objectAtIndex:row+1]objectAtIndex:0];
+            maxtemp.text = [[self.weatherData objectAtIndex:row+1]objectAtIndex:1];
+            mintemp.text = [[self.weatherData objectAtIndex:row+1]objectAtIndex:2];
+            [cell addSubview:maxtemp];
+            [cell addSubview:mintemp];
             [cell addSubview:contentLabel];
         }
         else {
@@ -375,6 +383,9 @@ static NSInteger pageNumber = 0;
         
     }
     else if(tableView == self.weatherView.forcastTableview){
+        NSLog(@"click cell");
+        wbUserDetailVC *webViewController = [[wbUserDetailVC alloc] init];
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
         
     }
 }

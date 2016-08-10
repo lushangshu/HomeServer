@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     self.mapView.showsUserLocation = YES;
     self.mapView.mapType = MKMapTypeStandard;
+    
     [self loadUserLocation];
     
 }
@@ -72,5 +73,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
 
 @end
