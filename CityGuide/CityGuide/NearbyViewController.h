@@ -21,6 +21,7 @@
 -(IBAction)pressButtonLogin;
 -(IBAction)showResult;
 
+@property (nonatomic,strong) IBOutlet UINavigationBar *navBar;
 @property (nonatomic,strong) NSArray *loginList;
 @property (nonatomic,strong) IBOutlet UILabel *label1;
 @property (nonatomic,strong) IBOutlet UILabel *label2;
