@@ -339,6 +339,10 @@ static NSInteger pageNumber = 0;
         NearbyActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:@"activityCellReuse" forIndexPath:indexPath];
         Activity *activity = _array[indexPath.row];
         cell.activity = activity;
+        
+//        cell.title.frame = CGRectMake(5, 5, self_Width, 20);
+        cell.imageView.center = CGPointMake(self_Width/2, self_Height/2);
+        cell.imageView.frame = CGRectMake(250, 50, 100, 150);
         return cell;
     }
     else{
@@ -412,8 +416,8 @@ static NSInteger pageNumber = 0;
     }
     else if(tableView == self.weatherView.forcastTableview){
         NSLog(@"click cell");
-        wbUserDetailVC *webViewController = [[wbUserDetailVC alloc] init];
-        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
+//        wbUserDetailVC *webViewController = [[wbUserDetailVC alloc] init];
+//        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
         
     }
 }

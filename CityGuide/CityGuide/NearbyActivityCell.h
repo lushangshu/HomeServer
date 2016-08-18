@@ -21,5 +21,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *takeinNum;
 @property (strong, nonatomic) IBOutlet UIView *conView;
 @property (strong, nonatomic) IBOutlet UIView *detailsView;
+@property (strong, nonatomic) IBOutlet UIImageView *image;
 
 @end

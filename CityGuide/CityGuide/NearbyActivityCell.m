@@ -7,6 +7,8 @@
 //
 
 #import "NearbyActivityCell.h"
+#import "ImageDownLoader.h"
+#import "UIImageView+WebCache.h"
 
 @implementation NearbyActivityCell
 
@@ -31,12 +33,12 @@
 
 - (void)setActivity:(Activity *)activity{
     //图片
-    NSURL *avatarUrl = [NSURL URLWithString:activity.image];
-    UIImage *himage = [UIImage imageWithData:[NSData dataWithContentsOfURL:avatarUrl]];
-    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.imageView.image = himage;
+//    NSURL *avatarUrl = [NSURL URLWithString:activity.image];
+//    UIImage *himage = [UIImage imageWithData:[NSData dataWithContentsOfURL:avatarUrl]];
+//    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+//    self.imageView.image = himage;
     
-    //[self.image sd_setImageWithURL:[NSURL URLWithString:activity.image] placeholderImage:[UIImage imageNamed:@"picholder"]];
+    [self.image sd_setImageWithURL:[NSURL URLWithString:activity.image] placeholderImage:[UIImage imageNamed:@"picholder"]];
     //标题
     self.title.text = activity.title;
     //日期
