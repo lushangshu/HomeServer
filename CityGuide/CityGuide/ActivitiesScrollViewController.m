@@ -14,14 +14,21 @@
 #import "FetchWeatherInfo.h"
 #import "WeatherDataObserver.h"
 #import "wbUserDetailVC.h"
+#import "NearbyActivityCell.h"
+#import "Activity.h"
+#import "HttpClientRequest.h"
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
 #define self_Height CGRectGetHeight([UIScreen mainScreen].bounds)
 
-@interface ActivitiesScrollViewController ()<LFLUISegmentedControlDelegate,UIScrollViewDelegate>
+@interface ActivitiesScrollViewController ()<LFLUISegmentedControlDelegate,UIScrollViewDelegate,HttpClientRequestDelegete>
 
 @property(nonatomic, strong)UIScrollView *mainScrollView; /**< 正文mainSV */
 @property (nonatomic ,strong)LFLUISegmentedControl * LFLuisement; /**< LFLuisement */
+
+//豆瓣活动
+@property (nonatomic,retain) NSMutableArray *array;
+
 
 @end
 
@@ -32,6 +39,7 @@
 @synthesize weatherData = _weatherData;
 @synthesize weaTableView = _weatherTableView;
 @synthesize weaTableViewCell = _weaTableViewCell;
+@synthesize activityTableView = _activityTableView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,6 +58,7 @@
     [self.view addSubview:LFLuisement];
     
     self.dbListData = [NSArray arrayWithObjects:@"1",@"2",@"3db",@"1",@"2",@"3db",@"1",@"2",@"3db", nil];
+    
     
     [self createMainScrollView];
 }
@@ -113,9 +122,16 @@
 -(UIView* )NearbyView{
     UIView *viewExample = [[UIView alloc]initWithFrame:CGRectMake(self_Width *1, 0, self_Width,self_Height)];
     viewExample.backgroundColor = [UIColor whiteColor];
-    UILabel *labelTest = [[UILabel alloc]initWithFrame:CGRectMake(3, 3, 100, 100)];
-    labelTest.text = @"附近";
-    [viewExample addSubview:labelTest];
+    //豆瓣活动的网络请求与初始化
+    _activityTableView = [[UITableView alloc]initWithFrame:CGRectMake(self_Width *0, 0, self_Width, self_Height)];
+    [_activityTableView registerNib:[UINib nibWithNibName:@"NearbyActivityCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"activityCellReuse"];
+    [HttpClientRequest getHttpClientRequest:@"http://project.lanou3g.com/teacher/yihuiyun/lanouproject/activitylist.php" andDelegate:self];
+    _activityTableView.delegate = self;
+    _activityTableView.dataSource = self;
+    
+//    UILabel *labelTest = [[UILabel alloc]initWithFrame:CGRectMake(3, 3, 100, 100)];
+//    labelTest.text = @"附近";
+    [viewExample addSubview:_activityTableView];
     return viewExample;
 }
 
@@ -243,7 +259,10 @@ static NSInteger pageNumber = 0;
     }
     else if(tableView == self.dbTableView){
         return [self.dbListData count];
-    }else{
+    }else if(tableView == _activityTableView){
+        return _array.count;
+    }
+    else{
         return [self.weatherData count]-2;
     }
     
@@ -316,6 +335,12 @@ static NSInteger pageNumber = 0;
         return cell;
         
     }
+    else if(tableView == self.activityTableView){
+        NearbyActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:@"activityCellReuse" forIndexPath:indexPath];
+        Activity *activity = _array[indexPath.row];
+        cell.activity = activity;
+        return cell;
+    }
     else{
         static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
         //NSString *cellIdentifier = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
@@ -354,6 +379,9 @@ static NSInteger pageNumber = 0;
     else if(tableView ==self.tableView){
         return self_Height/2.2;
     }
+    else if(tableView == self.activityTableView){
+        return kActivityCellHeight; 
+    }
     else {
         return self_Height/2.5;
     }
@@ -388,5 +416,27 @@ static NSInteger pageNumber = 0;
         [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
         
     }
+}
+#pragma mark - HttpClientRequestDelegete代理事件
+- (void)getHttpResponseData:(NSData *)data{
+    if (data == nil) {
+        return;
+    }
+    //解析数据字典
+    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    //获取数组
+    NSArray *array = dictionary[@"events"];
+    //初始化数组
+    self.array = [NSMutableArray array];
+    //循环赋值
+    for (NSDictionary *dic in array) {
+        Activity *activity = [Activity new];
+        //赋值
+        [activity setValuesForKeysWithDictionary:dic];
+        //添加到数组
+        [self.array addObject:activity];
+    }
+    //刷新数据
+    [self.activityTableView reloadData];
 }
 @end

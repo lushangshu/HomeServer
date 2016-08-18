@@ -24,6 +24,9 @@
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UITableViewCell *tableViewCell;
 
+@property (nonatomic,strong) UITableView *activityTableView;
+
+
 @property (nonatomic,strong) UITableView *dbTableView;
 @property (nonatomic,strong) UITableViewCell *dbTableViewCell;
 
