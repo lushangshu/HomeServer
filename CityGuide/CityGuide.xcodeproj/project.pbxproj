@@ -64,6 +64,7 @@
 		3587927E1D65B39F001D0F68 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3587926C1D65B39F001D0F68 /* UIImageView+HighlightedWebCache.m */; };
 		3587927F1D65B39F001D0F68 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3587926E1D65B39F001D0F68 /* UIImageView+WebCache.m */; };
 		358792801D65B39F001D0F68 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 358792701D65B39F001D0F68 /* UIView+WebCacheOperation.m */; };
+		358792831D65B75B001D0F68 /* WeiboDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358792821D65B75B001D0F68 /* WeiboDetailViewController.m */; };
 		358A7F691D37899E0052EF2E /* ActivitiesScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358A7F681D37899E0052EF2E /* ActivitiesScrollViewController.m */; };
 		358A7FDB1D4059230052EF2E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358A7FD91D4059230052EF2E /* Interface.storyboard */; };
 		358A7FDD1D4059230052EF2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 358A7FDC1D4059230052EF2E /* Assets.xcassets */; };
@@ -270,6 +271,8 @@
 		3587926E1D65B39F001D0F68 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		3587926F1D65B39F001D0F68 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		358792701D65B39F001D0F68 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		358792811D65B75B001D0F68 /* WeiboDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboDetailViewController.h; sourceTree = "<group>"; };
+		358792821D65B75B001D0F68 /* WeiboDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboDetailViewController.m; sourceTree = "<group>"; };
 		358A7F671D37899E0052EF2E /* ActivitiesScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitiesScrollViewController.h; sourceTree = "<group>"; };
 		358A7F681D37899E0052EF2E /* ActivitiesScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitiesScrollViewController.m; sourceTree = "<group>"; };
 		358A7FD71D4059230052EF2E /* watchKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -586,6 +589,8 @@
 				35A00C271D475C69000AEC59 /* MovieAndBooks */,
 				358A7F671D37899E0052EF2E /* ActivitiesScrollViewController.h */,
 				358A7F681D37899E0052EF2E /* ActivitiesScrollViewController.m */,
+				358792811D65B75B001D0F68 /* WeiboDetailViewController.h */,
+				358792821D65B75B001D0F68 /* WeiboDetailViewController.m */,
 				3563D4E71D6560B700034DDD /* NearbyActivityCell.h */,
 				3563D4E81D6560B700034DDD /* NearbyActivityCell.m */,
 				3563D4E91D6560B700034DDD /* NearbyActivityCell.xib */,
@@ -1039,6 +1044,7 @@
 				35698E0F1D42598E007175E9 /* wbTableView.m in Sources */,
 				35E799831D4731F4007AEC51 /* MovieAndBooksView.m in Sources */,
 				354EE1EB1D2A2C9500D17A3F /* MainViewController.m in Sources */,
+				358792831D65B75B001D0F68 /* WeiboDetailViewController.m in Sources */,
 				358792731D65B39F001D0F68 /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

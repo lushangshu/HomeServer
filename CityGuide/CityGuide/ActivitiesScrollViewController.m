@@ -18,6 +18,8 @@
 #import "Activity.h"
 #import "HttpClientRequest.h"
 
+#import "WeiboDetailViewController.h"
+
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
 #define self_Height CGRectGetHeight([UIScreen mainScreen].bounds)
 
@@ -51,7 +53,7 @@
     LFLUISegmentedControl* LFLuisement=[[LFLUISegmentedControl alloc]initWithFrame:CGRectMake(0, 64, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds))];
     
     LFLuisement.delegate = self;
-    NSArray* LFLarray=[NSArray arrayWithObjects:@"今日话题",@"附近好玩",@"随便看看",@"天气咋样",nil];
+    NSArray* LFLarray=[NSArray arrayWithObjects:@"今日话题",@"随便看看",@"附近好玩",@"天气咋样",nil];
     [LFLuisement AddSegumentArray:LFLarray];
     [LFLuisement selectTheSegument:0];
     self.LFLuisement = LFLuisement;
@@ -80,7 +82,7 @@
     [self.mainScrollView addSubview:[self WheatherView]];
     
 }
-
+//通过微博的公共public weibo api 获取今日的热门数据
 -(UIView* )TopicsView{
     
     UIView *viewExample = [[UIView alloc]initWithFrame:CGRectMake(self_Width *0, 0, self_Width,self_Height)];
@@ -99,16 +101,19 @@
       }
          success:^(NSURLSessionTask *task,id responseObject){
              
+             //NSLog(@"%@",responseObject); //输出返回的结果json
+             
              NSArray *dic = [responseObject objectForKey:@"statuses"];
              NSMutableArray *result = [[NSMutableArray alloc]init];
              result = [self parseJsonData:dic];
              //NSLog(@"%@",result);
+             
              self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(self_Width *0, 0, self_Width, self_Height)];
              self.tableView.delegate=self;
              self.tableView.dataSource=self;
              //把tabView添加到视图之上
              [viewExample addSubview:self.tableView];
-             //    存放显示在单元格上的数据
+             
              self.listData = result;
              [self.tableView reloadData];
             
@@ -215,6 +220,7 @@
                            }];
 }
 
+//解析返回的json数据 微博中的
 -(NSMutableArray *) parseJsonData: (NSArray *) json
 {
     NSMutableArray *resultArray = [[NSMutableArray alloc]init];
@@ -223,6 +229,11 @@
         NSDictionary *subject = [json objectAtIndex:i];
         NSString *created_at = [subject objectForKey:@"created_at"];
         NSString *text = [subject objectForKey:@"text"];
+        NSString *pic_urls = [subject objectForKey:@"pic_urls"];
+        if(![pic_urls  isEqual: @"(\r)"]){
+            NSLog(@"%@",pic_urls);
+        }
+        
         NSDictionary *test3 = [subject objectForKey:@"user"];
         
         NSString *avatar_hd = [test3 objectForKey:@"avatar_large"];
@@ -401,15 +412,22 @@ static NSInteger pageNumber = 0;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tableView == self.tableView){
-        NSInteger row = [indexPath row];
-        NSString *rowValue = [[self.listData objectAtIndex:row] objectAtIndex:1];
-        NSString *message = [[NSString alloc]initWithFormat:@"You selected%@",rowValue];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示"
-                                                       message:message
-                                                      delegate:self
-                                             cancelButtonTitle:@"OK"
-                                             otherButtonTitles: nil];
-        [alert show];
+//        NSInteger row = [indexPath row];
+//        NSString *rowValue = [[self.listData objectAtIndex:row] objectAtIndex:1];
+//        NSString *message = [[NSString alloc]initWithFormat:@"You selected%@",rowValue];
+//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示"
+//                                                       message:message
+//                                                      delegate:self
+//                                             cancelButtonTitle:@"OK"
+//                                             otherButtonTitles: nil];
+//        [alert show];
+        WeiboDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"weiboDetail"];
+        vc.label1.text = @"data passed here";
+        //vc.label2.text = [[self.listData objectAtIndex:indexPath.row] objectAtIndex:1];
+        [vc.label2 setText:@"nonon"];
+        vc.receive = @"wjha";
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }
     else if(tableView == self.dbTableView){
         
@@ -420,6 +438,10 @@ static NSInteger pageNumber = 0;
 //        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
         
     }
+}
+
+#pragma segue functions
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 }
 #pragma mark - HttpClientRequestDelegete代理事件
 - (void)getHttpResponseData:(NSData *)data{

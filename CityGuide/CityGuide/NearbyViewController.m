@@ -78,7 +78,7 @@
     
     [self RequestWeiboUserFileUsingAFNetworking];
     
-    NSLog(@" ****** id: %@ token: %@ freshtoken :  %@",myDelegate.wbCurrentUserID,myDelegate.wbtoken,myDelegate.wbRefreshToken);
+    //NSLog(@" ****** id: %@ token: %@ freshtoken :  %@",myDelegate.wbCurrentUserID,myDelegate.wbtoken,myDelegate.wbRefreshToken);
     
 }
 
@@ -122,7 +122,7 @@
     
     [manager GET:@"https://api.weibo.com/2/users/show.json?"
       parameters:params progress:^(NSProgress * Nonnull){
-          NSLog(@"it is downloading ");
+          //NSLog(@"it is downloading ");
       }
          success:^(NSURLSessionTask *task,id responseObject){
              
@@ -148,7 +148,7 @@
              [self.indicator setHidden:YES];
              
          }failure:^(NSURLSessionTask *operation,NSError *error){
-             NSLog(@"&&&& %@",error);
+             //NSLog(@"&&&& %@",error);
              [self.indicator stopAnimating];
          }];
     
@@ -232,9 +232,9 @@
                     cell.detailTextLabel.text = @"点击查看详细信息";
                     cell.imageView.image = self.avatarView.image;
                     [cell.imageView setFrame:CGRectMake(10, 10, 100,100)];
-                    UILabel *followers = [[UILabel alloc]initWithFrame:CGRectMake(200, 1, 40,55)];
-                    [followers setText:@"12211"];
-                    [cell addSubview:followers];
+//                    UILabel *followers = [[UILabel alloc]initWithFrame:CGRectMake(200, 1, 40,55)];
+//                    [followers setText:@"12211"];
+//                    [cell addSubview:followers];
                     //cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
                 }
                 else{
@@ -245,12 +245,12 @@
                 }
                 break;
             case 1:
-                cell.detailTextLabel.text = @"豆瓣未登录";
+                cell.detailTextLabel.text = @"开发中……";
                 cell.textLabel.text = [self.loginList objectAtIndex:indexPath.row];
                 cell.textLabel.textColor = [UIColor darkGrayColor];
                 break;
             case 2:
-                cell.detailTextLabel.text = @"高德未登录";
+                cell.detailTextLabel.text = @"开发中……";
                 cell.textLabel.text = [self.loginList objectAtIndex:indexPath.row];
                 cell.textLabel.textColor = [UIColor darkGrayColor];
                 break;
@@ -259,8 +259,8 @@
         }
     }
     else if(indexPath.section==2){
-        cell.detailTextLabel.text = @"基础信息1";
-        cell.textLabel.text = @"基础信息";
+        cell.detailTextLabel.text = @"点击进入设置界面";
+        cell.textLabel.text = @"设置";
         cell.imageView.image = nil;
         cell.textLabel.textColor = [UIColor grayColor];
     }
@@ -271,7 +271,7 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
+    return 160;
     
 }
 -(NSInteger) tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
