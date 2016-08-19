@@ -36,6 +36,7 @@
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kAppKey];
     
+    
     return YES;
 }
 

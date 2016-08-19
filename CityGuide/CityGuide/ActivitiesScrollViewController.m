@@ -67,6 +67,7 @@
 - (void)createMainScrollView {
     CGFloat begainScrollViewY = 37+ 64;
     self.mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, begainScrollViewY, self_Width,(self_Height -begainScrollViewY))];
+    self.mainScrollView.scrollsToTop = NO;
     self.mainScrollView.backgroundColor = [UIColor cyanColor];
     [self.view addSubview:self.mainScrollView];
     self.mainScrollView.bounces = NO;
@@ -111,6 +112,7 @@
              self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(self_Width *0, 0, self_Width, self_Height)];
              self.tableView.delegate=self;
              self.tableView.dataSource=self;
+             [self.tableView setScrollsToTop:YES];
              //把tabView添加到视图之上
              [viewExample addSubview:self.tableView];
              
@@ -229,17 +231,21 @@
         NSDictionary *subject = [json objectAtIndex:i];
         NSString *created_at = [subject objectForKey:@"created_at"];
         NSString *text = [subject objectForKey:@"text"];
-        NSString *pic_urls = [subject objectForKey:@"pic_urls"];
-        if(![pic_urls  isEqual: @"(\r)"]){
-            NSLog(@"%@",pic_urls);
+        NSArray *pic_urls = [subject objectForKey:@"pic_urls"];
+//        if(pic_urls.count!=0){
+//            NSLog(@"%@",pic_urls);
+//        }
+        NSMutableArray *thumbnail_urls = [[NSMutableArray alloc]init];
+        for(int i=0;i<pic_urls.count;i++){
+            NSString *url = [[pic_urls objectAtIndex:i]objectForKey:@"thumbnail_pic"];
+            [thumbnail_urls addObject:url];
         }
-        
         NSDictionary *test3 = [subject objectForKey:@"user"];
         
         NSString *avatar_hd = [test3 objectForKey:@"avatar_large"];
         NSString *screen_name = [test3 objectForKey:@"screen_name"];
         
-        NSArray *array = [[NSArray alloc]initWithObjects:created_at,text,avatar_hd,screen_name, nil];
+        NSArray *array = [[NSArray alloc]initWithObjects:created_at,text,avatar_hd,screen_name, thumbnail_urls,nil];
         [resultArray addObject:array];
     }
     return resultArray;
@@ -300,11 +306,33 @@ static NSInteger pageNumber = 0;
             contentLabel.frame = CGRectMake(3, 70, self_Width-10, size.height);
             contentLabel.font = [UIFont boldSystemFontOfSize:12.0f];
             screenName.font = [UIFont boldSystemFontOfSize:10.0f];
+            NSUInteger counts = [[[_listData objectAtIndex:indexPath.row] objectAtIndex:4] count];
+            NSMutableArray *pic_urls = [[_listData objectAtIndex:indexPath.row] objectAtIndex:4];
+            
+            NSLog(@"url is %@",pic_urls);
+//            if(pic_urls.count!=0){
+//                for(int i=0;i<counts;i++){
+//                    NSLog(@"pic urls is %@",[pic_urls objectAtIndex:i]);
+//                    [self downloadImageWithURL:[pic_urls objectAtIndex:i] completionBlock:^(BOOL succeeded, UIImage *image) {
+//                        if (succeeded) {
+//                            UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(3,  3*i, 60, 60)];
+//                            imageView.image = image;
+//                            //                        imageView.layer.cornerRadius = imageView.frame.size.width/2.0;
+//                            //                        imageView.layer.masksToBounds = YES;
+//                            
+//                            [cell addSubview:imageView];
+//                        }
+//                    }];
+//                    
+//                }
+//            }
+//            
             [cell addSubview:screenName];
             [cell addSubview:contentLabel];
             //images
             NSString *url = [[self.listData objectAtIndex:row] objectAtIndex:2];
             NSURL *avatarUrl = [NSURL URLWithString:url];
+            
             [self downloadImageWithURL:avatarUrl completionBlock:^(BOOL succeeded, UIImage *image) {
                 if (succeeded) {
                     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(3, 3, 60, 60)];
@@ -325,6 +353,7 @@ static NSInteger pageNumber = 0;
         }
         return cell;
     }
+    //附近好玩的cell
     else if(tableView == self.dbTableView){
         static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
         NSUInteger row = [indexPath row];
@@ -346,6 +375,7 @@ static NSInteger pageNumber = 0;
         return cell;
         
     }
+    //随便看看的cell
     else if(tableView == self.activityTableView){
         NearbyActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:@"activityCellReuse" forIndexPath:indexPath];
         Activity *activity = _array[indexPath.row];
@@ -356,6 +386,7 @@ static NSInteger pageNumber = 0;
         cell.imageView.frame = CGRectMake(250, 50, 100, 150);
         return cell;
     }
+    //天气的cell
     else{
         static NSString *TableSampleIdentifier = @"TableSampleIdentifier";
         //NSString *cellIdentifier = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
@@ -388,17 +419,22 @@ static NSInteger pageNumber = 0;
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(tableView == self.dbTableView){
+    if(tableView == self.dbTableView){//附近好玩的cell高度
         return self_Height/2.2;
     }
-    else if(tableView ==self.tableView){
-        return self_Height/2.2;
+    else if(tableView ==self.tableView){//今日话题的cell高度
+        //return self_Height/2.2;
+        if([[[_listData objectAtIndex:indexPath.row] objectAtIndex:4] count]!=0){
+            return self_Height/2;
+        }else{
+            return self_Height/4.7;
+        }
     }
-    else if(tableView == self.activityTableView){
+    else if(tableView == self.activityTableView){//随便看看的cell高度
         return kActivityCellHeight; 
     }
     else {
-        return self_Height/2.5;
+        return self_Height/2.5;//天气咋样的cell高度
     }
     
     
@@ -412,15 +448,7 @@ static NSInteger pageNumber = 0;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tableView == self.tableView){
-//        NSInteger row = [indexPath row];
-//        NSString *rowValue = [[self.listData objectAtIndex:row] objectAtIndex:1];
-//        NSString *message = [[NSString alloc]initWithFormat:@"You selected%@",rowValue];
-//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示"
-//                                                       message:message
-//                                                      delegate:self
-//                                             cancelButtonTitle:@"OK"
-//                                             otherButtonTitles: nil];
-//        [alert show];
+
         WeiboDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"weiboDetail"];
         vc.label1.text = @"data passed here";
         //vc.label2.text = [[self.listData objectAtIndex:indexPath.row] objectAtIndex:1];
@@ -434,8 +462,7 @@ static NSInteger pageNumber = 0;
     }
     else if(tableView == self.weatherView.forcastTableview){
         NSLog(@"click cell");
-//        wbUserDetailVC *webViewController = [[wbUserDetailVC alloc] init];
-//        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:nil];
+
         
     }
 }
