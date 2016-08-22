@@ -147,6 +147,7 @@
     return viewExample;
 }
 
+//附近好玩的界面
 -(UIView* )RandomImagesView{
     UIView *viewExample = [[UIView alloc]initWithFrame:CGRectMake(self_Width *2, 0, self_Width,self_Height)];
     viewExample.backgroundColor = [UIColor whiteColor];

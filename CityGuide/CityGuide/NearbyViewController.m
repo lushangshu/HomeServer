@@ -65,6 +65,8 @@
         
         [self showResult];
     }
+    
+    [_tableView setFrame:CGRectMake(2, 100, self_Width, self_Height-100)];
     [_tableView setSeparatorColor:[UIColor blueColor]];
     [_tableView reloadData];
 }
