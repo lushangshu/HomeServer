@@ -18,6 +18,8 @@
 #import "Activity.h"
 #import "HttpClientRequest.h"
 
+#import "VVeboTableView.h"
+
 #import "WeiboDetailViewController.h"
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
@@ -35,6 +37,9 @@
 @end
 
 @implementation ActivitiesScrollViewController
+{
+    VVeboTableView *vvTableView;
+}
 @synthesize listData=_listData;
 @synthesize tableView = _tableView;
 @synthesize tableViewCell =_tableViewCell;
@@ -149,7 +154,12 @@
     self.dbTableView.delegate=self;
     self.dbTableView.dataSource=self;
     [self.dbTableView reloadData];
-    [viewExample addSubview:self.dbTableView];
+    //[viewExample addSubview:self.dbTableView];
+    
+    vvTableView = [[VVeboTableView alloc] initWithFrame:CGRectMake(self_Width *0, 0, self_Width, self_Height) style:UITableViewStylePlain];
+    vvTableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+    vvTableView.scrollIndicatorInsets = vvTableView.contentInset;
+    [viewExample addSubview:vvTableView];
     return viewExample;
 }
 

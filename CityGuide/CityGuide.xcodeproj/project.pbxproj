@@ -79,6 +79,16 @@
 		359C51AF1D659BEF0063DDE6 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C51AE1D659BEF0063DDE6 /* Activity.m */; };
 		35A00C291D475C9D000AEC59 /* LightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A00C281D475C9D000AEC59 /* LightCell.xib */; };
 		35A00C2C1D475CF0000AEC59 /* LightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A00C2B1D475CF0000AEC59 /* LightCell.m */; };
+		35CAABE21D6AE746001A1219 /* corner_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CAABD21D6AE746001A1219 /* corner_circle@2x.png */; };
+		35CAABE31D6AE746001A1219 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35CAABD31D6AE746001A1219 /* data.plist */; };
+		35CAABE41D6AE746001A1219 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAABD51D6AE746001A1219 /* NSString+Additions.m */; };
+		35CAABE51D6AE746001A1219 /* t_comments@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CAABD61D6AE746001A1219 /* t_comments@2x.png */; };
+		35CAABE61D6AE746001A1219 /* t_repost@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CAABD71D6AE746001A1219 /* t_repost@2x.png */; };
+		35CAABE71D6AE746001A1219 /* UIScreen+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAABD91D6AE746001A1219 /* UIScreen+Additions.m */; };
+		35CAABE81D6AE746001A1219 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAABDB1D6AE746001A1219 /* UIView+Additions.m */; };
+		35CAABE91D6AE746001A1219 /* VVeboLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAABDD1D6AE746001A1219 /* VVeboLabel.m */; };
+		35CAABEA1D6AE746001A1219 /* VVeboTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAABDF1D6AE746001A1219 /* VVeboTableView.m */; };
+		35CAABEB1D6AE746001A1219 /* VVeboTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAABE11D6AE746001A1219 /* VVeboTableViewCell.m */; };
 		35DCFE0A1D4C33B50033FFD5 /* wbUserDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DCFE091D4C33B50033FFD5 /* wbUserDetailVC.m */; };
 		35E4F9841D47ABAB001B260C /* TOActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4F97D1D47ABAB001B260C /* TOActivityChrome.m */; };
 		35E4F9851D47ABAB001B260C /* TOActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4F97F1D47ABAB001B260C /* TOActivitySafari.m */; };
@@ -298,6 +308,22 @@
 		35A00C281D475C9D000AEC59 /* LightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightCell.xib; sourceTree = "<group>"; };
 		35A00C2A1D475CF0000AEC59 /* LightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightCell.h; sourceTree = "<group>"; };
 		35A00C2B1D475CF0000AEC59 /* LightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightCell.m; sourceTree = "<group>"; };
+		35CAABD21D6AE746001A1219 /* corner_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "corner_circle@2x.png"; path = "vvcells/corner_circle@2x.png"; sourceTree = "<group>"; };
+		35CAABD31D6AE746001A1219 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = data.plist; path = vvcells/data.plist; sourceTree = "<group>"; };
+		35CAABD41D6AE746001A1219 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Additions.h"; path = "vvcells/NSString+Additions.h"; sourceTree = "<group>"; };
+		35CAABD51D6AE746001A1219 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Additions.m"; path = "vvcells/NSString+Additions.m"; sourceTree = "<group>"; };
+		35CAABD61D6AE746001A1219 /* t_comments@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "t_comments@2x.png"; path = "vvcells/t_comments@2x.png"; sourceTree = "<group>"; };
+		35CAABD71D6AE746001A1219 /* t_repost@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "t_repost@2x.png"; path = "vvcells/t_repost@2x.png"; sourceTree = "<group>"; };
+		35CAABD81D6AE746001A1219 /* UIScreen+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScreen+Additions.h"; path = "vvcells/UIScreen+Additions.h"; sourceTree = "<group>"; };
+		35CAABD91D6AE746001A1219 /* UIScreen+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScreen+Additions.m"; path = "vvcells/UIScreen+Additions.m"; sourceTree = "<group>"; };
+		35CAABDA1D6AE746001A1219 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Additions.h"; path = "vvcells/UIView+Additions.h"; sourceTree = "<group>"; };
+		35CAABDB1D6AE746001A1219 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Additions.m"; path = "vvcells/UIView+Additions.m"; sourceTree = "<group>"; };
+		35CAABDC1D6AE746001A1219 /* VVeboLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VVeboLabel.h; path = vvcells/VVeboLabel.h; sourceTree = "<group>"; };
+		35CAABDD1D6AE746001A1219 /* VVeboLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VVeboLabel.m; path = vvcells/VVeboLabel.m; sourceTree = "<group>"; };
+		35CAABDE1D6AE746001A1219 /* VVeboTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VVeboTableView.h; path = vvcells/VVeboTableView.h; sourceTree = "<group>"; };
+		35CAABDF1D6AE746001A1219 /* VVeboTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VVeboTableView.m; path = vvcells/VVeboTableView.m; sourceTree = "<group>"; };
+		35CAABE01D6AE746001A1219 /* VVeboTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VVeboTableViewCell.h; path = vvcells/VVeboTableViewCell.h; sourceTree = "<group>"; };
+		35CAABE11D6AE746001A1219 /* VVeboTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VVeboTableViewCell.m; path = vvcells/VVeboTableViewCell.m; sourceTree = "<group>"; };
 		35DCFE081D4C33B50033FFD5 /* wbUserDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wbUserDetailVC.h; sourceTree = "<group>"; };
 		35DCFE091D4C33B50033FFD5 /* wbUserDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wbUserDetailVC.m; sourceTree = "<group>"; };
 		35E4F97C1D47ABAB001B260C /* TOActivityChrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TOActivityChrome.h; path = directory/TOActivityChrome.h; sourceTree = SOURCE_ROOT; };
@@ -426,6 +452,7 @@
 		354EE1B51D2A28A600D17A3F /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
+				35CAABD11D6AE71B001A1219 /* vvcells */,
 				3587924F1D65B38C001D0F68 /* SDWebImage */,
 				35698E151D4453A0007175E9 /* ToWebViewController */,
 				35698E141D445385007175E9 /* NJKWebViewProgress */,
@@ -724,6 +751,29 @@
 			name = MovieAndBooks;
 			sourceTree = "<group>";
 		};
+		35CAABD11D6AE71B001A1219 /* vvcells */ = {
+			isa = PBXGroup;
+			children = (
+				35CAABD21D6AE746001A1219 /* corner_circle@2x.png */,
+				35CAABD31D6AE746001A1219 /* data.plist */,
+				35CAABD41D6AE746001A1219 /* NSString+Additions.h */,
+				35CAABD51D6AE746001A1219 /* NSString+Additions.m */,
+				35CAABD61D6AE746001A1219 /* t_comments@2x.png */,
+				35CAABD71D6AE746001A1219 /* t_repost@2x.png */,
+				35CAABD81D6AE746001A1219 /* UIScreen+Additions.h */,
+				35CAABD91D6AE746001A1219 /* UIScreen+Additions.m */,
+				35CAABDA1D6AE746001A1219 /* UIView+Additions.h */,
+				35CAABDB1D6AE746001A1219 /* UIView+Additions.m */,
+				35CAABDC1D6AE746001A1219 /* VVeboLabel.h */,
+				35CAABDD1D6AE746001A1219 /* VVeboLabel.m */,
+				35CAABDE1D6AE746001A1219 /* VVeboTableView.h */,
+				35CAABDF1D6AE746001A1219 /* VVeboTableView.m */,
+				35CAABE01D6AE746001A1219 /* VVeboTableViewCell.h */,
+				35CAABE11D6AE746001A1219 /* VVeboTableViewCell.m */,
+			);
+			name = vvcells;
+			sourceTree = "<group>";
+		};
 		35FBE2BA1D2E55820003720C /* SBJSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -939,7 +989,11 @@
 				354EE1C11D2A28A600D17A3F /* Main.storyboard in Resources */,
 				35698E0C1D425928007175E9 /* wbTableView.xib in Resources */,
 				3563D4EB1D6560B800034DDD /* NearbyActivityCell.xib in Resources */,
+				35CAABE21D6AE746001A1219 /* corner_circle@2x.png in Resources */,
+				35CAABE51D6AE746001A1219 /* t_comments@2x.png in Resources */,
+				35CAABE61D6AE746001A1219 /* t_repost@2x.png in Resources */,
 				35A00C291D475C9D000AEC59 /* LightCell.xib in Resources */,
+				35CAABE31D6AE746001A1219 /* data.plist in Resources */,
 				354EE2361D2B4FF500D17A3F /* WeiboSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -991,19 +1045,23 @@
 				35FBE2CE1D2E55AB0003720C /* SBJson4StreamWriter.m in Sources */,
 				3587924E1D65B2EE001D0F68 /* ImageDownLoader.m in Sources */,
 				3587927D1D65B39F001D0F68 /* UIImage+WebP.m in Sources */,
+				35CAABE91D6AE746001A1219 /* VVeboLabel.m in Sources */,
 				35E4F9901D483ED3001B260C /* WeatherDataObserver.m in Sources */,
 				354EE1EE1D2A2CC100D17A3F /* TabbarViewController.m in Sources */,
 				35DCFE0A1D4C33B50033FFD5 /* wbUserDetailVC.m in Sources */,
 				359C2FF81D475F6100D94F35 /* LightDelegate.m in Sources */,
+				35CAABE81D6AE746001A1219 /* UIView+Additions.m in Sources */,
 				35FBE2FB1D2FA3070003720C /* WeiboJSONParser.m in Sources */,
 				3587927F1D65B39F001D0F68 /* UIImageView+WebCache.m in Sources */,
 				35A00C2C1D475CF0000AEC59 /* LightCell.m in Sources */,
 				358792781D65B39F001D0F68 /* SDWebImageManager.m in Sources */,
 				358792721D65B39F001D0F68 /* NSData+ImageContentType.m in Sources */,
 				3563D4EA1D6560B800034DDD /* NearbyActivityCell.m in Sources */,
+				35CAABE71D6AE746001A1219 /* UIScreen+Additions.m in Sources */,
 				35FBE2E41D2F727A0003720C /* AFURLSessionManager.m in Sources */,
 				35FBE2CD1D2E55AB0003720C /* SBJson4StreamTokeniser.m in Sources */,
 				35E4F98C1D47ABD4001B260C /* NJKWebViewProgress.m in Sources */,
+				35CAABEA1D6AE746001A1219 /* VVeboTableView.m in Sources */,
 				35FBE2D01D2E55AB0003720C /* SBJson4Writer.m in Sources */,
 				35698E131D43C9F1007175E9 /* SearchingWebViewController.m in Sources */,
 				358792711D65B39F001D0F68 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1015,6 +1073,7 @@
 				354EE1BE1D2A28A600D17A3F /* ViewController.m in Sources */,
 				35FBE2DF1D2F727A0003720C /* AFHTTPSessionManager.m in Sources */,
 				35FBE2CC1D2E55AB0003720C /* SBJson4StreamParserState.m in Sources */,
+				35CAABE41D6AE746001A1219 /* NSString+Additions.m in Sources */,
 				3505F2E81D45F92D00D84808 /* LoginTableViewCell.m in Sources */,
 				3587927A1D65B39F001D0F68 /* UIButton+WebCache.m in Sources */,
 				358792741D65B39F001D0F68 /* SDWebImageCompat.m in Sources */,
@@ -1033,6 +1092,7 @@
 				359C2FF51D475F4400D94F35 /* LightDataSource.m in Sources */,
 				358792771D65B39F001D0F68 /* SDWebImageDownloaderOperation.m in Sources */,
 				359C51AF1D659BEF0063DDE6 /* Activity.m in Sources */,
+				35CAABEB1D6AE746001A1219 /* VVeboTableViewCell.m in Sources */,
 				3587927C1D65B39F001D0F68 /* UIImage+MultiFormat.m in Sources */,
 				358792801D65B39F001D0F68 /* UIView+WebCacheOperation.m in Sources */,
 				35E4F98D1D47ABD4001B260C /* NJKWebViewProgressView.m in Sources */,
