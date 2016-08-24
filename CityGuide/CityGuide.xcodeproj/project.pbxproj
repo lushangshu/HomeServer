@@ -7,9 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350466F51D6D8F3C001F35F9 /* BaseMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350466F41D6D8F3C001F35F9 /* BaseMapViewController.m */; };
+		350466F61D6D9918001F35F9 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352F50A61D6D7BC100E2B6DB /* MAMapKit.framework */; };
 		3505F2E81D45F92D00D84808 /* LoginTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3505F2E71D45F92D00D84808 /* LoginTableViewCell.m */; };
 		351B78181D49E80000508BEF /* weatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351B78171D49E80000508BEF /* weatherView.xib */; };
 		351B781B1D49E84400508BEF /* weatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351B781A1D49E84400508BEF /* weatherView.m */; };
+		352F50A71D6D7BC200E2B6DB /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352F50A41D6D7BC100E2B6DB /* AMapFoundationKit.framework */; };
+		352F50A81D6D7BC200E2B6DB /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352F50A51D6D7BC100E2B6DB /* AMapSearchKit.framework */; };
+		352F50AB1D6D7C0500E2B6DB /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 352F50AA1D6D7C0500E2B6DB /* AMap.bundle */; };
+		352F50AD1D6D7C3700E2B6DB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352F50AC1D6D7C3700E2B6DB /* OpenGLES.framework */; };
+		352F50AF1D6D7C5000E2B6DB /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 352F50AE1D6D7C5000E2B6DB /* libstdc++.6.0.9.tbd */; };
+		352F50B11D6D7C5F00E2B6DB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 352F50B01D6D7C5F00E2B6DB /* libc++.tbd */; };
+		352F50B31D6D7C7000E2B6DB /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352F50B21D6D7C7000E2B6DB /* AdSupport.framework */; };
 		353B09F31D372C21009CA7C0 /* UserDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 353B09F21D372C21009CA7C0 /* UserDetailVC.m */; };
 		354EE1B81D2A28A600D17A3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 354EE1B71D2A28A600D17A3F /* main.m */; };
 		354EE1BB1D2A28A600D17A3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 354EE1BA1D2A28A600D17A3F /* AppDelegate.m */; };
@@ -173,11 +182,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		350466F31D6D8F3C001F35F9 /* BaseMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMapViewController.h; sourceTree = "<group>"; };
+		350466F41D6D8F3C001F35F9 /* BaseMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMapViewController.m; sourceTree = "<group>"; };
 		3505F2E61D45F92D00D84808 /* LoginTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewCell.h; sourceTree = "<group>"; };
 		3505F2E71D45F92D00D84808 /* LoginTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewCell.m; sourceTree = "<group>"; };
 		351B78171D49E80000508BEF /* weatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = weatherView.xib; path = ../weatherView.xib; sourceTree = "<group>"; };
 		351B78191D49E84400508BEF /* weatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = weatherView.h; sourceTree = "<group>"; };
 		351B781A1D49E84400508BEF /* weatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = weatherView.m; sourceTree = "<group>"; };
+		352F50A41D6D7BC100E2B6DB /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapFoundationKit.framework; path = Amapkit/AMapFoundationKit.framework; sourceTree = "<group>"; };
+		352F50A51D6D7BC100E2B6DB /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapSearchKit.framework; path = Amapkit/AMapSearchKit.framework; sourceTree = "<group>"; };
+		352F50A61D6D7BC100E2B6DB /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = Amapkit/MAMapKit.framework; sourceTree = "<group>"; };
+		352F50AA1D6D7C0500E2B6DB /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = Amapkit/MAMapKit.framework/AMap.bundle; sourceTree = "<group>"; };
+		352F50AC1D6D7C3700E2B6DB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		352F50AE1D6D7C5000E2B6DB /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		352F50B01D6D7C5F00E2B6DB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		352F50B21D6D7C7000E2B6DB /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		353B09F11D372C21009CA7C0 /* UserDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailVC.h; sourceTree = "<group>"; };
 		353B09F21D372C21009CA7C0 /* UserDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailVC.m; sourceTree = "<group>"; };
 		354EE1B31D2A28A600D17A3F /* CityGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -382,6 +401,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				350466F61D6D9918001F35F9 /* MAMapKit.framework in Frameworks */,
+				352F50B31D6D7C7000E2B6DB /* AdSupport.framework in Frameworks */,
+				354EE2031D2B3F8600D17A3F /* Security.framework in Frameworks */,
+				352F50B11D6D7C5F00E2B6DB /* libc++.tbd in Frameworks */,
+				352F50AF1D6D7C5000E2B6DB /* libstdc++.6.0.9.tbd in Frameworks */,
+				352F50AD1D6D7C3700E2B6DB /* OpenGLES.framework in Frameworks */,
+				354EE2091D2B3FA400D17A3F /* UIKit.framework in Frameworks */,
+				352F50A71D6D7BC200E2B6DB /* AMapFoundationKit.framework in Frameworks */,
+				352F50A81D6D7BC200E2B6DB /* AMapSearchKit.framework in Frameworks */,
 				35FBE2FD1D30C9D80003720C /* CoreLocation.framework in Frameworks */,
 				354EE2131D2B400F00D17A3F /* libWeiboSDK.a in Frameworks */,
 				354EE2111D2B3FE800D17A3F /* libz.tbd in Frameworks */,
@@ -389,10 +417,8 @@
 				354EE2351D2B4FF500D17A3F /* libWeiboSDK.a in Frameworks */,
 				354EE20D1D2B3FB900D17A3F /* CoreGraphics.framework in Frameworks */,
 				354EE20B1D2B3FAF00D17A3F /* Foundation.framework in Frameworks */,
-				354EE2091D2B3FA400D17A3F /* UIKit.framework in Frameworks */,
 				354EE2071D2B3F9B00D17A3F /* CoreText.framework in Frameworks */,
 				354EE2051D2B3F9200D17A3F /* CoreTelephony.framework in Frameworks */,
-				354EE2031D2B3F8600D17A3F /* Security.framework in Frameworks */,
 				354EE2011D2B3F7A00D17A3F /* SystemConfiguration.framework in Frameworks */,
 				354EE1FF1D2B3F6E00D17A3F /* ImageIO.framework in Frameworks */,
 				354EE1FD1D2B3F6600D17A3F /* QuartzCore.framework in Frameworks */,
@@ -427,6 +453,7 @@
 		354EE1AA1D2A28A600D17A3F = {
 			isa = PBXGroup;
 			children = (
+				352F50AA1D6D7C0500E2B6DB /* AMap.bundle */,
 				354EE1B51D2A28A600D17A3F /* CityGuide */,
 				354EE1CF1D2A28A600D17A3F /* CityGuideTests */,
 				354EE1DA1D2A28A600D17A3F /* CityGuideUITests */,
@@ -526,6 +553,13 @@
 		354EE1F21D2A2E8000D17A3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				352F50B21D6D7C7000E2B6DB /* AdSupport.framework */,
+				352F50B01D6D7C5F00E2B6DB /* libc++.tbd */,
+				352F50AE1D6D7C5000E2B6DB /* libstdc++.6.0.9.tbd */,
+				352F50AC1D6D7C3700E2B6DB /* OpenGLES.framework */,
+				352F50A41D6D7BC100E2B6DB /* AMapFoundationKit.framework */,
+				352F50A51D6D7BC100E2B6DB /* AMapSearchKit.framework */,
+				352F50A61D6D7BC100E2B6DB /* MAMapKit.framework */,
 				35FBE2FC1D30C9D80003720C /* CoreLocation.framework */,
 				354EE2121D2B400F00D17A3F /* libWeiboSDK.a */,
 				354EE2101D2B3FE800D17A3F /* libz.tbd */,
@@ -595,6 +629,8 @@
 			children = (
 				354EE1EF1D2A2CEC00D17A3F /* MapViewController.h */,
 				354EE1F01D2A2CEC00D17A3F /* MapViewController.m */,
+				350466F31D6D8F3C001F35F9 /* BaseMapViewController.h */,
+				350466F41D6D8F3C001F35F9 /* BaseMapViewController.m */,
 			);
 			name = 1_Map;
 			sourceTree = "<group>";
@@ -989,6 +1025,7 @@
 				354EE1C11D2A28A600D17A3F /* Main.storyboard in Resources */,
 				35698E0C1D425928007175E9 /* wbTableView.xib in Resources */,
 				3563D4EB1D6560B800034DDD /* NearbyActivityCell.xib in Resources */,
+				352F50AB1D6D7C0500E2B6DB /* AMap.bundle in Resources */,
 				35CAABE21D6AE746001A1219 /* corner_circle@2x.png in Resources */,
 				35CAABE51D6AE746001A1219 /* t_comments@2x.png in Resources */,
 				35CAABE61D6AE746001A1219 /* t_repost@2x.png in Resources */,
@@ -1106,6 +1143,7 @@
 				354EE1EB1D2A2C9500D17A3F /* MainViewController.m in Sources */,
 				358792831D65B75B001D0F68 /* WeiboDetailViewController.m in Sources */,
 				358792731D65B39F001D0F68 /* SDImageCache.m in Sources */,
+				350466F51D6D8F3C001F35F9 /* BaseMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1277,6 +1315,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Amapkit",
+				);
 				INFOPLIST_FILE = CityGuide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1285,6 +1327,7 @@
 					"$(PROJECT_DIR)/CityGuide/libWeiboSDK",
 					"$(PROJECT_DIR)/CityGuide",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lushangshu.CityGuide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1299,6 +1342,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Amapkit",
+				);
 				INFOPLIST_FILE = CityGuide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1307,6 +1354,7 @@
 					"$(PROJECT_DIR)/CityGuide/libWeiboSDK",
 					"$(PROJECT_DIR)/CityGuide",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lushangshu.CityGuide;
 				PRODUCT_NAME = "$(TARGET_NAME)";

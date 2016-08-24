@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "BaseMapViewController.h"
 
-@interface MapViewController : UIViewController <CLLocationManagerDelegate>
-{
-    CLLocationManager *objLocationManager;
-    double latitude_UserLocation, longitude_UserLocation;
-}
+@interface MapViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 
-@property(nonatomic,strong) IBOutlet MKMapView *mapView;
+
+@property (nonatomic,strong)  UITableView *MaptableView;
+@property (nonatomic, strong) MAMapView *mapView;
+@property (nonatomic, strong) AMapSearchAPI *search;
 
 @end

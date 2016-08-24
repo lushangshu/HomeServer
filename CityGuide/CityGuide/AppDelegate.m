@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "NearbyViewController.h"
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
 @interface AppDelegate ()
 
@@ -36,6 +37,7 @@
     [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kAppKey];
     
+    [AMapServices sharedServices].apiKey = @"43e431ea72ac0e505d884296a66074b0";
     
     return YES;
 }

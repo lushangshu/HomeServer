@@ -35,6 +35,7 @@
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>iosamap</string>
 		<string>sinaweibo</string>
 		<string>sinaweibohd</string>
 		<string>sinaweibosso</string>

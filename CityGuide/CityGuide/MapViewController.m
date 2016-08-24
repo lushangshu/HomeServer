@@ -8,19 +8,34 @@
 
 #import "MapViewController.h"
 
+#define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
+#define self_Height CGRectGetHeight([UIScreen mainScreen].bounds)
+
 @interface MapViewController ()
 
 @end
 
 @implementation MapViewController
 
+@synthesize mapView     = _mapView;
+@synthesize search      = _search;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.mapView.showsUserLocation = YES;
-    self.mapView.mapType = MKMapTypeStandard;
     
-    [self loadUserLocation];
+    self.MaptableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 20, self_Width, self_Height) style: UITableViewStylePlain];
+    
+    self.MaptableView.dataSource = self;
+    self.MaptableView.delegate = self;
+    
+    
+    self.MaptableView.backgroundColor = [UIColor grayColor];
+    
+    
+    [self.view addSubview:self.MaptableView];
+    [self initMapView];
+    
     
 }
 
@@ -29,52 +44,164 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) loadUserLocation
+- (void)initMapView
 {
-    objLocationManager = [[CLLocationManager alloc] init];
-    objLocationManager.delegate = self;
-    objLocationManager.distanceFilter = kCLDistanceFilterNone;
-    objLocationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-    if ([objLocationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [objLocationManager requestWhenInUseAuthorization];
+    self.mapView = [[MAMapView alloc] initWithFrame:self.view.frame];
+    
+    self.mapView.mapType = MAMapTypeStandard;
+    self.mapView.zoomLevel = 17.5;
+    self.mapView.cameraDegree = 55.f;
+    
+    self.mapView.showsUserLocation = YES;
+    self.mapView.userTrackingMode = MAUserTrackingModeFollow;
+    
+    self.mapView.scrollEnabled       = YES;
+    self.mapView.zoomEnabled         = YES;
+    self.mapView.rotateEnabled       = YES;
+    self.mapView.rotateCameraEnabled = YES;
+    
+    self.mapView.delegate = nil;
+    //self.mapView.clipsToBounds = NO;
+    [self.MaptableView reloadData];
+}
+
+
+#pragma mark - Table view data source
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 3;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    //return [self.loginList count];
+    if(section == 0){
+        return 1;
     }
-    [objLocationManager startUpdatingLocation];
+    else if(section == 1){
+        return 3;
+    }
+    else if(section ==2){
+        return 1;
+    }
+    else return 1;
 }
 
-- (void)locationManager:(CLLocationManager *)manager
-     didUpdateLocations:(NSArray *)locations __OSX_AVAILABLE_STARTING(__MAC_NA,__IPHONE_6_0)
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if(section==2){
+        return @"信息";
+        
+    }
+    else if(section ==1){
+        return @"附近POI";
+    }
+    else{
+        return @"";
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section:(NSInteger)section{
+    
+
+        return 3.0;
+    
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CLLocation *newLocation = [locations objectAtIndex:0];
-    latitude_UserLocation = newLocation.coordinate.latitude;
-    longitude_UserLocation = newLocation.coordinate.longitude;
-    [objLocationManager stopUpdatingLocation];
-    [self loadMapView];
+    
+    static NSString *TableSampleIdentifier = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TableSampleIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableSampleIdentifier];
+        
+    }
+    else {
+        while ([cell.contentView.subviews lastObject ]!=nil) {
+            [(UIView*)[cell.contentView.subviews lastObject]removeFromSuperview];
+        }
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    
+    if(indexPath.section ==0){
+        self.mapView.frame = CGRectMake(0, 0, self_Width, self_Height*0.75);
+        [cell addSubview:self.mapView];
+//        cell.detailTextLabel.text = @"基础信息1";
+//        cell.textLabel.text = @"基础信息";
+//        cell.textLabel.textColor = [UIColor grayColor];
+    }
+    else if(indexPath.section == 1){
+        
+        switch (indexPath.row) {
+            case 0:
+                cell.detailTextLabel.text = @"开发中……";
+                cell.textLabel.text = @"开发中……";
+                cell.textLabel.textColor = [UIColor darkGrayColor];
+                break;
+                break;
+            case 1:
+                cell.detailTextLabel.text = @"开发中……";
+                cell.textLabel.text = @"开发中……";
+                cell.textLabel.textColor = [UIColor darkGrayColor];
+                break;
+            case 2:
+                cell.detailTextLabel.text = @"开发中……";
+                cell.textLabel.text = @"开发中……";
+                cell.textLabel.textColor = [UIColor darkGrayColor];
+                break;
+            default:
+                break;
+        }
+    }
+    else if(indexPath.section==2){
+        cell.detailTextLabel.text = @"点击进入设置界面";
+        cell.textLabel.text = @"设置";
+        cell.imageView.image = nil;
+        cell.textLabel.textColor = [UIColor grayColor];
+    }
+    
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:60.0f];
+    return cell;
 }
 
-- (void)locationManager:(CLLocationManager *)manager
-       didFailWithError:(NSError *)error
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [objLocationManager stopUpdatingLocation];
+    if(indexPath.section == 0){
+        return self_Height*0.75;
+    }
+    else{
+        return 160;
+    }
+    
 }
-
-- (void) loadMapView
+-(NSInteger) tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CLLocationCoordinate2D objCoor2D = {.latitude = latitude_UserLocation, .longitude = longitude_UserLocation};
-    MKCoordinateSpan objCoorSpan = {.latitudeDelta = 0.2, .longitudeDelta = 0.2};
-    MKCoordinateRegion objMapRegion = {objCoor2D, objCoorSpan};
-    [self.mapView setRegion:objMapRegion];
+    return 0;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
-
-
-@end
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //    首先是用indexPath获取当前行的内容
+    NSInteger row = [indexPath row];
+    if(row == 0){
+        
+    }else if(row ==1){
+        
+        
+    }else if(row ==2){
+        
+        
+    }
+    //    从数组中取出当前行内容
+    //    NSString *rowValue = [self.listData objectAtIndex:row];
+    //    NSString *message = [[NSString alloc]initWithFormat:@"You selected%@",rowValue];
+    //    //    弹出警告信息
+    //    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示"
+    //                                                   message:message
+    //                                                  delegate:self
+    //                                         cancelButtonTitle:@"OK"
+    //                                         otherButtonTitles: nil];
+    //    [alert show];
+}@end
