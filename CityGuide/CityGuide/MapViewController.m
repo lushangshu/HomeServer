@@ -37,7 +37,7 @@
     
     [self initMapView];
     [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(reloadTableview:) userInfo:nil repeats:NO];
-    
+    // test
     
 }
 
