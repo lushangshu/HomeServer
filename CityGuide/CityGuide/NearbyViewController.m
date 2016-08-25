@@ -44,7 +44,7 @@
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     if ([user objectForKey:@"wbToken"] == nil) {
         self.loginButton.hidden = false;
-        self.showDetailButton.hidden = true;
+        self.logoutButton.hidden = true;
         
         self.label1.hidden = true;
         self.label2.hidden = true;
@@ -54,7 +54,7 @@
         
     }else{
         self.loginButton.hidden = true;
-        self.showDetailButton.hidden = false;
+        self.logoutButton.hidden = false;
         self.label1.hidden = false;
         self.label2.hidden = false;
         self.label3.hidden = false;
@@ -63,7 +63,7 @@
         self.loginList = [[NSArray alloc]initWithObjects:@"微博",@"豆瓣",@"高德",nil];
         
         
-        [self showResult];
+        [self RequestWeiboUserFileUsingAFNetworking];
     }
     
     [_tableView setFrame:CGRectMake(2, 140, self_Width, self_Height-140)];
@@ -76,12 +76,20 @@
 }
 
 
--(IBAction)showResult{
+-(IBAction)logOutFunc{
     
-    [self RequestWeiboUserFileUsingAFNetworking];
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+        
+    self.logoutButton.hidden = true;
+    self.loginButton.hidden = false;
     
+    self.label1.hidden = true;
+    self.label2.hidden = true;
+    self.label3.hidden = true;
+    self.avatarView.hidden = true;
+    
+    [self.tableView reloadData];
     //NSLog(@" ****** id: %@ token: %@ freshtoken :  %@",myDelegate.wbCurrentUserID,myDelegate.wbtoken,myDelegate.wbRefreshToken);
-    
 }
 
 
@@ -143,7 +151,7 @@
              _avatarView.contentMode = UIViewContentModeScaleAspectFit;
              self.avatarView.image = himage;
              [_tableView reloadData];
-             [self.showDetailButton setTitle:@"登出" forState:nil];
+             [self.logoutButton setTitle:@"登出" forState:nil];
              
              NSLog(@"%@",responseObject);
              [self.indicator stopAnimating];

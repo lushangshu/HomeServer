@@ -82,11 +82,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FO4-gw-5It">
                                 <frame key="frameInset" minX="304" minY="28" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="刷新">
+                                <state key="normal" title="登出">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="showResult" destination="FVx-wb-Xhu" eventType="touchUpInside" id="Kna-VT-r45"/>
+                                    <action selector="logOutFunc" destination="FVx-wb-Xhu" eventType="touchUpInside" id="kg7-NB-iIF"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CH4-md-hAl">
@@ -113,7 +113,7 @@
                                         <frame key="frameInset" minY="28" width="351" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tsR-cm-nnZ" id="FmZ-fO-zKt">
-                                            <frame key="frameInset" width="351" height="107"/>
+                                            <frame key="frameInset" width="351" height="108"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLi-mD-XBv">
@@ -154,7 +154,7 @@
                         <outlet property="label2" destination="7dk-pA-1HT" id="Agd-Th-b6M"/>
                         <outlet property="label3" destination="ECY-ym-rme" id="lYI-sh-X6t"/>
                         <outlet property="loginButton" destination="mGA-6B-Y6n" id="TTd-rr-hBP"/>
-                        <outlet property="showDetailButton" destination="FO4-gw-5It" id="Doq-cU-D2Y"/>
+                        <outlet property="logoutButton" destination="FO4-gw-5It" id="cHT-jv-oL0"/>
                         <outlet property="tableView" destination="kfT-5m-Kvs" id="4dJ-3i-00z"/>
                     </connections>
                 </viewController>

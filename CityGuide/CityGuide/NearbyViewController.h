@@ -19,7 +19,7 @@
 }
 
 -(IBAction)pressButtonLogin;
--(IBAction)showResult;
+-(IBAction)logOutFunc;
 
 @property (nonatomic,strong) IBOutlet UINavigationBar *navBar;
 @property (nonatomic,strong) NSArray *loginList;
@@ -33,7 +33,7 @@
 @property (nonatomic,strong) IBOutlet UITableViewCell *cell;
 
 @property (nonatomic,strong) IBOutlet UIButton *loginButton;
-@property (nonatomic,strong) IBOutlet UIButton *showDetailButton;
+@property (nonatomic,strong) IBOutlet UIButton *logoutButton;
 
 @property (nonatomic,strong) IBOutlet UIImageView *avatarView;
 @property (nonatomic,strong) IBOutlet UIActivityIndicatorView *indicator;
