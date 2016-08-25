@@ -34,9 +34,15 @@
     
     
     [self.view addSubview:self.MaptableView];
+    
     [self initMapView];
+    [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(reloadTableview:) userInfo:nil repeats:NO];
     
     
+}
+
+-(IBAction)reloadTableview:(id)sender{
+    [self.MaptableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +52,8 @@
 
 - (void)initMapView
 {
-    self.mapView = [[MAMapView alloc] initWithFrame:self.view.frame];
+    CGRect defaultMapFrame = CGRectMake(0, 0, self_Width, self_Height*0.75);
+    self.mapView = [[MAMapView alloc] initWithFrame:defaultMapFrame];
     
     self.mapView.mapType = MAMapTypeStandard;
     self.mapView.zoomLevel = 17.5;
@@ -62,7 +69,18 @@
     
     self.mapView.delegate = nil;
     //self.mapView.clipsToBounds = NO;
-    [self.MaptableView reloadData];
+    
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(10, self_Height*0.75-70, 50, 35)];
+    [button setTitle:@"定位" forState:UIControlStateNormal];
+    button.tintColor = [UIColor darkGrayColor];
+    [button addTarget:self action:@selector(trackUserLocation:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.mapView addSubview:button];
+    
+}
+
+-(IBAction)trackUserLocation:(id)sender{
+    self.mapView.userTrackingMode = 1;
 }
 
 
@@ -122,15 +140,10 @@
         }
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    
+        
     if(indexPath.section ==0){
         self.mapView.frame = CGRectMake(0, 0, self_Width, self_Height*0.75);
         [cell addSubview:self.mapView];
-//        cell.detailTextLabel.text = @"基础信息1";
-//        cell.textLabel.text = @"基础信息";
-//        cell.textLabel.textColor = [UIColor grayColor];
     }
     else if(indexPath.section == 1){
         
