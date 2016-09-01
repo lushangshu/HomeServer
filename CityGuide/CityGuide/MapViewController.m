@@ -7,9 +7,15 @@
 //
 
 #import "MapViewController.h"
+#import "POICollectionViewCell.h"
+#import "POIContainerCell.h"
+#import "POITableViewCell.h"
+
+
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
 #define self_Height CGRectGetHeight([UIScreen mainScreen].bounds)
+
 
 @interface MapViewController ()
 
@@ -19,29 +25,35 @@
 
 @synthesize mapView     = _mapView;
 @synthesize search      = _search;
+@synthesize POIcollectionView = _collectionView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     self.MaptableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 20, self_Width, self_Height) style: UITableViewStylePlain];
     
     self.MaptableView.dataSource = self;
     self.MaptableView.delegate = self;
     
+    self.POIcollectionView.delegate = self;
+    self.POIcollectionView.dataSource = self;
     
     self.MaptableView.backgroundColor = [UIColor grayColor];
     
     
     [self.view addSubview:self.MaptableView];
     
-    [self initMapView];
-    [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(reloadTableview:) userInfo:nil repeats:NO];
-    // test
     
+    [self initMapView];
+    
+    [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(reloadTableview:) userInfo:nil repeats:NO];
 }
 
+
+
 -(IBAction)reloadTableview:(id)sender{
+    [self.MaptableView reloadData];
     [self.MaptableView reloadData];
 }
 
@@ -49,6 +61,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 - (void)initMapView
 {
@@ -125,6 +139,9 @@
     
 }
 
+
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -149,11 +166,11 @@
         
         switch (indexPath.row) {
             case 0:
-                cell.detailTextLabel.text = @"开发中……";
-                cell.textLabel.text = @"开发中……";
-                cell.textLabel.textColor = [UIColor darkGrayColor];
-                break;
-                break;
+                
+                [cell addSubview:self.POIcollectionView];
+                //[cell.contentView addSubview:_collectionView];
+                //[cell addSubview:_collectionView];
+                 break;
             case 1:
                 cell.detailTextLabel.text = @"开发中……";
                 cell.textLabel.text = @"开发中……";
@@ -217,4 +234,9 @@
     //                                         cancelButtonTitle:@"OK"
     //                                         otherButtonTitles: nil];
     //    [alert show];
-}@end
+}
+
+
+
+
+@end

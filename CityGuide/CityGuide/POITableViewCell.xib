@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="U2S-LT-LeM" customClass="POITableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="whb-jd-PYB">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="10" id="2Hn-OR-uEj">
+                        <size key="itemSize" width="130" height="170"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                    <connections>
+                        <outlet property="dataSource" destination="U2S-LT-LeM" id="fWU-gi-YKd"/>
+                        <outlet property="delegate" destination="U2S-LT-LeM" id="1cc-8z-G4A"/>
+                    </connections>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="whb-jd-PYB" firstAttribute="leading" secondItem="U2S-LT-LeM" secondAttribute="leading" id="9cC-nk-Q8L"/>
+                <constraint firstItem="whb-jd-PYB" firstAttribute="trailing" secondItem="U2S-LT-LeM" secondAttribute="trailing" id="DHu-9U-oRd"/>
+                <constraint firstItem="whb-jd-PYB" firstAttribute="top" secondItem="U2S-LT-LeM" secondAttribute="top" id="b7I-DW-PAY"/>
+                <constraint firstItem="whb-jd-PYB" firstAttribute="bottom" secondItem="U2S-LT-LeM" secondAttribute="bottom" id="ttL-v8-gz4"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="collectionView" destination="whb-jd-PYB" id="omD-tg-nF7"/>
+            </connections>
+        </view>
+    </objects>
+</document>

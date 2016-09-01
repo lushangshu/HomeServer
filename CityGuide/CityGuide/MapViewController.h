@@ -11,9 +11,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import "BaseMapViewController.h"
 
-@interface MapViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+@interface MapViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate>
 
 
+@property (nonatomic,strong) UICollectionView *POIcollectionView;
 @property (nonatomic,strong)  UITableView *MaptableView;
 @property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong) AMapSearchAPI *search;

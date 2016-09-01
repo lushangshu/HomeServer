@@ -107,6 +107,11 @@
 		35E4F98D1D47ABD4001B260C /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4F98B1D47ABD4001B260C /* NJKWebViewProgressView.m */; };
 		35E4F9901D483ED3001B260C /* WeatherDataObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4F98F1D483ED3001B260C /* WeatherDataObserver.m */; };
 		35E799831D4731F4007AEC51 /* MovieAndBooksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E799821D4731F4007AEC51 /* MovieAndBooksView.m */; };
+		35FA573E1D6FA0C40083277C /* POICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FA573C1D6FA0C40083277C /* POICollectionViewCell.m */; };
+		35FA573F1D6FA0C40083277C /* POICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FA573D1D6FA0C40083277C /* POICollectionViewCell.xib */; };
+		35FA57431D78258D0083277C /* POITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FA57411D78258D0083277C /* POITableViewCell.m */; };
+		35FA57441D78258D0083277C /* POITableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FA57421D78258D0083277C /* POITableViewCell.xib */; };
+		35FA57471D7826D10083277C /* POIContainerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FA57461D7826D10083277C /* POIContainerCell.m */; };
 		35FBE2CA1D2E55AB0003720C /* SBJson4Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE2BD1D2E55AB0003720C /* SBJson4Parser.m */; };
 		35FBE2CB1D2E55AB0003720C /* SBJson4StreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE2BF1D2E55AB0003720C /* SBJson4StreamParser.m */; };
 		35FBE2CC1D2E55AB0003720C /* SBJson4StreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FBE2C11D2E55AB0003720C /* SBJson4StreamParserState.m */; };
@@ -361,6 +366,14 @@
 		35E4F98F1D483ED3001B260C /* WeatherDataObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDataObserver.m; sourceTree = "<group>"; };
 		35E799811D4731F4007AEC51 /* MovieAndBooksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieAndBooksView.h; path = ../MovieAndBooksView.h; sourceTree = "<group>"; };
 		35E799821D4731F4007AEC51 /* MovieAndBooksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieAndBooksView.m; path = ../MovieAndBooksView.m; sourceTree = "<group>"; };
+		35FA573B1D6FA0C40083277C /* POICollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POICollectionViewCell.h; sourceTree = "<group>"; };
+		35FA573C1D6FA0C40083277C /* POICollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POICollectionViewCell.m; sourceTree = "<group>"; };
+		35FA573D1D6FA0C40083277C /* POICollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICollectionViewCell.xib; sourceTree = "<group>"; };
+		35FA57401D78258C0083277C /* POITableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POITableViewCell.h; sourceTree = "<group>"; };
+		35FA57411D78258D0083277C /* POITableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POITableViewCell.m; sourceTree = "<group>"; };
+		35FA57421D78258D0083277C /* POITableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POITableViewCell.xib; sourceTree = "<group>"; };
+		35FA57451D7826D00083277C /* POIContainerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIContainerCell.h; sourceTree = "<group>"; };
+		35FA57461D7826D10083277C /* POIContainerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIContainerCell.m; sourceTree = "<group>"; };
 		35FBE2BB1D2E55AB0003720C /* SBJson4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4.h; sourceTree = "<group>"; };
 		35FBE2BC1D2E55AB0003720C /* SBJson4Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4Parser.h; sourceTree = "<group>"; };
 		35FBE2BD1D2E55AB0003720C /* SBJson4Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4Parser.m; sourceTree = "<group>"; };
@@ -631,6 +644,14 @@
 				354EE1F01D2A2CEC00D17A3F /* MapViewController.m */,
 				350466F31D6D8F3C001F35F9 /* BaseMapViewController.h */,
 				350466F41D6D8F3C001F35F9 /* BaseMapViewController.m */,
+				35FA57451D7826D00083277C /* POIContainerCell.h */,
+				35FA57461D7826D10083277C /* POIContainerCell.m */,
+				35FA57401D78258C0083277C /* POITableViewCell.h */,
+				35FA57411D78258D0083277C /* POITableViewCell.m */,
+				35FA57421D78258D0083277C /* POITableViewCell.xib */,
+				35FA573B1D6FA0C40083277C /* POICollectionViewCell.h */,
+				35FA573C1D6FA0C40083277C /* POICollectionViewCell.m */,
+				35FA573D1D6FA0C40083277C /* POICollectionViewCell.xib */,
 			);
 			name = 1_Map;
 			sourceTree = "<group>";
@@ -1020,10 +1041,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				351B78181D49E80000508BEF /* weatherView.xib in Resources */,
+				35FA57441D78258D0083277C /* POITableViewCell.xib in Resources */,
 				354EE1C61D2A28A600D17A3F /* LaunchScreen.storyboard in Resources */,
 				354EE1C31D2A28A600D17A3F /* Assets.xcassets in Resources */,
 				354EE1C11D2A28A600D17A3F /* Main.storyboard in Resources */,
 				35698E0C1D425928007175E9 /* wbTableView.xib in Resources */,
+				35FA573F1D6FA0C40083277C /* POICollectionViewCell.xib in Resources */,
 				3563D4EB1D6560B800034DDD /* NearbyActivityCell.xib in Resources */,
 				352F50AB1D6D7C0500E2B6DB /* AMap.bundle in Resources */,
 				35CAABE21D6AE746001A1219 /* corner_circle@2x.png in Resources */,
@@ -1093,6 +1116,7 @@
 				35A00C2C1D475CF0000AEC59 /* LightCell.m in Sources */,
 				358792781D65B39F001D0F68 /* SDWebImageManager.m in Sources */,
 				358792721D65B39F001D0F68 /* NSData+ImageContentType.m in Sources */,
+				35FA57471D7826D10083277C /* POIContainerCell.m in Sources */,
 				3563D4EA1D6560B800034DDD /* NearbyActivityCell.m in Sources */,
 				35CAABE71D6AE746001A1219 /* UIScreen+Additions.m in Sources */,
 				35FBE2E41D2F727A0003720C /* AFURLSessionManager.m in Sources */,
@@ -1109,6 +1133,7 @@
 				35698E0A1D421B9F007175E9 /* LFLUISegmentedControl.m in Sources */,
 				354EE1BE1D2A28A600D17A3F /* ViewController.m in Sources */,
 				35FBE2DF1D2F727A0003720C /* AFHTTPSessionManager.m in Sources */,
+				35FA57431D78258D0083277C /* POITableViewCell.m in Sources */,
 				35FBE2CC1D2E55AB0003720C /* SBJson4StreamParserState.m in Sources */,
 				35CAABE41D6AE746001A1219 /* NSString+Additions.m in Sources */,
 				3505F2E81D45F92D00D84808 /* LoginTableViewCell.m in Sources */,
@@ -1138,6 +1163,7 @@
 				358A7F691D37899E0052EF2E /* ActivitiesScrollViewController.m in Sources */,
 				354EE1F11D2A2CEC00D17A3F /* MapViewController.m in Sources */,
 				354EE1B81D2A28A600D17A3F /* main.m in Sources */,
+				35FA573E1D6FA0C40083277C /* POICollectionViewCell.m in Sources */,
 				35698E0F1D42598E007175E9 /* wbTableView.m in Sources */,
 				35E799831D4731F4007AEC51 /* MovieAndBooksView.m in Sources */,
 				354EE1EB1D2A2C9500D17A3F /* MainViewController.m in Sources */,
