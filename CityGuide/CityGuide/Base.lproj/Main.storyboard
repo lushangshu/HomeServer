@@ -165,7 +165,6 @@
         <!--Item3-->
         <scene sceneID="Lhv-Cp-lFx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9sc-ex-3Bs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="zPJ-Cz-EEk" userLabel="Item3" customClass="PostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mYR-s5-WpQ"/>
@@ -205,6 +204,7 @@
                         <outlet property="textView" destination="kqh-q0-Rzw" id="cXp-nG-9QX"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9sc-ex-3Bs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-290.39999999999998" y="1151.8740629685158"/>
         </scene>
@@ -274,10 +274,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="地图" id="ive-9D-35t"/>
+                    <navigationItem key="navigationItem" id="Rxr-5N-i1Z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59n-ep-wiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="847" y="234"/>
+            <point key="canvasLocation" x="1490" y="232"/>
+        </scene>
+        <!--地图-->
+        <scene sceneID="Aok-8c-nRS">
+            <objects>
+                <navigationController id="ghI-hS-4jc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="地图" id="q4P-PF-y6w"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uuj-LQ-W0b">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ULD-jS-EN8" kind="relationship" relationship="rootViewController" id="4Hw-vL-kWR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ehv-EW-kfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604" y="232"/>
         </scene>
         <!--活动-->
         <scene sceneID="LAx-GL-EVq">
@@ -404,7 +422,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ULD-jS-EN8" kind="relationship" relationship="viewControllers" id="phC-Ng-8Fr"/>
+                        <segue destination="ghI-hS-4jc" kind="relationship" relationship="viewControllers" id="UTk-gZ-Jo8"/>
                         <segue destination="HE7-gK-XBU" kind="relationship" relationship="viewControllers" id="Z62-Qs-ua8"/>
                         <segue destination="zPJ-Cz-EEk" kind="relationship" relationship="viewControllers" id="mf2-H8-qRE"/>
                         <segue destination="xB5-yk-9wG" kind="relationship" relationship="viewControllers" id="mXU-tL-RJf"/>
@@ -415,10 +433,10 @@
             </objects>
             <point key="canvasLocation" x="-289" y="235"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="XPQ-ST-OB4">
             <objects>
-                <viewController id="LNg-SW-8aq" sceneMemberID="viewController">
+                <viewController restorationIdentifier="POIDetail" storyboardIdentifier="POIDetail" id="LNg-SW-8aq" customClass="POIDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IPp-DI-KBy"/>
                         <viewControllerLayoutGuide type="bottom" id="EVQ-78-c4G"/>
@@ -426,12 +444,21 @@
                     <view key="view" contentMode="scaleToFill" id="cDk-kK-Jos">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RnT-Hl-kuJ">
+                                <frame key="frameInset" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="POI Detail" id="gTB-gu-Y9N"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kU-BQ-Hpx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753" y="233"/>
+            <point key="canvasLocation" x="2150" y="233"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

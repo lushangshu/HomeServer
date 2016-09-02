@@ -10,7 +10,8 @@
 #import "POICollectionViewCell.h"
 #import "POIContainerCell.h"
 #import "POITableViewCell.h"
-
+#import "POIDetailViewController.h"
+#import "WeiboDetailViewController.h"
 
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
@@ -36,12 +37,13 @@
     self.MaptableView.dataSource = self;
     self.MaptableView.delegate = self;
     
-    self.MaptableView.backgroundColor = [UIColor grayColor];
-    
+    self.MaptableView.backgroundColor = [UIColor whiteColor];
+    self.MaptableView.contentInset = UIEdgeInsetsMake(-1.0f, 0.0f, 0.0f, 0.0);
     [self.view addSubview:self.MaptableView];
     
     [self initCollectionView];
     [self initMapView];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
     [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(reloadTableview:) userInfo:nil repeats:NO];
 }
@@ -58,8 +60,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
+//this view is setup for the AMAP SDK
 - (void)initMapView
 {
     CGRect defaultMapFrame = CGRectMake(0, 0, self_Width, self_Height*0.75);
@@ -89,19 +90,22 @@
     
 }
 
+//Nearby POI Collectionview setup
 -(void)initCollectionView{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.itemSize = CGSizeMake(130, 157);
     self.POIcollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, self_Width, 160) collectionViewLayout:layout];
-    
+    self.POIcollectionView.backgroundColor = [UIColor whiteColor];
     self.POIcollectionView.delegate = self;
     self.POIcollectionView.dataSource = self;
-    self.POIcollectionView.backgroundColor = [UIColor lightGrayColor];
+    //self.POIcollectionView.backgroundColor = [UIColor lightGrayColor];
     
     [self.POIcollectionView registerNib:[UINib nibWithNibName:@"POICollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"POICollectionViewCell"];
     
 }
+
+#pragma functions ---- especially buttons
 -(IBAction)trackUserLocation:(id)sender{
     self.mapView.userTrackingMode = 1;
 }
@@ -137,12 +141,14 @@
         return @"附近POI";
     }
     else{
-        return @"";
+        return nil;
     }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section:(NSInteger)section{
-
+    if(section == 0){
+        return 0.0f;
+    }else
         return 3.0;
 }
 
@@ -174,6 +180,7 @@
                
                 //[cell.contentView addSubview:_collectionView];
                 //[cell addSubview:_collectionView];
+                cell.backgroundColor = [UIColor whiteColor];
                 [cell addSubview:self.POIcollectionView];
                  break;
             case 1:
@@ -258,6 +265,17 @@
     cell.POILabel.text = @"附近有趣的景点";
     return cell;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    //NSString * cellData = @"select";
+    NSLog(@"selected collection view %ld",(long)indexPath.row);
+    
+    POIDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"POIDetail"];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+}
+
 
 #pragma mark - UICollectionViewDelegateFlowout
 
