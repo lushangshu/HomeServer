@@ -11,7 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "BaseMapViewController.h"
 
-@interface MapViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate>
+@interface MapViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 
 @property (nonatomic,strong) UICollectionView *POIcollectionView;

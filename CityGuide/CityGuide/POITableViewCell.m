@@ -44,8 +44,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     POICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"POICollectionViewCell" forIndexPath:indexPath];
-//    NSDictionary *cellData = [self.collectionData objectAtIndex:[indexPath row]];
-//    cell.articleTitle.text = [cellData objectForKey:@"title"];
+    NSDictionary *cellData = [self.collectionData objectAtIndex:[indexPath row]];
+    cell.POILabel.text = [cellData objectForKey:@"title"];
     return cell;
 }
 

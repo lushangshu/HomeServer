@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface POITableViewCell : UIView <UICollectionViewDataSource, UICollectionViewDelegate>\
+@interface POITableViewCell : UIView <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *collectionData;

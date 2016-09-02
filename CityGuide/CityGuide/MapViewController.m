@@ -25,7 +25,7 @@
 
 @synthesize mapView     = _mapView;
 @synthesize search      = _search;
-@synthesize POIcollectionView = _collectionView;
+//@synthesize POIcollectionView = _collectionView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,15 +36,11 @@
     self.MaptableView.dataSource = self;
     self.MaptableView.delegate = self;
     
-    self.POIcollectionView.delegate = self;
-    self.POIcollectionView.dataSource = self;
-    
     self.MaptableView.backgroundColor = [UIColor grayColor];
-    
     
     [self.view addSubview:self.MaptableView];
     
-    
+    [self initCollectionView];
     [self initMapView];
     
     [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(reloadTableview:) userInfo:nil repeats:NO];
@@ -93,6 +89,19 @@
     
 }
 
+-(void)initCollectionView{
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.itemSize = CGSizeMake(130, 157);
+    self.POIcollectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, self_Width, 160) collectionViewLayout:layout];
+    
+    self.POIcollectionView.delegate = self;
+    self.POIcollectionView.dataSource = self;
+    self.POIcollectionView.backgroundColor = [UIColor lightGrayColor];
+    
+    [self.POIcollectionView registerNib:[UINib nibWithNibName:@"POICollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"POICollectionViewCell"];
+    
+}
 -(IBAction)trackUserLocation:(id)sender{
     self.mapView.userTrackingMode = 1;
 }
@@ -133,13 +142,9 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section:(NSInteger)section{
-    
 
         return 3.0;
-    
 }
-
-
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -166,10 +171,10 @@
         
         switch (indexPath.row) {
             case 0:
-                
-                [cell addSubview:self.POIcollectionView];
+               
                 //[cell.contentView addSubview:_collectionView];
                 //[cell addSubview:_collectionView];
+                [cell addSubview:self.POIcollectionView];
                  break;
             case 1:
                 cell.detailTextLabel.text = @"开发中……";
@@ -236,6 +241,25 @@
     //    [alert show];
 }
 
+#pragma mark - UICollecitonViewDataSource
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 5;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    POICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"POICollectionViewCell" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor whiteColor];
+
+    cell.POILabel.text = @"附近有趣的景点";
+    return cell;
+}
+
+#pragma mark - UICollectionViewDelegateFlowout
 
 
 
