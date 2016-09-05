@@ -57,6 +57,7 @@
 		35698E131D43C9F1007175E9 /* SearchingWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35698E121D43C9F1007175E9 /* SearchingWebViewController.m */; };
 		35698E301D45BEA7007175E9 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35698E2F1D45BEA7007175E9 /* PostViewController.m */; };
 		358349CA1D796FE800BB817D /* POIDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358349C91D796FE800BB817D /* POIDetailViewController.m */; };
+		358349CD1D7D477200BB817D /* DestinationSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358349CC1D7D477200BB817D /* DestinationSetViewController.m */; };
 		3587924E1D65B2EE001D0F68 /* ImageDownLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3587924D1D65B2EE001D0F68 /* ImageDownLoader.m */; };
 		358792711D65B39F001D0F68 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 358792511D65B39E001D0F68 /* MKAnnotationView+WebCache.m */; };
 		358792721D65B39F001D0F68 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 358792531D65B39E001D0F68 /* NSData+ImageContentType.m */; };
@@ -273,6 +274,8 @@
 		35698E2F1D45BEA7007175E9 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		358349C81D796FE800BB817D /* POIDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIDetailViewController.h; sourceTree = "<group>"; };
 		358349C91D796FE800BB817D /* POIDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIDetailViewController.m; sourceTree = "<group>"; };
+		358349CB1D7D477200BB817D /* DestinationSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationSetViewController.h; sourceTree = "<group>"; };
+		358349CC1D7D477200BB817D /* DestinationSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationSetViewController.m; sourceTree = "<group>"; };
 		3587924C1D65B2EE001D0F68 /* ImageDownLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownLoader.h; sourceTree = "<group>"; };
 		3587924D1D65B2EE001D0F68 /* ImageDownLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownLoader.m; sourceTree = "<group>"; };
 		358792501D65B39E001D0F68 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MKAnnotationView+WebCache.h"; path = "SDWebImage/MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -647,6 +650,8 @@
 				354EE1F01D2A2CEC00D17A3F /* MapViewController.m */,
 				358349C81D796FE800BB817D /* POIDetailViewController.h */,
 				358349C91D796FE800BB817D /* POIDetailViewController.m */,
+				358349CB1D7D477200BB817D /* DestinationSetViewController.h */,
+				358349CC1D7D477200BB817D /* DestinationSetViewController.m */,
 				350466F31D6D8F3C001F35F9 /* BaseMapViewController.h */,
 				350466F41D6D8F3C001F35F9 /* BaseMapViewController.m */,
 				35FA57451D7826D00083277C /* POIContainerCell.h */,
@@ -1127,6 +1132,7 @@
 				35FBE2E41D2F727A0003720C /* AFURLSessionManager.m in Sources */,
 				35FBE2CD1D2E55AB0003720C /* SBJson4StreamTokeniser.m in Sources */,
 				35E4F98C1D47ABD4001B260C /* NJKWebViewProgress.m in Sources */,
+				358349CD1D7D477200BB817D /* DestinationSetViewController.m in Sources */,
 				35CAABEA1D6AE746001A1219 /* VVeboTableView.m in Sources */,
 				35FBE2D01D2E55AB0003720C /* SBJson4Writer.m in Sources */,
 				35698E131D43C9F1007175E9 /* SearchingWebViewController.m in Sources */,

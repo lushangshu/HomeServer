@@ -12,6 +12,7 @@
 #import "POITableViewCell.h"
 #import "POIDetailViewController.h"
 #import "WeiboDetailViewController.h"
+#import "DestinationSetViewController.h"
 
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
@@ -38,7 +39,7 @@
     self.MaptableView.delegate = self;
     
     self.MaptableView.backgroundColor = [UIColor whiteColor];
-    self.MaptableView.contentInset = UIEdgeInsetsMake(-1.0f, 0.0f, 0.0f, 0.0);
+    //self.MaptableView.contentInset = UIEdgeInsetsMake(-1.0f, 0.0f, 0.0f, 0.0);
     [self.view addSubview:self.MaptableView];
     
     [self initCollectionView];
@@ -89,7 +90,6 @@
     [self.mapView addSubview:button];
     
 }
-
 //Nearby POI Collectionview setup
 -(void)initCollectionView{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
@@ -184,27 +184,30 @@
                 [cell addSubview:self.POIcollectionView];
                  break;
             case 1:
-                cell.detailTextLabel.text = @"开发中……";
-                cell.textLabel.text = @"开发中……";
+                cell.detailTextLabel.text = @"";
+                cell.textLabel.text = @"设定常用目的地";
+                [cell.textLabel setFont: [UIFont boldSystemFontOfSize:40.0f]];
                 cell.textLabel.textColor = [UIColor darkGrayColor];
                 break;
             case 2:
                 cell.detailTextLabel.text = @"开发中……";
                 cell.textLabel.text = @"开发中……";
                 cell.textLabel.textColor = [UIColor darkGrayColor];
+                [cell.textLabel setFont: [UIFont boldSystemFontOfSize:60.0f]];
                 break;
             default:
                 break;
         }
     }
     else if(indexPath.section==2){
-        cell.detailTextLabel.text = @"点击进入设置界面";
+        cell.detailTextLabel.text = @"管理离线地图等";
         cell.textLabel.text = @"设置";
         cell.imageView.image = nil;
         cell.textLabel.textColor = [UIColor grayColor];
+        [cell.textLabel setFont: [UIFont boldSystemFontOfSize:40.0f]];
     }
     
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:60.0f];
+    //cell.textLabel.font = [UIFont boldSystemFontOfSize:60.0f];
     return cell;
 }
 
@@ -230,7 +233,13 @@
     if(row == 0){
         
     }else if(row ==1){
-        
+        if(indexPath.section == 1){
+            DestinationSetViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"DestinationSet"];
+            [self.navigationController pushViewController:vc animated:YES];
+            [[self navigationController] setNavigationBarHidden:NO animated:YES];
+        }else{
+            
+        }
         
     }else if(row ==2){
         
@@ -272,7 +281,7 @@
     
     POIDetailViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"POIDetail"];
     [self.navigationController pushViewController:vc animated:YES];
-    
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
 }
 

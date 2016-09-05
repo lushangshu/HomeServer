@@ -145,7 +145,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="登录信息" id="SYa-Mf-Tch"/>
+                    <tabBarItem key="tabBarItem" title="登录信息" image="Steam-30" id="SYa-Mf-Tch"/>
                     <navigationItem key="navigationItem" id="JVh-Xe-iSa"/>
                     <connections>
                         <outlet property="avatarView" destination="CH4-md-hAl" id="bTx-DF-ZSf"/>
@@ -199,7 +199,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="有话说" id="vIY-0X-U9o"/>
+                    <tabBarItem key="tabBarItem" title="有话说" image="Instagram Old-30" id="vIY-0X-U9o"/>
                     <connections>
                         <outlet property="textView" destination="kqh-q0-Rzw" id="cXp-nG-9QX"/>
                     </connections>
@@ -251,7 +251,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="浏览器" id="KIx-Ey-VfS"/>
+                    <tabBarItem key="tabBarItem" title="浏览器" image="Mac Client-30" id="KIx-Ey-VfS"/>
                     <connections>
                         <outlet property="open" destination="8rh-Oe-KXq" id="ydS-6n-7Jy"/>
                     </connections>
@@ -273,8 +273,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="地图" id="ive-9D-35t"/>
-                    <navigationItem key="navigationItem" id="Rxr-5N-i1Z"/>
+                    <tabBarItem key="tabBarItem" title="地图" image="Home-30" id="ive-9D-35t"/>
+                    <navigationItem key="navigationItem" title="地图" id="Rxr-5N-i1Z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59n-ep-wiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -284,7 +284,7 @@
         <scene sceneID="Aok-8c-nRS">
             <objects>
                 <navigationController id="ghI-hS-4jc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="地图" id="q4P-PF-y6w"/>
+                    <tabBarItem key="tabBarItem" title="地图" image="Home-30" id="q4P-PF-y6w"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uuj-LQ-W0b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -301,7 +301,7 @@
         <scene sceneID="LAx-GL-EVq">
             <objects>
                 <navigationController id="xB5-yk-9wG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="活动" id="gxJ-Oj-9jW"/>
+                    <tabBarItem key="tabBarItem" title="活动" image="Voice Presentation-30" id="gxJ-Oj-9jW"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nBJ-El-gLO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -312,7 +312,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QTM-Qf-05T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="-676"/>
+            <point key="canvasLocation" x="604" y="-604"/>
         </scene>
         <!--活动-->
         <scene sceneID="q5H-hK-Ada">
@@ -331,7 +331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMx-yX-LKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1752.8" y="-676.01199400299856"/>
+            <point key="canvasLocation" x="1488" y="-604"/>
         </scene>
         <!--Weibo Detail View Controller-->
         <scene sceneID="oio-PC-Wrc">
@@ -383,7 +383,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ACv-ja-czl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1800.8" y="-1365.0674662668666"/>
+            <point key="canvasLocation" x="2291" y="-604"/>
         </scene>
         <!--Wb User DetailVC-->
         <scene sceneID="QRK-GQ-Gim">
@@ -410,7 +410,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRo-Tw-yaY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2495.1999999999998" y="-676.01199400299856"/>
+            <point key="canvasLocation" x="3037" y="-604"/>
         </scene>
         <!--Tabbar View Controller-->
         <scene sceneID="nW5-L6-3yB">
@@ -449,7 +449,7 @@
                                 <frame key="frameInset" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="POI Detail" id="gTB-gu-Y9N"/>
+                                    <navigationItem title="POI Details" id="Vs6-Qv-sO6"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -458,9 +458,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kU-BQ-Hpx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2150" y="233"/>
+            <point key="canvasLocation" x="2290" y="232"/>
+        </scene>
+        <!--Destination Set View Controller-->
+        <scene sceneID="4tp-xN-i5M">
+            <objects>
+                <viewController storyboardIdentifier="DestinationSet" id="cC6-rV-bJv" customClass="DestinationSetViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9tN-O1-EiG"/>
+                        <viewControllerLayoutGuide type="bottom" id="BUa-cD-Ef3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uCp-aR-ued">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YL9-ee-E7k">
+                                <frame key="frameInset" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Destination Set" id="tpx-R9-fU3"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aa1-P7-kwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2974" y="239"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Home-30" width="30" height="30"/>
+        <image name="Instagram Old-30" width="30" height="30"/>
+        <image name="Mac Client-30" width="30" height="30"/>
+        <image name="Steam-30" width="30" height="30"/>
+        <image name="Voice Presentation-30" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1Lo-mv-p9L"/>
     </inferredMetricsTieBreakers>

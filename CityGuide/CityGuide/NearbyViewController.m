@@ -66,7 +66,7 @@
         [self RequestWeiboUserFileUsingAFNetworking];
     }
     
-    [_tableView setFrame:CGRectMake(2, 140, self_Width, self_Height-140)];
+    [_tableView setFrame:CGRectMake(2, 160, self_Width, self_Height-140)];
     [_tableView setSeparatorColor:[UIColor blueColor]];
     [_tableView reloadData];
 }
