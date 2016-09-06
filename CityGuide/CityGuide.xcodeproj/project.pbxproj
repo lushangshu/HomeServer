@@ -58,6 +58,7 @@
 		35698E301D45BEA7007175E9 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35698E2F1D45BEA7007175E9 /* PostViewController.m */; };
 		358349CA1D796FE800BB817D /* POIDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358349C91D796FE800BB817D /* POIDetailViewController.m */; };
 		358349CD1D7D477200BB817D /* DestinationSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 358349CC1D7D477200BB817D /* DestinationSetViewController.m */; };
+		358349D01D7D7FC200BB817D /* POIAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 358349CF1D7D7FC200BB817D /* POIAnnotation.m */; };
 		3587924E1D65B2EE001D0F68 /* ImageDownLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3587924D1D65B2EE001D0F68 /* ImageDownLoader.m */; };
 		358792711D65B39F001D0F68 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 358792511D65B39E001D0F68 /* MKAnnotationView+WebCache.m */; };
 		358792721D65B39F001D0F68 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 358792531D65B39E001D0F68 /* NSData+ImageContentType.m */; };
@@ -276,6 +277,8 @@
 		358349C91D796FE800BB817D /* POIDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIDetailViewController.m; sourceTree = "<group>"; };
 		358349CB1D7D477200BB817D /* DestinationSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationSetViewController.h; sourceTree = "<group>"; };
 		358349CC1D7D477200BB817D /* DestinationSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationSetViewController.m; sourceTree = "<group>"; };
+		358349CE1D7D7FC200BB817D /* POIAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POIAnnotation.h; sourceTree = "<group>"; };
+		358349CF1D7D7FC200BB817D /* POIAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POIAnnotation.m; sourceTree = "<group>"; };
 		3587924C1D65B2EE001D0F68 /* ImageDownLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownLoader.h; sourceTree = "<group>"; };
 		3587924D1D65B2EE001D0F68 /* ImageDownLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownLoader.m; sourceTree = "<group>"; };
 		358792501D65B39E001D0F68 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MKAnnotationView+WebCache.h"; path = "SDWebImage/MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
@@ -648,6 +651,8 @@
 			children = (
 				354EE1EF1D2A2CEC00D17A3F /* MapViewController.h */,
 				354EE1F01D2A2CEC00D17A3F /* MapViewController.m */,
+				358349CE1D7D7FC200BB817D /* POIAnnotation.h */,
+				358349CF1D7D7FC200BB817D /* POIAnnotation.m */,
 				358349C81D796FE800BB817D /* POIDetailViewController.h */,
 				358349C91D796FE800BB817D /* POIDetailViewController.m */,
 				358349CB1D7D477200BB817D /* DestinationSetViewController.h */,
@@ -1178,6 +1183,7 @@
 				35FA573E1D6FA0C40083277C /* POICollectionViewCell.m in Sources */,
 				35698E0F1D42598E007175E9 /* wbTableView.m in Sources */,
 				35E799831D4731F4007AEC51 /* MovieAndBooksView.m in Sources */,
+				358349D01D7D7FC200BB817D /* POIAnnotation.m in Sources */,
 				354EE1EB1D2A2C9500D17A3F /* MainViewController.m in Sources */,
 				358792831D65B75B001D0F68 /* WeiboDetailViewController.m in Sources */,
 				358792731D65B39F001D0F68 /* SDImageCache.m in Sources */,

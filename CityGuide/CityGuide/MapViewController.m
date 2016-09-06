@@ -13,6 +13,8 @@
 #import "POIDetailViewController.h"
 #import "WeiboDetailViewController.h"
 #import "DestinationSetViewController.h"
+#import "POIAnnotation.h"
+#import <AMapSearchKit/AMapSearchKit.h>
 
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
@@ -33,6 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    
     self.MaptableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 20, self_Width, self_Height) style: UITableViewStylePlain];
     
     self.MaptableView.dataSource = self;
@@ -43,6 +46,10 @@
     [self.view addSubview:self.MaptableView];
     
     [self initCollectionView];
+    
+    self.search = [[AMapSearchAPI alloc] init];
+    self.search.delegate = self;
+    
     [self initMapView];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
@@ -53,8 +60,10 @@
 
 -(IBAction)reloadTableview:(id)sender{
     [self.MaptableView reloadData];
+    [self searchPoiByCenterCoordinate];
     [self.MaptableView reloadData];
-}
+    
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -67,6 +76,11 @@
     CGRect defaultMapFrame = CGRectMake(0, 0, self_Width, self_Height*0.75);
     self.mapView = [[MAMapView alloc] initWithFrame:defaultMapFrame];
     
+    self.manager = [[CLLocationManager alloc]init];
+    self.manager.delegate = self;
+    [self.manager startUpdatingLocation];
+    self.manager.desiredAccuracy = kCLLocationAccuracyBest;
+    
     self.mapView.mapType = MAMapTypeStandard;
     self.mapView.zoomLevel = 17.5;
     self.mapView.cameraDegree = 55.f;
@@ -76,7 +90,7 @@
     
     self.mapView.scrollEnabled       = YES;
     self.mapView.zoomEnabled         = YES;
-    self.mapView.rotateEnabled       = YES;
+    self.mapView.rotateEnabled      = YES;
     self.mapView.rotateCameraEnabled = YES;
     
     self.mapView.delegate = nil;
@@ -89,7 +103,62 @@
     
     [self.mapView addSubview:button];
     
+    
 }
+
+/* 根据中心点坐标来搜周边的POI. */
+- (void)searchPoiByCenterCoordinate
+{
+    CLLocationManager *manager = [[CLLocationManager alloc]init];
+    [manager startUpdatingLocation];
+    
+    AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
+    
+    request.location            = [AMapGeoPoint locationWithLatitude:self.userLocation.coordinate.latitude longitude:self.userLocation.coordinate.longitude];
+    request.keywords            = @"餐饮";
+    /* 按照距离排序. */
+    request.sortrule            = 0;
+    request.requireExtension    = YES;
+    request.radius = 300;
+    
+    [self.search AMapPOIAroundSearch:request];
+}
+
+- (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
+{
+    if (response.pois.count == 0)
+    {
+        return;
+    }
+    
+    NSMutableArray *poiAnnotations = [NSMutableArray arrayWithCapacity:response.pois.count];
+    
+    [response.pois enumerateObjectsUsingBlock:^(AMapPOI *obj, NSUInteger idx, BOOL *stop) {
+        
+        [poiAnnotations addObject:[[POIAnnotation alloc] initWithPOI:obj]];
+        
+    }];
+    
+    /* 将结果以annotation的形式加载到地图上. */
+    [self.mapView addAnnotations:poiAnnotations];
+    
+    /* 如果只有一个结果，设置其为中心点. */
+    if (poiAnnotations.count == 1)
+    {
+        [self.mapView setCenterCoordinate:[poiAnnotations[0] coordinate]];
+        self.mapView.zoomLevel = 17.5;
+        self.mapView.cameraDegree = 55.f;
+    }
+    /* 如果有多个结果, 设置地图使所有的annotation都可见. */
+    else
+    {
+        [self.mapView showAnnotations:poiAnnotations animated:NO];
+        self.mapView.zoomLevel = 17.5;
+        self.mapView.cameraDegree = 55.f;
+    }
+}
+
+
 //Nearby POI Collectionview setup
 -(void)initCollectionView{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
@@ -288,6 +357,12 @@
 
 #pragma mark - UICollectionViewDelegateFlowout
 
+#pragma mark - CLLocationmanagerdelegate
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    CLLocation *location = [locations lastObject];
+    self.userLocation = location;
+    //NSLog(@"user location lat %f long %f",self.userLocation.coordinate.latitude,self.userLocation.coordinate.longitude);
+}
 
 
 @end

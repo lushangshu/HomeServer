@@ -463,7 +463,7 @@
         <!--Destination Set View Controller-->
         <scene sceneID="4tp-xN-i5M">
             <objects>
-                <viewController storyboardIdentifier="DestinationSet" id="cC6-rV-bJv" customClass="DestinationSetViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="DestinationSet" storyboardIdentifier="DestinationSet" id="cC6-rV-bJv" customClass="DestinationSetViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9tN-O1-EiG"/>
                         <viewControllerLayoutGuide type="bottom" id="BUa-cD-Ef3"/>
