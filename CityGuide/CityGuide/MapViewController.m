@@ -15,7 +15,8 @@
 #import "DestinationSetViewController.h"
 #import "POIAnnotation.h"
 #import <AMapSearchKit/AMapSearchKit.h>
-
+#import "LewPopupViewController.h"
+#import "PopupView.h"
 
 #define self_Width CGRectGetWidth([UIScreen mainScreen].bounds)
 #define self_Height CGRectGetHeight([UIScreen mainScreen].bounds)
@@ -96,6 +97,12 @@
     self.mapView.delegate = nil;
     //self.mapView.clipsToBounds = NO;
     
+    //add longgesture to change poi location search result
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]
+                                                 initWithTarget:self action:@selector(longPressGestureRecognized:)];
+    [self.mapView addGestureRecognizer:longPress];
+    
+    //add get user location button when return to current location
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(10, self_Height*0.75-70, 50, 35)];
     [button setTitle:@"定位" forState:UIControlStateNormal];
     button.tintColor = [UIColor darkGrayColor];
@@ -126,36 +133,39 @@
 
 - (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
 {
+    [self.mapView removeAnnotations:self.poiAnnotations];
+    [self.mapView reloadMap];
     if (response.pois.count == 0)
     {
         return;
     }
     
-    NSMutableArray *poiAnnotations = [NSMutableArray arrayWithCapacity:response.pois.count];
+    self.poiAnnotations = [NSMutableArray arrayWithCapacity:response.pois.count];
     
     [response.pois enumerateObjectsUsingBlock:^(AMapPOI *obj, NSUInteger idx, BOOL *stop) {
         
-        [poiAnnotations addObject:[[POIAnnotation alloc] initWithPOI:obj]];
+        [self.poiAnnotations addObject:[[POIAnnotation alloc] initWithPOI:obj]];
         
     }];
     
     /* 将结果以annotation的形式加载到地图上. */
-    [self.mapView addAnnotations:poiAnnotations];
+    [self.mapView addAnnotations:self.poiAnnotations];
     
     /* 如果只有一个结果，设置其为中心点. */
-    if (poiAnnotations.count == 1)
+    if (self.poiAnnotations.count == 1)
     {
-        [self.mapView setCenterCoordinate:[poiAnnotations[0] coordinate]];
+        [self.mapView setCenterCoordinate:[self.poiAnnotations[0] coordinate]];
         self.mapView.zoomLevel = 17.5;
         self.mapView.cameraDegree = 55.f;
     }
     /* 如果有多个结果, 设置地图使所有的annotation都可见. */
     else
     {
-        [self.mapView showAnnotations:poiAnnotations animated:NO];
+        [self.mapView showAnnotations:self.poiAnnotations animated:NO];
         self.mapView.zoomLevel = 17.5;
         self.mapView.cameraDegree = 55.f;
     }
+    
 }
 
 
@@ -177,8 +187,35 @@
 #pragma functions ---- especially buttons
 -(IBAction)trackUserLocation:(id)sender{
     self.mapView.userTrackingMode = 1;
+   
 }
 
+- (IBAction)longPressGestureRecognized:(id)sender {
+    
+    UILongPressGestureRecognizer *longPress = (UILongPressGestureRecognizer *)sender;
+    UIGestureRecognizerState state = longPress.state;
+    
+    PopupView *view = [PopupView defaultPopupView];
+    view.parentVC = self;
+    
+    [self lew_presentPopupView:view animation:[LewPopupViewAnimationSpring new] dismissed:^{
+        CLLocationManager *manager = [[CLLocationManager alloc]init];
+        [manager startUpdatingLocation];
+        
+        AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
+        
+        request.location            = [AMapGeoPoint locationWithLatitude:self.userLocation.coordinate.latitude longitude:self.userLocation.coordinate.longitude];
+        request.keywords            = view.searchType;
+        /* 按照距离排序. */
+        request.sortrule            = 0;
+        request.requireExtension    = YES;
+        request.radius = 4000;
+        NSLog(@"search type is %@",view.searchType);
+        [self.search AMapPOIAroundSearch:request];
+
+        NSLog(@"动画结束");
+    }];
+}
 
 #pragma mark - Table view data source
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

@@ -91,6 +91,14 @@
 		359C51AF1D659BEF0063DDE6 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 359C51AE1D659BEF0063DDE6 /* Activity.m */; };
 		35A00C291D475C9D000AEC59 /* LightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35A00C281D475C9D000AEC59 /* LightCell.xib */; };
 		35A00C2C1D475CF0000AEC59 /* LightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35A00C2B1D475CF0000AEC59 /* LightCell.m */; };
+		35AA73371D7E622200B3ACFC /* PopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AA73351D7E622200B3ACFC /* PopupView.m */; };
+		35AA73381D7E622200B3ACFC /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35AA73361D7E622200B3ACFC /* PopupView.xib */; };
+		35AA73591D7E63EE00B3ACFC /* LewPopupBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AA734D1D7E63EE00B3ACFC /* LewPopupBackgroundView.m */; };
+		35AA735A1D7E63EE00B3ACFC /* LewPopupViewAnimationDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AA734F1D7E63EE00B3ACFC /* LewPopupViewAnimationDrop.m */; };
+		35AA735B1D7E63EE00B3ACFC /* LewPopupViewAnimationFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AA73511D7E63EE00B3ACFC /* LewPopupViewAnimationFade.m */; };
+		35AA735C1D7E63EE00B3ACFC /* LewPopupViewAnimationSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AA73531D7E63EE00B3ACFC /* LewPopupViewAnimationSlide.m */; };
+		35AA735D1D7E63EE00B3ACFC /* LewPopupViewAnimationSpring.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AA73551D7E63EE00B3ACFC /* LewPopupViewAnimationSpring.m */; };
+		35AA735E1D7E63EE00B3ACFC /* UIViewController+LewPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35AA73581D7E63EE00B3ACFC /* UIViewController+LewPopupViewController.m */; };
 		35CAABE21D6AE746001A1219 /* corner_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35CAABD21D6AE746001A1219 /* corner_circle@2x.png */; };
 		35CAABE31D6AE746001A1219 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35CAABD31D6AE746001A1219 /* data.plist */; };
 		35CAABE41D6AE746001A1219 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CAABD51D6AE746001A1219 /* NSString+Additions.m */; };
@@ -341,6 +349,22 @@
 		35A00C281D475C9D000AEC59 /* LightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightCell.xib; sourceTree = "<group>"; };
 		35A00C2A1D475CF0000AEC59 /* LightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightCell.h; sourceTree = "<group>"; };
 		35A00C2B1D475CF0000AEC59 /* LightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightCell.m; sourceTree = "<group>"; };
+		35AA73341D7E622200B3ACFC /* PopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupView.h; sourceTree = "<group>"; };
+		35AA73351D7E622200B3ACFC /* PopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupView.m; sourceTree = "<group>"; };
+		35AA73361D7E622200B3ACFC /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
+		35AA734C1D7E63EE00B3ACFC /* LewPopupBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LewPopupBackgroundView.h; path = popupviewcontroller/LewPopupBackgroundView.h; sourceTree = SOURCE_ROOT; };
+		35AA734D1D7E63EE00B3ACFC /* LewPopupBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LewPopupBackgroundView.m; path = popupviewcontroller/LewPopupBackgroundView.m; sourceTree = SOURCE_ROOT; };
+		35AA734E1D7E63EE00B3ACFC /* LewPopupViewAnimationDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LewPopupViewAnimationDrop.h; path = popupviewcontroller/LewPopupViewAnimationDrop.h; sourceTree = SOURCE_ROOT; };
+		35AA734F1D7E63EE00B3ACFC /* LewPopupViewAnimationDrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LewPopupViewAnimationDrop.m; path = popupviewcontroller/LewPopupViewAnimationDrop.m; sourceTree = SOURCE_ROOT; };
+		35AA73501D7E63EE00B3ACFC /* LewPopupViewAnimationFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LewPopupViewAnimationFade.h; path = popupviewcontroller/LewPopupViewAnimationFade.h; sourceTree = SOURCE_ROOT; };
+		35AA73511D7E63EE00B3ACFC /* LewPopupViewAnimationFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LewPopupViewAnimationFade.m; path = popupviewcontroller/LewPopupViewAnimationFade.m; sourceTree = SOURCE_ROOT; };
+		35AA73521D7E63EE00B3ACFC /* LewPopupViewAnimationSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LewPopupViewAnimationSlide.h; path = popupviewcontroller/LewPopupViewAnimationSlide.h; sourceTree = SOURCE_ROOT; };
+		35AA73531D7E63EE00B3ACFC /* LewPopupViewAnimationSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LewPopupViewAnimationSlide.m; path = popupviewcontroller/LewPopupViewAnimationSlide.m; sourceTree = SOURCE_ROOT; };
+		35AA73541D7E63EE00B3ACFC /* LewPopupViewAnimationSpring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LewPopupViewAnimationSpring.h; path = popupviewcontroller/LewPopupViewAnimationSpring.h; sourceTree = SOURCE_ROOT; };
+		35AA73551D7E63EE00B3ACFC /* LewPopupViewAnimationSpring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LewPopupViewAnimationSpring.m; path = popupviewcontroller/LewPopupViewAnimationSpring.m; sourceTree = SOURCE_ROOT; };
+		35AA73561D7E63EE00B3ACFC /* LewPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LewPopupViewController.h; path = popupviewcontroller/LewPopupViewController.h; sourceTree = SOURCE_ROOT; };
+		35AA73571D7E63EE00B3ACFC /* UIViewController+LewPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+LewPopupViewController.h"; path = "popupviewcontroller/UIViewController+LewPopupViewController.h"; sourceTree = SOURCE_ROOT; };
+		35AA73581D7E63EE00B3ACFC /* UIViewController+LewPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+LewPopupViewController.m"; path = "popupviewcontroller/UIViewController+LewPopupViewController.m"; sourceTree = SOURCE_ROOT; };
 		35CAABD21D6AE746001A1219 /* corner_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "corner_circle@2x.png"; path = "vvcells/corner_circle@2x.png"; sourceTree = "<group>"; };
 		35CAABD31D6AE746001A1219 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = data.plist; path = vvcells/data.plist; sourceTree = "<group>"; };
 		35CAABD41D6AE746001A1219 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Additions.h"; path = "vvcells/NSString+Additions.h"; sourceTree = "<group>"; };
@@ -501,6 +525,7 @@
 		354EE1B51D2A28A600D17A3F /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
+				35AA73391D7E626C00B3ACFC /* popupViewController */,
 				35CAABD11D6AE71B001A1219 /* vvcells */,
 				3587924F1D65B38C001D0F68 /* SDWebImage */,
 				35698E151D4453A0007175E9 /* ToWebViewController */,
@@ -651,6 +676,9 @@
 			children = (
 				354EE1EF1D2A2CEC00D17A3F /* MapViewController.h */,
 				354EE1F01D2A2CEC00D17A3F /* MapViewController.m */,
+				35AA73341D7E622200B3ACFC /* PopupView.h */,
+				35AA73351D7E622200B3ACFC /* PopupView.m */,
+				35AA73361D7E622200B3ACFC /* PopupView.xib */,
 				358349CE1D7D7FC200BB817D /* POIAnnotation.h */,
 				358349CF1D7D7FC200BB817D /* POIAnnotation.m */,
 				358349C81D796FE800BB817D /* POIDetailViewController.h */,
@@ -821,6 +849,26 @@
 				359C2FF71D475F6100D94F35 /* LightDelegate.m */,
 			);
 			name = MovieAndBooks;
+			sourceTree = "<group>";
+		};
+		35AA73391D7E626C00B3ACFC /* popupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				35AA734C1D7E63EE00B3ACFC /* LewPopupBackgroundView.h */,
+				35AA734D1D7E63EE00B3ACFC /* LewPopupBackgroundView.m */,
+				35AA734E1D7E63EE00B3ACFC /* LewPopupViewAnimationDrop.h */,
+				35AA734F1D7E63EE00B3ACFC /* LewPopupViewAnimationDrop.m */,
+				35AA73501D7E63EE00B3ACFC /* LewPopupViewAnimationFade.h */,
+				35AA73511D7E63EE00B3ACFC /* LewPopupViewAnimationFade.m */,
+				35AA73521D7E63EE00B3ACFC /* LewPopupViewAnimationSlide.h */,
+				35AA73531D7E63EE00B3ACFC /* LewPopupViewAnimationSlide.m */,
+				35AA73541D7E63EE00B3ACFC /* LewPopupViewAnimationSpring.h */,
+				35AA73551D7E63EE00B3ACFC /* LewPopupViewAnimationSpring.m */,
+				35AA73561D7E63EE00B3ACFC /* LewPopupViewController.h */,
+				35AA73571D7E63EE00B3ACFC /* UIViewController+LewPopupViewController.h */,
+				35AA73581D7E63EE00B3ACFC /* UIViewController+LewPopupViewController.m */,
+			);
+			name = popupViewController;
 			sourceTree = "<group>";
 		};
 		35CAABD11D6AE71B001A1219 /* vvcells */ = {
@@ -1068,6 +1116,7 @@
 				35CAABE51D6AE746001A1219 /* t_comments@2x.png in Resources */,
 				35CAABE61D6AE746001A1219 /* t_repost@2x.png in Resources */,
 				35A00C291D475C9D000AEC59 /* LightCell.xib in Resources */,
+				35AA73381D7E622200B3ACFC /* PopupView.xib in Resources */,
 				35CAABE31D6AE746001A1219 /* data.plist in Resources */,
 				354EE2361D2B4FF500D17A3F /* WeiboSDK.bundle in Resources */,
 			);
@@ -1150,17 +1199,20 @@
 				354EE1BE1D2A28A600D17A3F /* ViewController.m in Sources */,
 				358349CA1D796FE800BB817D /* POIDetailViewController.m in Sources */,
 				35FBE2DF1D2F727A0003720C /* AFHTTPSessionManager.m in Sources */,
+				35AA735E1D7E63EE00B3ACFC /* UIViewController+LewPopupViewController.m in Sources */,
 				35FA57431D78258D0083277C /* POITableViewCell.m in Sources */,
 				35FBE2CC1D2E55AB0003720C /* SBJson4StreamParserState.m in Sources */,
 				35CAABE41D6AE746001A1219 /* NSString+Additions.m in Sources */,
 				3505F2E81D45F92D00D84808 /* LoginTableViewCell.m in Sources */,
 				3587927A1D65B39F001D0F68 /* UIButton+WebCache.m in Sources */,
 				358792741D65B39F001D0F68 /* SDWebImageCompat.m in Sources */,
+				35AA735D1D7E63EE00B3ACFC /* LewPopupViewAnimationSpring.m in Sources */,
 				35FBE2CA1D2E55AB0003720C /* SBJson4Parser.m in Sources */,
 				35698E301D45BEA7007175E9 /* PostViewController.m in Sources */,
 				3563D4E61D655FBC00034DDD /* HttpClientRequest.m in Sources */,
 				35FBE2E11D2F727A0003720C /* AFSecurityPolicy.m in Sources */,
 				354EE1F71D2A5B0200D17A3F /* launchViewController.m in Sources */,
+				35AA735A1D7E63EE00B3ACFC /* LewPopupViewAnimationDrop.m in Sources */,
 				35E4F9861D47ABAB001B260C /* TOWebViewController.m in Sources */,
 				358792761D65B39F001D0F68 /* SDWebImageDownloader.m in Sources */,
 				35FBE2E21D2F727A0003720C /* AFURLRequestSerialization.m in Sources */,
@@ -1171,11 +1223,13 @@
 				359C2FF51D475F4400D94F35 /* LightDataSource.m in Sources */,
 				358792771D65B39F001D0F68 /* SDWebImageDownloaderOperation.m in Sources */,
 				359C51AF1D659BEF0063DDE6 /* Activity.m in Sources */,
+				35AA735B1D7E63EE00B3ACFC /* LewPopupViewAnimationFade.m in Sources */,
 				35CAABEB1D6AE746001A1219 /* VVeboTableViewCell.m in Sources */,
 				3587927C1D65B39F001D0F68 /* UIImage+MultiFormat.m in Sources */,
 				358792801D65B39F001D0F68 /* UIView+WebCacheOperation.m in Sources */,
 				35E4F98D1D47ABD4001B260C /* NJKWebViewProgressView.m in Sources */,
 				354EE1BB1D2A28A600D17A3F /* AppDelegate.m in Sources */,
+				35AA735C1D7E63EE00B3ACFC /* LewPopupViewAnimationSlide.m in Sources */,
 				35FBE2CF1D2E55AB0003720C /* SBJson4StreamWriterState.m in Sources */,
 				358A7F691D37899E0052EF2E /* ActivitiesScrollViewController.m in Sources */,
 				354EE1F11D2A2CEC00D17A3F /* MapViewController.m in Sources */,
@@ -1186,6 +1240,8 @@
 				358349D01D7D7FC200BB817D /* POIAnnotation.m in Sources */,
 				354EE1EB1D2A2C9500D17A3F /* MainViewController.m in Sources */,
 				358792831D65B75B001D0F68 /* WeiboDetailViewController.m in Sources */,
+				35AA73591D7E63EE00B3ACFC /* LewPopupBackgroundView.m in Sources */,
+				35AA73371D7E622200B3ACFC /* PopupView.m in Sources */,
 				358792731D65B39F001D0F68 /* SDImageCache.m in Sources */,
 				350466F51D6D8F3C001F35F9 /* BaseMapViewController.m in Sources */,
 			);

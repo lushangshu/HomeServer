@@ -22,5 +22,6 @@
 @property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong) AMapSearchAPI *search;
 
+@property (nonatomic,strong) NSMutableArray *poiAnnotations;
 
 @end
