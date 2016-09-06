@@ -19,12 +19,14 @@
 
 
 @interface DestinationSetViewController ()
+@property (nonatomic, strong) MAPointAnnotation *poiAnnotation;
 
 @end
 
 @implementation DestinationSetViewController
 @synthesize tableView = _tableView;
 @synthesize tableViewCell =_tableViewCell;
+@synthesize poiAnnotation = _poiAnnotation;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +35,9 @@
 
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
+    
+    self.mapView_1.touchPOIEnabled = YES;
+    
     [self initMapViews];
     [self.view addSubview:self.tableView];[NSTimer scheduledTimerWithTimeInterval:.2 target:self selector:@selector(reloadTableview:) userInfo:nil repeats:NO];
 }
@@ -55,7 +60,7 @@
     self.mapView_1.mapType = MAMapTypeStandard;
     self.mapView_1.zoomLevel = 13;
     //self.mapView_1.cameraDegree = 55.f;
-    
+    self.mapView_1.delegate = self;
     self.mapView_1.showsUserLocation = YES;
     self.mapView_1.userTrackingMode = MAUserTrackingModeFollow;
     
@@ -141,11 +146,68 @@
     
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+
+#pragma mark - Utility
+
+/* Convert MATouchPoi to MAPointAnnotation. */
+- (MAPointAnnotation *)annotationForTouchPoi:(MATouchPoi *)touchPoi
 {
-    //    首先是用indexPath获取当前行的内容
-    NSInteger row = [indexPath row];
-    //    从数组中取出当前行内容
+    if (touchPoi == nil)
+    {
+        return nil;
+    }
+    
+    MAPointAnnotation *annotation = [[MAPointAnnotation alloc] init];
+    
+    annotation.coordinate = touchPoi.coordinate;
+    annotation.title      = touchPoi.name;
+    
+    return annotation;
 }
+
+
+#pragma mark - MAMapViewDelegate
+
+- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id<MAAnnotation>)annotation
+{
+    if ([annotation isKindOfClass:[MAPointAnnotation class]])
+    {
+        static NSString *touchPoiReuseIndetifier = @"touchPoiReuseIndetifier";
+        MAPinAnnotationView *annotationView = (MAPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:touchPoiReuseIndetifier];
+        if (annotationView == nil)
+        {
+            annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation
+                                                             reuseIdentifier:touchPoiReuseIndetifier];
+        }
+        
+        annotationView.canShowCallout = YES;
+        annotationView.animatesDrop   = NO;
+        annotationView.draggable      = NO;
+        
+        return annotationView;
+    }
+    
+    return nil;
+}
+
+- (void)mapView:(MAMapView *)mapView didTouchPois:(NSArray *)pois
+{
+    NSLog(@"hihhihihihj");
+    if (pois.count == 0)
+    {
+        return;
+    }
+    
+    MAPointAnnotation *annotation = [self annotationForTouchPoi:pois[0]];
+    
+    /* Remove prior annotation. */
+    [self.mapView_1 removeAnnotation:self.poiAnnotation];
+    
+    [self.mapView_1 addAnnotation:annotation];
+    [self.mapView_1 selectAnnotation:annotation animated:YES];
+    
+    self.poiAnnotation = annotation;
+}
+
 
 @end
