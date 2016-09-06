@@ -122,7 +122,7 @@
     AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
     
     request.location            = [AMapGeoPoint locationWithLatitude:self.userLocation.coordinate.latitude longitude:self.userLocation.coordinate.longitude];
-    request.keywords            = @"餐饮";
+    request.keywords            = @"商铺";
     /* 按照距离排序. */
     request.sortrule            = 0;
     request.requireExtension    = YES;
@@ -297,7 +297,7 @@
                 break;
             case 2:
                 cell.detailTextLabel.text = @"开发中……";
-                cell.textLabel.text = @"开发中……";
+                cell.textLabel.text = @"POI列表";
                 cell.textLabel.textColor = [UIColor darkGrayColor];
                 [cell.textLabel setFont: [UIFont boldSystemFontOfSize:60.0f]];
                 break;
