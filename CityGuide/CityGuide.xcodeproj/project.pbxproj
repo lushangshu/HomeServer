@@ -118,6 +118,7 @@
 		35E4F98D1D47ABD4001B260C /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4F98B1D47ABD4001B260C /* NJKWebViewProgressView.m */; };
 		35E4F9901D483ED3001B260C /* WeatherDataObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E4F98F1D483ED3001B260C /* WeatherDataObserver.m */; };
 		35E799831D4731F4007AEC51 /* MovieAndBooksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E799821D4731F4007AEC51 /* MovieAndBooksView.m */; };
+		35EF7E071D7F9FC300F98F08 /* GeocodeAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 35EF7E061D7F9FC300F98F08 /* GeocodeAnnotation.m */; };
 		35FA573E1D6FA0C40083277C /* POICollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FA573C1D6FA0C40083277C /* POICollectionViewCell.m */; };
 		35FA573F1D6FA0C40083277C /* POICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35FA573D1D6FA0C40083277C /* POICollectionViewCell.xib */; };
 		35FA57431D78258D0083277C /* POITableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35FA57411D78258D0083277C /* POITableViewCell.m */; };
@@ -399,6 +400,8 @@
 		35E4F98F1D483ED3001B260C /* WeatherDataObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDataObserver.m; sourceTree = "<group>"; };
 		35E799811D4731F4007AEC51 /* MovieAndBooksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovieAndBooksView.h; path = ../MovieAndBooksView.h; sourceTree = "<group>"; };
 		35E799821D4731F4007AEC51 /* MovieAndBooksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovieAndBooksView.m; path = ../MovieAndBooksView.m; sourceTree = "<group>"; };
+		35EF7E051D7F9FC300F98F08 /* GeocodeAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeocodeAnnotation.h; sourceTree = "<group>"; };
+		35EF7E061D7F9FC300F98F08 /* GeocodeAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeocodeAnnotation.m; sourceTree = "<group>"; };
 		35FA573B1D6FA0C40083277C /* POICollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POICollectionViewCell.h; sourceTree = "<group>"; };
 		35FA573C1D6FA0C40083277C /* POICollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POICollectionViewCell.m; sourceTree = "<group>"; };
 		35FA573D1D6FA0C40083277C /* POICollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POICollectionViewCell.xib; sourceTree = "<group>"; };
@@ -685,6 +688,8 @@
 				358349C91D796FE800BB817D /* POIDetailViewController.m */,
 				358349CB1D7D477200BB817D /* DestinationSetViewController.h */,
 				358349CC1D7D477200BB817D /* DestinationSetViewController.m */,
+				35EF7E051D7F9FC300F98F08 /* GeocodeAnnotation.h */,
+				35EF7E061D7F9FC300F98F08 /* GeocodeAnnotation.m */,
 				350466F31D6D8F3C001F35F9 /* BaseMapViewController.h */,
 				350466F41D6D8F3C001F35F9 /* BaseMapViewController.m */,
 				35FA57451D7826D00083277C /* POIContainerCell.h */,
@@ -1216,6 +1221,7 @@
 				35E4F9861D47ABAB001B260C /* TOWebViewController.m in Sources */,
 				358792761D65B39F001D0F68 /* SDWebImageDownloader.m in Sources */,
 				35FBE2E21D2F727A0003720C /* AFURLRequestSerialization.m in Sources */,
+				35EF7E071D7F9FC300F98F08 /* GeocodeAnnotation.m in Sources */,
 				353B09F31D372C21009CA7C0 /* UserDetailVC.m in Sources */,
 				3587927B1D65B39F001D0F68 /* UIImage+GIF.m in Sources */,
 				35FBE2E01D2F727A0003720C /* AFNetworkReachabilityManager.m in Sources */,

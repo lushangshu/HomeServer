@@ -8,12 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import <MAMapKit/MAMapKit.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
-@interface DestinationSetViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+#import <AMapSearchKit/AMapSearchKit.h>
+
+@interface DestinationSetViewController : UIViewController <UITableViewDelegate,UITableViewDataSource,AMapSearchDelegate>
 
 @property(strong,nonatomic)UITableView *tableView;
 @property(strong,nonatomic)UITableViewCell *tableViewCell;
 
 @property (nonatomic, strong) MAMapView *mapView_1;
 @property (nonatomic, strong) MAMapView *mapView_2;
+
+@property (nonatomic,strong)  AMapSearchAPI *DesSearch;
+
+@property (nonatomic,strong) UISearchBar *searchBar1;
+@property (nonatomic,strong) UISearchBar *searchBar2;
 @end
